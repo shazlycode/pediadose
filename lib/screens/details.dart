@@ -141,6 +141,7 @@ class _DetailsState extends State<Details> {
               ),
               child: TextField(
                 autofocus: true,
+                style: TextStyle(color: Colors.white),
                 enabled: searchEnabled,
                 decoration: InputDecoration(
                     fillColor: Color(0xff173f5f),
@@ -1364,6 +1365,9 @@ class _DetailsState extends State<Details> {
                   ),
                 )
               ],
+            ),
+            SizedBox(
+              height: 10,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
