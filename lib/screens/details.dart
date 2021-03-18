@@ -140,7 +140,6 @@ class _DetailsState extends State<Details> {
                 ),
               ),
               child: TextField(
-                autofocus: true,
                 style: TextStyle(color: Colors.white),
                 enabled: searchEnabled,
                 decoration: InputDecoration(
