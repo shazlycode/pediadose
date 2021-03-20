@@ -4869,6 +4869,35 @@ class AntipyreticProvider with ChangeNotifier {
         prec: [
           "Adjust dose in severe renal insufficiency-> (high doses may cause CNS toxicity); prolonged use may result in superinfection",
         ]),
+    Drug(
+        id: 'cefixim1',
+        tradeName: 'BIOCEFIXIM 200MG/5ML PD. FOR ORAL SUSP. 60 ML',
+        genericName: 'CEFIXIME 200MG/5ML SUSP',
+        cat: 'Antibiotics',
+        contra: [
+          "Documented hypersensitivity",
+        ],
+        conc: 5 / 200,
+        minD: 0,
+        maxD: 0,
+        freq: 'PO q12h for 10-14 days',
+        doseNote: '',
+        prec: [
+          "Dosage must be adjusted in severe renal insufficiency (high doses may cause CNS toxicity, including seizures); superinfections and promotion of nonsusceptible organisms may occur with prolonged use or repeated therapy",
+          "Use with caution in patients with history of penicillin allergy",
+          "Bacterial or fungal overgrowth of nonsusceptible organisms may occur with prolonged or repeated therapy",
+          "Immune-mediated hemolytic anemia reported; monitor hematologic parameters during and for 2 to 3 weeks after therapy; discontinue therapy if hemolytic anemia occurs during treatment",
+          "Phenylalanine can be harmful to patients with phenylketonuria (PKU); chewable tablets contain aspartame, a source of phenylalanine; before prescribing, consider combined daily amount of phenylalanine from all sources, including chewable tablets",
+          "Use caution in patients with history of gastrointestinal disease",
+          "Clostridium difficile associated diarrhea (CDAD) reported with use of nearly all antibacterial agents, and may range in severity from mild diarrhea to fatal colitis; if CDAD is suspected or confirmed, discontinue ongoing antibacterial drug use not directed against C. difficile; institute appropriate fluid and electrolyte management, protein supplementation, antibacterial drug treatment of C. difficile, and surgical evaluation as clinically indicated",
+          "Immune-mediated hemolytic anemia reported; monitor hematologic parameters during and for 2 to 3 weeks after therapy; discontinue therapy if hemolytic anemia occurs during treatment",
+          "Cephalosporins may be associated with a fall in prothrombin activity; patients with renal or hepatic impairment, or poor nutritional state, patients receiving a protracted course of antimicrobial therapy, and patients previously stabilized on anticoagulant therapy; monitor prothrombin time in patients at risk and exogenous vitamin K administered as indicated",
+          "May cause acute renal failure including tubulointerstitial nephritis; discontinue therapy if renal failure occurs and initiate supportive therapy",
+          "Severe cutaneous reactions, including Stevens-Johnson syndrome, epidermal necrolysis, and drug rash with eosinophilia and systemic symptoms (DRESS) reported; discontinue therapy and implement supportive therapy if reaction occurs",
+          "Concomitant use with cefixime and carbamazepine may elevate carbamazepine levels reported in postmarketing experience",
+          "Administration of cefixime may result in a false-positive reaction for glucose in the urine using Clinitest®, Benedict’s solution, or Fehling’s solution; use glucose tests based on enzymatic glucose oxidase reactions (such as Clinistix® or TesTape®) be used",
+          "A false-positive direct Coombs test reported during treatment with other cephalosporins; therefore, it should be recognized that a positive Coombs test may be due to the drug",
+        ]),
   ];
 
   List<Drug> get drugs {

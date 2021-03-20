@@ -77,6 +77,14 @@ class _DetailsState extends State<Details> {
     'Pharyngitis',
     'Susceptible Infections'
   ];
+  List<String> _cefiximUse = [
+    'Select use',
+    'Acute Bronchitis',
+    'Otitis Media',
+    'Pharyngitis/Tonsillitis',
+    'Uncomplicated Gonorrhea',
+    'Uncomplicated Urinary Tract Infections',
+  ];
   final _searchController = TextEditingController();
   @override
   Widget build(BuildContext context) {
@@ -303,6 +311,25 @@ class _DetailsState extends State<Details> {
                     });
                   },
                   items: _cefadroxilUse
+                      .map((e) => DropdownMenuItem(
+                            child: Text(e),
+                            value: e,
+                          ))
+                      .toList(),
+                  hint: Text('Select antibiotic uses'),
+                  autofocus: false,
+                ),
+            if (catName == 'Antibiotics')
+              if (_selectedTotal.genericName == 'CEFIXIME 200MG/5ML SUSP')
+                DropdownButton(
+                  value: _selectedAntibioticUse,
+                  onChanged: (value) {
+                    setState(() {
+                      _selectedAntibioticUse = value;
+                      print(_selectedAntibioticUse);
+                    });
+                  },
+                  items: _cefiximUse
                       .map((e) => DropdownMenuItem(
                             child: Text(e),
                             value: e,
@@ -1284,6 +1311,29 @@ class _DetailsState extends State<Details> {
                             freq = ' PO q12hr not to exceed 1g/dose';
                           });
                           setState(() {
+                            _doseView = true;
+
+                            _contraView = false;
+                            _precView = false;
+                            _tradeView = false;
+                          });
+                        }
+                      } else if (_selectedTotal.genericName ==
+                          'CEFIXIME 200MG/5ML SUSP') {
+                        if (_selectedAntibioticUse == 'Acute Bronchitis' ||
+                            _selectedAntibioticUse == 'Otitis Media' ||
+                            _selectedAntibioticUse ==
+                                'Pharyngitis/Tonsillitis' ||
+                            _selectedAntibioticUse ==
+                                'Uncomplicated Gonorrhea' ||
+                            _selectedAntibioticUse ==
+                                'Uncomplicated Urinary Tract Infections') {
+                          setState(() {
+                            _minDose = double.parse(
+                                (_weight * 8 * _selectedTotal.conc)
+                                    .toStringAsFixed(1));
+                            freq =
+                                'ml PO in single daily dose or${_minDose / 2} ml PO q12 hrs';
                             _doseView = true;
 
                             _contraView = false;
