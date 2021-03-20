@@ -82,7 +82,7 @@ class _DetailsState extends State<Details> {
   Widget build(BuildContext context) {
     final catName = ModalRoute.of(context).settings.arguments;
     final drugsData = Provider.of<AntipyreticProvider>(context);
-    final drugs = catName == 'Antipyretic'
+    List<Drug> drugs = catName == 'Antipyretic'
         ? drugsData.antipyretics
         : catName == 'Antibiotics'
             ? drugsData.antibiotics
@@ -140,6 +140,7 @@ class _DetailsState extends State<Details> {
                 ),
               ),
               child: TextField(
+                autofocus: true,
                 style: TextStyle(color: Colors.white),
                 enabled: searchEnabled,
                 decoration: InputDecoration(
@@ -153,12 +154,12 @@ class _DetailsState extends State<Details> {
                 controller: _searchController,
                 onChanged: (value) {
                   // var result = drugs.searchByName(value);
-                  //print(result);
+                  print(value);
                   setState(() {
                     _filteredDrugs = drugs
                         .where((element) => element.tradeName
                             .toLowerCase()
-                            .contains(value.toLowerCase()))
+                            .contains(_searchController.text.toLowerCase()))
                         .toList();
                     //query = value;
                   });
@@ -321,13 +322,13 @@ class _DetailsState extends State<Details> {
                           title: Text(_filteredDrugs[index].tradeName),
                           onTap: () {
                             setState(() {
-                              _searchController.text = drugs[index].tradeName;
-
-                              _selectedDrug = drugs[index].tradeName;
-                              _selectedMedicine = drugs[index].tradeName;
-                              _selectedTotal = drugs[index];
-                              _generic = drugs[index].genericName;
-                              _searchController.clear();
+                              _selectedDrug = _filteredDrugs[index].tradeName;
+                              _selectedMedicine =
+                                  _filteredDrugs[index].tradeName;
+                              _selectedTotal = _filteredDrugs[index];
+                              _generic = _filteredDrugs[index].genericName;
+                              _searchController.text = _selectedDrug;
+                              searchEnabled = false;
                               _listHeight = 0;
                             });
                           },
@@ -340,7 +341,7 @@ class _DetailsState extends State<Details> {
                       //             .tradeName
                       //             .toLowerCase()
                       //             .contains(query.toLowerCase())
-                      //         ? Card(
+                      // ? Card(
                       //             child: ListTile(
                       //               title: Text(drugs[index].tradeName),
                       //               onTap: () {
@@ -906,7 +907,7 @@ class _DetailsState extends State<Details> {
                           });
                         }
                       } else if (_selectedTotal.genericName ==
-                          'AMOXICILLIN/CLAVULANIC ACID 457MG/5ML') {
+                          'AMOXICILLIN/CLAVULANIC ACID 457/5ML') {
                         if (_selectedAntibioticUse == 'sinusitis' ||
                             _selectedAntibioticUse ==
                                 'lower respiratory tract infections' ||
@@ -1397,26 +1398,38 @@ class _DetailsState extends State<Details> {
                 Expanded(
                   child: ElevatedButton(
                     onPressed: () {
-                      setState(() {
-                        _weight = 0.0;
-                        _minDose = 0.0;
-                        _maxDose = 0.0;
-                        selectedYear = 0;
-                        selectedMonth = 0;
+                      Navigator.of(context).pop();
+                      // setState(() {
+                      //   _weight = 0.0;
+                      //   _minDose = 0.0;
+                      //   _maxDose = 0.0;
+                      //   selectedYear = 0;
+                      //   selectedMonth = 0;
 
-                        _selectedMedicine = '';
-                        _selectedDrug = '';
-                        _selectedTotal = Drug();
-                        _generic = '';
-                        _selectedAntibioticUse = 'Select use';
-                        freq = '';
-                        _doseView = false;
-                        _contraView = false;
-                        _precView = false;
-                        _tradeView = false;
-
-                        searchEnabled = true;
-                      });
+                      //   _selectedMedicine = '';
+                      //   _selectedDrug = '';
+                      //   _selectedTotal = Drug();
+                      //   _generic = '';
+                      //   _selectedAntibioticUse = 'Select use';
+                      //   freq = '';
+                      //   _doseView = false;
+                      //   _contraView = false;
+                      //   _precView = false;
+                      //   _tradeView = false;
+                      //   _searchController.clear();
+                      //   searchEnabled = true;
+                      //   drugs = catName == 'Antipyretic'
+                      //       ? drugsData.antipyretics
+                      //       : catName == 'Antibiotics'
+                      //           ? drugsData.antibiotics
+                      //           : catName == 'GIT'
+                      //               ? drugsData.git
+                      //               : catName == 'Respiratory'
+                      //                   ? drugsData.respiratory
+                      //                   : catName == 'Common Cold'
+                      //                       ? drugsData.commomCold
+                      //                       : drugsData.drugs;
+                      // });
                     },
                     style: ButtonStyle(
                       backgroundColor:

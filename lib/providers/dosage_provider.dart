@@ -1890,7 +1890,7 @@ class AntipyreticProvider with ChangeNotifier {
           "High doses may cause false urine glucose test by some methods",
         ]),
     Drug(
-        id: 'aasdas1sdf3sdh1b4ssdfdw3vds4dz',
+        id: 'aasdas1sdf3sdh1b4ssdfdw3vdhdhfs4dz',
         tradeName: 'AUGMENTIN 156 MG/5 ML SUSP. 80 ML',
         genericName: 'AMOXICILLIN/CLAVULANIC ACID 156MG/5ML',
         cat: 'Antibiotics',
@@ -1916,7 +1916,7 @@ class AntipyreticProvider with ChangeNotifier {
           "Use caution in hepatic impairment; hypatic dysfunction (rare) is more common in elderly and/or males and prolonged therapy may increase risk; may occur after completing therapy",
         ]),
     Drug(
-        id: 'aasdas1sdf43sdh1b4ssdfdw3vds4dz',
+        id: 'aasdas1sdf43sdh1b4ssdfdw3asfasvds4dz',
         tradeName: 'AUGMENTIN 312 MG/5 ML SUSP. 80 ML',
         genericName: 'AMOXICILLIN/CLAVULANIC ACID 312MG/5ML',
         cat: 'Antibiotics',
@@ -1942,7 +1942,7 @@ class AntipyreticProvider with ChangeNotifier {
           "Use caution in hepatic impairment; hypatic dysfunction (rare) is more common in elderly and/or males and prolonged therapy may increase risk; may occur after completing therapy",
         ]),
     Drug(
-        id: 'aasdas1sdf43sdh1b4ssdfdw3vds4dz',
+        id: 'aasdas1sdf43sdh1qwrwqrb4ssdfdw3vds4dz',
         tradeName: 'AUGMENTIN 228 MG/5 ML SUSP. 60 ML',
         genericName: 'AMOXICILLIN/CLAVULANIC ACID 228MG/5ML',
         cat: 'Antibiotics',
@@ -1968,7 +1968,7 @@ class AntipyreticProvider with ChangeNotifier {
           "Use caution in hepatic impairment; hypatic dysfunction (rare) is more common in elderly and/or males and prolonged therapy may increase risk; may occur after completing therapy",
         ]),
     Drug(
-        id: 'aasdas1sdf43sdh1b4ssdfdw3vds4dz',
+        id: 'aasdas1sfsffdf43sdh1b4ssdfdw3vds4dz',
         tradeName: 'AUGMENTIN 457 MG/5 ML SUSP. 60 ML',
         genericName: 'AMOXICILLIN/CLAVULANIC ACID 457/5ML',
         cat: 'Antibiotics',
@@ -2124,7 +2124,7 @@ class AntipyreticProvider with ChangeNotifier {
           "Use caution in hepatic impairment; hypatic dysfunction (rare) is more common in elderly and/or males and prolonged therapy may increase risk; may occur after completing therapy",
         ]),
     Drug(
-        id: 'aasdas1fdfsdf43sdh1b4ssdfdwd3vsdds4dz',
+        id: 'aasdas1fdfsdf43sdh1b4ssdfdwd3vvnsdds4dz',
         tradeName: 'AUGMACILLIN 457MG/5ML SUSP. 60 ML',
         genericName: 'AMOXICILLIN/CLAVULANIC ACID 457MG/5ML',
         cat: 'Antibiotics',
