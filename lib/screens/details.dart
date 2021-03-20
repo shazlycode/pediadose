@@ -85,6 +85,17 @@ class _DetailsState extends State<Details> {
     'Uncomplicated Gonorrhea',
     'Uncomplicated Urinary Tract Infections',
   ];
+  List<String> _clarithromycinUse = [
+    'Select use',
+    'Otitis Media',
+    'Community-Acquired Pneumonia',
+    'Sinusitis',
+    'Bronchitis',
+    'Skin Infections',
+    'Mycobacterial Infection',
+    'Streptococcal Pharyngitis',
+    'Endocarditis (Off-label)',
+  ];
   final _searchController = TextEditingController();
   @override
   Widget build(BuildContext context) {
@@ -320,7 +331,8 @@ class _DetailsState extends State<Details> {
                   autofocus: false,
                 ),
             if (catName == 'Antibiotics')
-              if (_selectedTotal.genericName == 'CEFIXIME 200MG/5ML SUSP')
+              if (_selectedTotal.genericName == 'CEFIXIME 200MG/5ML SUSP' ||
+                  _selectedTotal.genericName == 'CEFIXIME 100MG/5ML SUSP')
                 DropdownButton(
                   value: _selectedAntibioticUse,
                   onChanged: (value) {
@@ -330,6 +342,28 @@ class _DetailsState extends State<Details> {
                     });
                   },
                   items: _cefiximUse
+                      .map((e) => DropdownMenuItem(
+                            child: Text(e),
+                            value: e,
+                          ))
+                      .toList(),
+                  hint: Text('Select antibiotic uses'),
+                  autofocus: false,
+                ),
+
+            if (catName == 'Antibiotics')
+              if (_selectedTotal.genericName ==
+                      'CLARITHROMYCIN 250MG/5ML SUSP' ||
+                  _selectedTotal.genericName == 'CLARITHROMYCIN 125MG/5ML SUSP')
+                DropdownButton(
+                  value: _selectedAntibioticUse,
+                  onChanged: (value) {
+                    setState(() {
+                      _selectedAntibioticUse = value;
+                      print(_selectedAntibioticUse);
+                    });
+                  },
+                  items: _clarithromycinUse
                       .map((e) => DropdownMenuItem(
                             child: Text(e),
                             value: e,
@@ -1319,21 +1353,168 @@ class _DetailsState extends State<Details> {
                           });
                         }
                       } else if (_selectedTotal.genericName ==
-                          'CEFIXIME 200MG/5ML SUSP') {
-                        if (_selectedAntibioticUse == 'Acute Bronchitis' ||
-                            _selectedAntibioticUse == 'Otitis Media' ||
-                            _selectedAntibioticUse ==
-                                'Pharyngitis/Tonsillitis' ||
-                            _selectedAntibioticUse ==
-                                'Uncomplicated Gonorrhea' ||
-                            _selectedAntibioticUse ==
-                                'Uncomplicated Urinary Tract Infections') {
+                              'CEFIXIME 200MG/5ML SUSP' ||
+                          _selectedTotal.genericName ==
+                              'CEFIXIME 100MG/5ML SUSP') {
+                        if (_weight < 7.5) {
+                          showDialog(
+                              context: context,
+                              builder: (BuildContext context) {
+                                return AlertDialog(
+                                  title: Text('Caution...'),
+                                  content: Text(
+                                      'Safety and efficacy for use under 6 months not established '),
+                                );
+                              });
+                          setState(() {
+                            _doseView = false;
+                          });
+                          return;
+                        }
+                        if (_selectedAntibioticUse == 'Acute Bronchitis') {
                           setState(() {
                             _minDose = double.parse(
                                 (_weight * 8 * _selectedTotal.conc)
                                     .toStringAsFixed(1));
                             freq =
-                                'ml PO in single daily dose or${_minDose / 2} ml PO q12 hrs';
+                                'ml PO in single daily dose or ${_minDose / 2} ml PO q12 hrs';
+                            _doseView = true;
+
+                            _contraView = false;
+                            _precView = false;
+                            _tradeView = false;
+                          });
+                        } else if (_selectedAntibioticUse == 'Otitis Media') {
+                          {
+                            setState(() {
+                              _minDose = double.parse(
+                                  (_weight * 8 * _selectedTotal.conc)
+                                      .toStringAsFixed(1));
+                              freq =
+                                  'ml PO in single daily dose or ${_minDose / 2} ml PO q12 hrs';
+                              _doseView = true;
+
+                              _contraView = false;
+                              _precView = false;
+                              _tradeView = false;
+                            });
+                          }
+                        } else if (_selectedAntibioticUse ==
+                            'Pharyngitis/Tonsillitis') {
+                          {
+                            setState(() {
+                              _minDose = double.parse(
+                                  (_weight * 8 * _selectedTotal.conc)
+                                      .toStringAsFixed(1));
+                              freq =
+                                  'ml PO in single daily dose or ${_minDose / 2} ml PO q12 hrs';
+                              _doseView = true;
+
+                              _contraView = false;
+                              _precView = false;
+                              _tradeView = false;
+                            });
+                          }
+                        } else if (_selectedAntibioticUse ==
+                            'Uncomplicated Gonorrhea') {
+                          setState(() {
+                            _minDose = double.parse(
+                                (_weight * 8 * _selectedTotal.conc)
+                                    .toStringAsFixed(1));
+                            freq =
+                                'ml PO in single daily dose or ${_minDose / 2} ml PO q12 hrs';
+                            _doseView = true;
+
+                            _contraView = false;
+                            _precView = false;
+                            _tradeView = false;
+                          });
+                        } else if (_selectedAntibioticUse ==
+                            'Uncomplicated Urinary Tract Infections') {
+                          setState(() {
+                            _minDose = double.parse(
+                                (_weight * 8 * _selectedTotal.conc)
+                                    .toStringAsFixed(1));
+                            freq =
+                                'ml PO in single daily dose or ${_minDose / 2} ml PO q12 hrs';
+                            _doseView = true;
+
+                            _contraView = false;
+                            _precView = false;
+                            _tradeView = false;
+                          });
+                        }
+                      } else if (_selectedTotal.genericName ==
+                          'CLARITHROMYCIN 250MG/5ML SUSP') {
+                        if (_selectedAntibioticUse == 'Otitis Media' ||
+                            _selectedAntibioticUse ==
+                                'Community-Acquired Pneumonia' ||
+                            _selectedAntibioticUse == 'Sinusitis' ||
+                            _selectedAntibioticUse == 'Bronchitis' ||
+                            _selectedAntibioticUse == 'Skin Infections' ||
+                            _selectedAntibioticUse ==
+                                'Mycobacterial Infection' ||
+                            _selectedAntibioticUse ==
+                                'Streptococcal Pharyngitis') {
+                          if (_weight < 7.5) {
+                            showDialog(
+                                context: context,
+                                builder: (BuildContext context) {
+                                  return AlertDialog(
+                                    title: Text('Caution...'),
+                                    content: Text(
+                                        'Safety and efficacy for use under 6 months not established '),
+                                  );
+                                });
+                            setState(() {
+                              _doseView = false;
+                            });
+                            return;
+                          }
+                          setState(() {
+                            _minDose = double.parse(
+                                (_weight * 7.5 * _selectedTotal.conc)
+                                    .toStringAsFixed(1));
+                            freq = 'ml PO q12 hrs for 10 days';
+                            _doseView = true;
+
+                            _contraView = false;
+                            _precView = false;
+                            _tradeView = false;
+                          });
+                        }
+                      } else if (_selectedTotal.genericName ==
+                          'CLARITHROMYCIN 125MG/5ML SUSP') {
+                        if (_selectedAntibioticUse == 'Otitis Media' ||
+                            _selectedAntibioticUse ==
+                                'Community-Acquired Pneumonia' ||
+                            _selectedAntibioticUse == 'Sinusitis' ||
+                            _selectedAntibioticUse == 'Bronchitis' ||
+                            _selectedAntibioticUse == 'Skin Infections' ||
+                            _selectedAntibioticUse ==
+                                'Mycobacterial Infection' ||
+                            _selectedAntibioticUse ==
+                                'Streptococcal Pharyngitis') {
+                          if (_weight < 7.5) {
+                            showDialog(
+                                context: context,
+                                builder: (BuildContext context) {
+                                  return AlertDialog(
+                                    title: Text('Caution...'),
+                                    content: Text(
+                                        'Safety and efficacy for use under 6 months not established '),
+                                  );
+                                });
+                            setState(() {
+                              _doseView = false;
+                            });
+                            return;
+                          }
+                          setState(() {
+                            _minDose = double.parse(
+                                (_weight * 7.5 * _selectedTotal.conc)
+                                    .toStringAsFixed(1));
+                            freq = 'ml PO q12 hrs for 10 days';
                             _doseView = true;
 
                             _contraView = false;
