@@ -96,6 +96,21 @@ class _DetailsState extends State<Details> {
     'Streptococcal Pharyngitis',
     'Endocarditis (Off-label)',
   ];
+  List<String> _cefalexinUse = [
+    'Select use',
+    'skin and soft tissue infections',
+    'streptococcal pharyngitis',
+    'mild, uncomplicated urinary tract infections',
+    'otitis media',
+  ];
+  List<String> _metroUse = [
+    'Select use',
+    'Anaerobic Infection',
+    'Clostridium Difficile Colitis',
+    'Amebiasis',
+    'Giardiasis',
+    'Trichomoniasis',
+  ];
   final _searchController = TextEditingController();
   @override
   Widget build(BuildContext context) {
@@ -372,6 +387,41 @@ class _DetailsState extends State<Details> {
                   hint: Text('Select antibiotic uses'),
                   autofocus: false,
                 ),
+            if (catName == 'Antibiotics')
+              if (_selectedTotal.genericName == 'CEFALEXIN 250MG/5ML SUSP' ||
+                  _selectedTotal.genericName == 'CEFALEXIN 125MG/5ML SUSP')
+                DropdownButton(
+                  items: _cefalexinUse
+                      .map((e) => DropdownMenuItem(
+                            child: Text(e),
+                            value: e,
+                          ))
+                      .toList(),
+                  value: _selectedAntibioticUse,
+                  onChanged: (value) {
+                    setState(() {
+                      _selectedAntibioticUse = value;
+                    });
+                  },
+                ),
+            if (catName == 'GIT')
+              if (_selectedTotal.genericName ==
+                      'METRONIDAZOLE 125MG/5ML SUSP' ||
+                  _selectedTotal.genericName == 'METRONIDAZOLE 200MG/5ML SUSP')
+                DropdownButton(
+                  items: _metroUse
+                      .map((e) => DropdownMenuItem(
+                            child: Text(e),
+                            value: e,
+                          ))
+                      .toList(),
+                  value: _selectedAntibioticUse,
+                  onChanged: (value) {
+                    setState(() {
+                      _selectedAntibioticUse = value;
+                    });
+                  },
+                ),
             if (_searchController.text.isNotEmpty)
               Container(
                 height: _listHeight,
@@ -497,6 +547,19 @@ class _DetailsState extends State<Details> {
                             builder: (BuildContext context) => AlertDialog(
                                   title: Text('Sorry...'),
                                   content: Text('Select Drug and age First'),
+                                ));
+                        setState(() {
+                          _doseView = false;
+                        });
+                        return;
+                      }
+                      if (_selectedAntibioticUse == 'Select use' &&
+                          catName == 'Antibiotics') {
+                        showDialog(
+                            context: context,
+                            builder: (BuildContext context) => AlertDialog(
+                                  title: Text('Sorry...'),
+                                  content: Text('Select use'),
                                 ));
                         setState(() {
                           _doseView = false;
@@ -818,7 +881,7 @@ class _DetailsState extends State<Details> {
                             _selectedAntibioticUse == 'skin infection') {
                           setState(() {
                             _minDose = double.parse(
-                                ((_weight * 40 * _selectedTotal.conc) / 3)
+                                ((_weight * 20 * _selectedTotal.conc) / 3)
                                     .toStringAsFixed(1));
                             _maxDose = double.parse(
                                 ((_weight * 40 * _selectedTotal.conc) / 3)
@@ -915,10 +978,10 @@ class _DetailsState extends State<Details> {
                             _selectedAntibioticUse == 'skin infection') {
                           setState(() {
                             _minDose = double.parse(
-                                ((_weight * 25 * _selectedTotal.conc) / 2)
+                                ((_weight * 20 * _selectedTotal.conc) / 2)
                                     .toStringAsFixed(1));
                             _maxDose = double.parse(
-                                ((_weight * 45 * _selectedTotal.conc) / 2)
+                                ((_weight * 40 * _selectedTotal.conc) / 2)
                                     .toStringAsFixed(1));
 
                             freq = 'PO q12hr for 10 days ';
@@ -977,10 +1040,10 @@ class _DetailsState extends State<Details> {
                             _selectedAntibioticUse == 'skin infection') {
                           setState(() {
                             _minDose = double.parse(
-                                ((_weight * 25 * _selectedTotal.conc) / 2)
+                                ((_weight * 20 * _selectedTotal.conc) / 2)
                                     .toStringAsFixed(1));
                             _maxDose = double.parse(
-                                ((_weight * 45 * _selectedTotal.conc) / 2)
+                                ((_weight * 40 * _selectedTotal.conc) / 2)
                                     .toStringAsFixed(1));
                             freq = 'PO q12hr for 10 days ';
                           });
@@ -1422,7 +1485,7 @@ class _DetailsState extends State<Details> {
                                 (_weight * 8 * _selectedTotal.conc)
                                     .toStringAsFixed(1));
                             freq =
-                                'ml PO in single daily dose or ${_minDose / 2} ml PO q12 hrs';
+                                ' PO in single daily dose or ${_minDose / 2} ml PO q12 hrs';
                             _doseView = true;
 
                             _contraView = false;
@@ -1436,7 +1499,7 @@ class _DetailsState extends State<Details> {
                                 (_weight * 8 * _selectedTotal.conc)
                                     .toStringAsFixed(1));
                             freq =
-                                'ml PO in single daily dose or ${_minDose / 2} ml PO q12 hrs';
+                                ' PO in single daily dose or ${_minDose / 2} ml PO q12 hrs';
                             _doseView = true;
 
                             _contraView = false;
@@ -1475,7 +1538,7 @@ class _DetailsState extends State<Details> {
                             _minDose = double.parse(
                                 (_weight * 7.5 * _selectedTotal.conc)
                                     .toStringAsFixed(1));
-                            freq = 'ml PO q12 hrs for 10 days';
+                            freq = ' PO q12 hrs for 10 days';
                             _doseView = true;
 
                             _contraView = false;
@@ -1514,7 +1577,382 @@ class _DetailsState extends State<Details> {
                             _minDose = double.parse(
                                 (_weight * 7.5 * _selectedTotal.conc)
                                     .toStringAsFixed(1));
-                            freq = 'ml PO q12 hrs for 10 days';
+                            freq = ' PO q12 hrs for 10 days';
+                            _doseView = true;
+
+                            _contraView = false;
+                            _precView = false;
+                            _tradeView = false;
+                          });
+                        }
+                      } else if (_selectedTotal.genericName ==
+                              'CEFALEXIN 250MG/5ML SUSP' ||
+                          _selectedTotal.genericName ==
+                              'CEFALEXIN 125MG/5ML SUSP') {
+                        if (_selectedAntibioticUse == 'otitis media') {
+                          setState(() {
+                            _minDose = double.parse(
+                                ((_weight * 18.75 * _selectedTotal.conc)
+                                    .toStringAsFixed(1)));
+                            _maxDose = double.parse(
+                                ((_weight * 25 * _selectedTotal.conc)
+                                    .toStringAsFixed(1)));
+                            freq = ' Po q4hr for 10 days';
+                          });
+                        } else {
+                          setState(() {
+                            _minDose = double.parse((_weight *
+                                    _selectedTotal.minD *
+                                    _selectedTotal.conc)
+                                .toStringAsFixed(1));
+                            _maxDose = double.parse((_weight *
+                                    _selectedTotal.maxD *
+                                    _selectedTotal.conc)
+                                .toStringAsFixed(1));
+                            freq = '${_selectedTotal.freq}';
+                            _doseView = true;
+
+                            _contraView = false;
+                            _precView = false;
+                            _tradeView = false;
+                          });
+                        }
+                      } else if (_selectedTotal.genericName ==
+                              'METRONIDAZOLE 125MG/5ML SUSP' ||
+                          _selectedTotal.genericName ==
+                              'METRONIDAZOLE 200MG/5ML SUSP') {
+                        if (_selectedAntibioticUse == 'Anaerobic Infection') {
+                          setState(() {
+                            _minDose = double.parse(
+                                (_weight * 10 * _selectedTotal.conc)
+                                    .toStringAsFixed(1));
+                            _maxDose = 0.0;
+                            freq = ' Po q8hrs 7-10 days not to exceed 4g/day';
+                            _doseView = true;
+
+                            _contraView = false;
+                            _precView = false;
+                            _tradeView = false;
+                          });
+                        } else if (_selectedAntibioticUse ==
+                            'Clostridium Difficile Colitis') {
+                          setState(() {
+                            _minDose = double.parse(
+                                (_weight * 10 * _selectedTotal.conc)
+                                    .toStringAsFixed(1));
+                            _maxDose = 0.0;
+                            freq = ' Po q8hrs 7-10 days not to exceed 4g/day';
+                            _doseView = true;
+
+                            _contraView = false;
+                            _precView = false;
+                            _tradeView = false;
+                          });
+                        } else if (_selectedAntibioticUse == 'Amebiasis') {
+                          setState(() {
+                            _minDose = double.parse(
+                                (_weight * 11.7 * _selectedTotal.conc)
+                                    .toStringAsFixed(1));
+                            _maxDose = double.parse(
+                                (_weight * 16.7 * _selectedTotal.conc)
+                                    .toStringAsFixed(1));
+                            freq = ' Po q8hrs 10 days not to exceed 4g/day';
+                            _doseView = true;
+
+                            _contraView = false;
+                            _precView = false;
+                            _tradeView = false;
+                          });
+                        } else if (_selectedAntibioticUse == 'Giardiasis') {
+                          setState(() {
+                            _minDose = double.parse(
+                                (_weight * 5 * _selectedTotal.conc)
+                                    .toStringAsFixed(1));
+                            _maxDose = 0.0;
+                            freq = ' Po q8hrs 5 days';
+                            _doseView = true;
+
+                            _contraView = false;
+                            _precView = false;
+                            _tradeView = false;
+                          });
+                        } else if (_selectedAntibioticUse == 'Trichomoniasis') {
+                          setState(() {
+                            _minDose = double.parse(
+                                (_weight * 5 * _selectedTotal.conc)
+                                    .toStringAsFixed(1));
+                            _maxDose = 0.0;
+                            freq = ' Po q8hrs 7 days, not to exceed 2g/day';
+                            _doseView = true;
+
+                            _contraView = false;
+                            _precView = false;
+                            _tradeView = false;
+                          });
+                        }
+                      } else if (_selectedTotal.genericName ==
+                          'NITAZOXANIDE 100MG/5ML SUSP') {
+                        if (_weight < 10) {
+                          showDialog(
+                              context: context,
+                              builder: (BuildContext context) {
+                                return AlertDialog(
+                                  title: Text('Caution...'),
+                                  content: Text(
+                                      'Safety and efficacy for use under 1 year not established '),
+                                );
+                              });
+                          setState(() {
+                            _doseView = false;
+                          });
+                          return;
+                        } else if (_weight >= 10 && _weight < 14) {
+                          setState(() {
+                            _maxDose = 0.0;
+                            _minDose = 5;
+                            freq = 'PO q12hr x 3 days';
+                            _doseView = true;
+
+                            _contraView = false;
+                            _precView = false;
+                            _tradeView = false;
+                          });
+                        } else {
+                          setState(() {
+                            _maxDose = 0.0;
+                            _minDose = 10;
+                            freq = 'PO q12hr x 3 days';
+                            _doseView = true;
+
+                            _contraView = false;
+                            _precView = false;
+                            _tradeView = false;
+                          });
+                        }
+                      } else if (_selectedTotal.genericName ==
+                          'DIOCTAHEDRAL SMECTITE') {
+                        if (_weight < 18) {
+                          setState(() {
+                            _maxDose = 0.0;
+                            _minDose = 5;
+                            freq = 'PO q8hr';
+                            _doseView = true;
+
+                            _contraView = false;
+                            _precView = false;
+                            _tradeView = false;
+                          });
+                        } else {
+                          setState(() {
+                            _maxDose = 0.0;
+                            _minDose = 10;
+                            freq = 'PO q8hr';
+                            _doseView = true;
+
+                            _contraView = false;
+                            _precView = false;
+                            _tradeView = false;
+                          });
+                        }
+                      } else if (_selectedTotal.genericName ==
+                          'KAOLIN+PECTIN') {
+                        if (_weight < 14) {
+                          showDialog(
+                              context: context,
+                              builder: (BuildContext context) {
+                                return AlertDialog(
+                                  title: Text('Caution...'),
+                                  content: Text(
+                                      'Safety and efficacy for use under 3 years not established '),
+                                );
+                              });
+                          setState(() {
+                            _doseView = false;
+                          });
+                          return;
+                        } else if (_weight < 18) {
+                          setState(() {
+                            _maxDose = 0.0;
+                            _minDose = 5;
+                            freq = 'PO q8hr';
+                            _doseView = true;
+
+                            _contraView = false;
+                            _precView = false;
+                            _tradeView = false;
+                          });
+                        } else {
+                          setState(() {
+                            _maxDose = 0.0;
+                            _minDose = 15;
+                            freq = 'PO q8hr';
+                            _doseView = true;
+
+                            _contraView = false;
+                            _precView = false;
+                            _tradeView = false;
+                          });
+                        }
+                      } else if (_selectedTotal.genericName == 'NIFUROXAZIDE') {
+                        if (_weight < 18) {
+                          setState(() {
+                            _maxDose = 0.0;
+                            _minDose = 5;
+                            freq = 'PO q8hr';
+                            _doseView = true;
+
+                            _contraView = false;
+                            _precView = false;
+                            _tradeView = false;
+                          });
+                        } else {
+                          setState(() {
+                            _maxDose = 0.0;
+                            _minDose = 15;
+                            freq = 'PO q8hr';
+                            _doseView = true;
+
+                            _contraView = false;
+                            _precView = false;
+                            _tradeView = false;
+                          });
+                        }
+                      } else if (_selectedTotal.genericName == 'TRIMEBUTINE') {
+                        if (_weight < 10) {
+                          setState(() {
+                            _maxDose = 0.0;
+                            _minDose = 5;
+                            freq = 'PO q12hr';
+                            _doseView = true;
+
+                            _contraView = false;
+                            _precView = false;
+                            _tradeView = false;
+                          });
+                        } else if (_weight < 18) {
+                          setState(() {
+                            _maxDose = 0.0;
+                            _minDose = 5;
+                            freq = 'PO q8hr';
+                            _doseView = true;
+
+                            _contraView = false;
+                            _precView = false;
+                            _tradeView = false;
+                          });
+                        } else {
+                          setState(() {
+                            _maxDose = 0.0;
+                            _minDose = 10;
+                            freq = 'PO q8hr';
+                            _doseView = true;
+
+                            _contraView = false;
+                            _precView = false;
+                            _tradeView = false;
+                          });
+                        }
+                      } else if (_selectedTotal.genericName ==
+                          'CARAWAY OIL+DILL OIL+SODIUM BICARBONATE') {
+                        if (_weight < 7.5) {
+                          setState(() {
+                            _maxDose = 0.0;
+                            _minDose = 5;
+                            freq =
+                                'PO during or after each feed or up to six times/day';
+                            _doseView = true;
+
+                            _contraView = false;
+                            _precView = false;
+                            _tradeView = false;
+                          });
+                        } else {
+                          setState(() {
+                            _maxDose = 0.0;
+                            _minDose = 10;
+                            freq =
+                                'PO during or after each feed or up to six times/day';
+                            _doseView = true;
+
+                            _contraView = false;
+                            _precView = false;
+                            _tradeView = false;
+                          });
+                        }
+                      } else if (_selectedTotal.genericName ==
+                          'DOMPERIDONE 100MG/100ML ORAL SUSP') {
+                        setState(() {
+                          _maxDose =
+                              double.parse((_weight * .50).toStringAsFixed(1));
+                          _minDose =
+                              double.parse((_weight * .25).toStringAsFixed(1));
+                          freq = 'PO q8hr before meal, do not exceed 80 mg/day';
+                          _doseView = true;
+
+                          _contraView = false;
+                          _precView = false;
+                          _tradeView = false;
+                        });
+                      } else if (_selectedTotal.genericName == 'LACTULOSE') {
+                        setState(() {
+                          _maxDose = double.parse(
+                              ((_weight * 3) / 3).toStringAsFixed(1));
+                          _minDose = double.parse(
+                              ((_weight * 1) / 3).toStringAsFixed(1));
+                          freq = 'PO q8hr, do not exceed 60 ml/day';
+                          _doseView = true;
+
+                          _contraView = false;
+                          _precView = false;
+                          _tradeView = false;
+                        });
+                      } else if (_selectedTotal.genericName ==
+                          'DOCUSATE SODIUM') {
+                        if (_weight < 12) {
+                          showDialog(
+                              context: context,
+                              builder: (BuildContext context) {
+                                return AlertDialog(
+                                  title: Text('Caution...'),
+                                  content: Text(
+                                      'Safety and efficacy for use under 2 years not established '),
+                                );
+                              });
+                          setState(() {
+                            _doseView = false;
+                          });
+                          return;
+                        } else {
+                          setState(() {
+                            _maxDose = 12.50;
+                            _minDose = 4.16;
+                            freq = 'PO q8hr, do not exceed 60 ml/day';
+                            _doseView = true;
+
+                            _contraView = false;
+                            _precView = false;
+                            _tradeView = false;
+                          });
+                        }
+                      } else if (_selectedTotal.genericName == 'SIMETHICONE') {
+                        if (_weight < 12) {
+                          setState(() {
+                            _doseView = true;
+                            _maxDose = 0.0;
+                            _minDose = 0.3;
+                            freq =
+                                ' Po ie: 6 drops q6hr after meals and at bedtime, not to exceed 240 mg/day';
+
+                            _contraView = false;
+                            _precView = false;
+                            _tradeView = false;
+                          });
+                        } else {
+                          setState(() {
+                            _maxDose = 0.0;
+                            _minDose = .6;
+                            freq =
+                                ' Po ie: 12 drops q6hr after meals and at bedtime, not to exceed 480 mg/day';
                             _doseView = true;
 
                             _contraView = false;
@@ -1533,8 +1971,6 @@ class _DetailsState extends State<Details> {
                                   _selectedTotal.conc)
                               .toStringAsFixed(1));
                           freq = '${_selectedTotal.freq}';
-                        });
-                        setState(() {
                           _doseView = true;
 
                           _contraView = false;
