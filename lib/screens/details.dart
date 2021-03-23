@@ -2190,6 +2190,272 @@ class _DetailsState extends State<Details> {
                             _tradeView = false;
                           });
                         }
+                      } else if (_selectedTotal.genericName == 'KETOTIFEN') {
+                        if (_weight < 7.5) {
+                          showDialog(
+                              context: context,
+                              builder: (BuildContext context) {
+                                return AlertDialog(
+                                  title: Text('Caution...'),
+                                  content: Text(
+                                      'Safety and efficacy for use under 6 months not established '),
+                                );
+                              });
+                          setState(() {
+                            _doseView = false;
+                          });
+                          return;
+                        } else if (_weight < 14) {
+                          setState(() {
+                            _maxDose = 0.0;
+                            _minDose = 2.5;
+                            freq = " PO bid";
+                            _doseView = true;
+
+                            _contraView = false;
+                            _precView = false;
+                            _tradeView = false;
+                          });
+                        } else if (_weight >= 14) {
+                          setState(() {
+                            _maxDose = 0.0;
+                            _minDose = 5;
+                            freq = " PO bid";
+                            _doseView = true;
+
+                            _contraView = false;
+                            _precView = false;
+                            _tradeView = false;
+                          });
+                        }
+                      } else if (_selectedTotal.genericName ==
+                          'LEVOCETIRIZINE') {
+                        if (_weight < 7.5) {
+                          showDialog(
+                              context: context,
+                              builder: (BuildContext context) {
+                                return AlertDialog(
+                                  title: Text('Caution...'),
+                                  content: Text(
+                                      'Safety and efficacy for use under 6 months not established '),
+                                );
+                              });
+                          setState(() {
+                            _doseView = false;
+                          });
+                          return;
+                        } else if (_weight < 18) {
+                          setState(() {
+                            _maxDose = 0.0;
+                            _minDose = double.parse((1.25 * _selectedTotal.conc)
+                                .toStringAsFixed(1));
+                            freq = " PO qDay in evening";
+                            _doseView = true;
+
+                            _contraView = false;
+                            _precView = false;
+                            _tradeView = false;
+                          });
+                        } else if (_weight < 32) {
+                          setState(() {
+                            _maxDose = 0.0;
+                            _minDose = double.parse(
+                                (2.5 * _selectedTotal.conc).toStringAsFixed(1));
+                            freq = " PO qDay in evening";
+                            _doseView = true;
+
+                            _contraView = false;
+                            _precView = false;
+                            _tradeView = false;
+                          });
+                        } else {
+                          setState(() {
+                            _maxDose = 0.0;
+                            _minDose = double.parse(
+                                (5 * _selectedTotal.conc).toStringAsFixed(1));
+                            freq =
+                                " PO qDay in evening; some patients may respond to 2.5 mg/day";
+                            _doseView = true;
+
+                            _contraView = false;
+                            _precView = false;
+                            _tradeView = false;
+                          });
+                        }
+                      } else if (_selectedTotal.genericName == 'LORATADINE') {
+                        if (_weight < 12) {
+                          showDialog(
+                              context: context,
+                              builder: (BuildContext context) {
+                                return AlertDialog(
+                                  title: Text('Caution...'),
+                                  content: Text(
+                                      'Safety and efficacy for use under 2 years not established '),
+                                );
+                              });
+                          setState(() {
+                            _doseView = false;
+                          });
+                          return;
+                        } else if (_weight < 20) {
+                          setState(() {
+                            _maxDose = 0.0;
+                            _minDose = double.parse(
+                                (5 * _selectedTotal.conc).toStringAsFixed(1));
+                            freq = " PO qDay";
+                            _doseView = true;
+
+                            _contraView = false;
+                            _precView = false;
+                            _tradeView = false;
+                          });
+                        } else {
+                          setState(() {
+                            _maxDose = 0.0;
+                            _minDose = double.parse(
+                                (10 * _selectedTotal.conc).toStringAsFixed(1));
+                            freq = " PO qDay not to exceed 10 mg qDay";
+                            _doseView = true;
+
+                            _contraView = false;
+                            _precView = false;
+                            _tradeView = false;
+                          });
+                        }
+                      } else if (_selectedTotal.genericName ==
+                          'GUAIACOL+PHOLCODINE') {
+                        if (_weight < 13.2) {
+                          showDialog(
+                              context: context,
+                              builder: (BuildContext context) {
+                                return AlertDialog(
+                                  title: Text('Caution...'),
+                                  content: Text(
+                                      'Safety and efficacy for use under 30 months not established '),
+                                );
+                              });
+                          setState(() {
+                            _doseView = false;
+                          });
+                          return;
+                        } else if (_weight < 18) {
+                          setState(() {
+                            _maxDose = 0.0;
+                            _minDose = 2.5;
+                            freq = " PO tid";
+                            _doseView = true;
+
+                            _contraView = false;
+                            _precView = false;
+                            _tradeView = false;
+                          });
+                        } else {
+                          setState(() {
+                            _maxDose = 0.0;
+                            _minDose = 5;
+                            freq = " PO tid";
+                            _doseView = true;
+
+                            _contraView = false;
+                            _precView = false;
+                            _tradeView = false;
+                          });
+                        }
+                      } else if (_selectedTotal.genericName ==
+                          'LEVODROPROPIZINE') {
+                        if (_weight < 12) {
+                          showDialog(
+                              context: context,
+                              builder: (BuildContext context) {
+                                return AlertDialog(
+                                  title: Text('Caution...'),
+                                  content: Text(
+                                      'Safety and efficacy for use under 2 years not established '),
+                                );
+                              });
+                          setState(() {
+                            _doseView = false;
+                          });
+                          return;
+                        } else if (_weight < 20) {
+                          setState(() {
+                            _maxDose = 0.0;
+                            _minDose = 2.5;
+                            freq = " PO tid";
+                            _doseView = true;
+
+                            _contraView = false;
+                            _precView = false;
+                            _tradeView = false;
+                          });
+                        } else {
+                          setState(() {
+                            _maxDose = 0.0;
+                            _minDose = 5;
+                            freq = " PO tid";
+                            _doseView = true;
+
+                            _contraView = false;
+                            _precView = false;
+                            _tradeView = false;
+                          });
+                        }
+                      } else if (_selectedTotal.genericName ==
+                          'CARBINOXAMINE+EPHEDRINE+PHOLCODINE') {
+                        if (_weight < 20) {
+                          showDialog(
+                              context: context,
+                              builder: (BuildContext context) {
+                                return AlertDialog(
+                                  title: Text('Caution...'),
+                                  content: Text(
+                                      'Safety and efficacy for use under 6 years not established '),
+                                );
+                              });
+                          setState(() {
+                            _doseView = false;
+                          });
+                          return;
+                        } else {
+                          setState(() {
+                            _maxDose = 0.0;
+                            _minDose = 5;
+                            freq = " PO tid";
+                            _doseView = true;
+
+                            _contraView = false;
+                            _precView = false;
+                            _tradeView = false;
+                          });
+                        }
+                      } else if (_selectedTotal.genericName ==
+                          'CHLORPHENIRAMINE+DEXTROMETHORPHAN') {
+                        if (_weight < 20) {
+                          showDialog(
+                              context: context,
+                              builder: (BuildContext context) {
+                                return AlertDialog(
+                                  title: Text('Caution...'),
+                                  content: Text(
+                                      'Safety and efficacy for use under 6 years not established '),
+                                );
+                              });
+                          setState(() {
+                            _doseView = false;
+                          });
+                          return;
+                        } else {
+                          setState(() {
+                            _maxDose = 0.0;
+                            _minDose = 5;
+                            freq = " PO tid";
+                            _doseView = true;
+
+                            _contraView = false;
+                            _precView = false;
+                            _tradeView = false;
+                          });
+                        }
                       } else {
                         setState(() {
                           _minDose = double.parse((_weight *
