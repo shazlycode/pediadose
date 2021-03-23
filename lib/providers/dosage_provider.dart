@@ -19,6 +19,7 @@ class CategoryProvider with ChangeNotifier {
     Category('c', 'Antibiotics', AssetImage('assets/images/antibiotics.png')),
     Category('d', 'GIT', AssetImage('assets/images/git.png')),
     Category('e', 'Respiratory', AssetImage('assets/images/respiratory.png')),
+    Category('f', 'Allergy', AssetImage('assets/images/allergy.png')),
   ];
 
   List<Category> get categories {
@@ -7242,6 +7243,234 @@ class AntipyreticProvider with ChangeNotifier {
         prec: [
           "Can cause false-negative gastric guaiac test",
         ]),
+    Drug(
+        id: 'cetir1',
+        tradeName: 'ALERID 5MG/5ML SYRUP 120ML',
+        genericName: 'CETIRIZINE',
+        cat: 'Allergy',
+        contra: [
+          "Hypersensitivity to cetirizine hydrochloride or any of its ingredients, levocetirizine, or hydroxyzine"
+        ],
+        conc: 5 / 24,
+        minD: 0,
+        maxD: 0,
+        freq: 'PO q8h for 7 days',
+        doseNote: '',
+        prec: [
+          "May cause CNS depression; avoid activities requiring mental alertness until accustomed to medication",
+          "Use caution in hepatic and renal impairment",
+          "The elderly may be more sensitive to adverse effects",
+        ]),
+    Drug(
+        id: 'cetir2',
+        tradeName: 'ALERID 5MG/5ML SYRUP 60ML',
+        genericName: 'CETIRIZINE',
+        cat: 'Allergy',
+        contra: [
+          "Hypersensitivity to cetirizine hydrochloride or any of its ingredients, levocetirizine, or hydroxyzine"
+        ],
+        conc: 5 / 24,
+        minD: 0,
+        maxD: 0,
+        freq: 'PO q8h for 7 days',
+        doseNote: '',
+        prec: [
+          "May cause CNS depression; avoid activities requiring mental alertness until accustomed to medication",
+          "Use caution in hepatic and renal impairment",
+          "The elderly may be more sensitive to adverse effects",
+        ]),
+    Drug(
+        id: 'cetir3',
+        tradeName: 'CETRAK 1MG/ML SYRUP 120ML',
+        genericName: 'CETIRIZINE',
+        cat: 'Allergy',
+        contra: [
+          "Hypersensitivity to cetirizine hydrochloride or any of its ingredients, levocetirizine, or hydroxyzine"
+        ],
+        conc: 5 / 24,
+        minD: 0,
+        maxD: 0,
+        freq: 'PO q8h for 7 days',
+        doseNote: '',
+        prec: [
+          "May cause CNS depression; avoid activities requiring mental alertness until accustomed to medication",
+          "Use caution in hepatic and renal impairment",
+          "The elderly may be more sensitive to adverse effects",
+        ]),
+    Drug(
+        id: 'cetir4',
+        tradeName: 'CETRITIN 5MG/5ML SYRUP 120ML',
+        genericName: 'CETIRIZINE',
+        cat: 'Allergy',
+        contra: [
+          "Hypersensitivity to cetirizine hydrochloride or any of its ingredients, levocetirizine, or hydroxyzine"
+        ],
+        conc: 5 / 24,
+        minD: 0,
+        maxD: 0,
+        freq: 'PO q8h for 7 days',
+        doseNote: '',
+        prec: [
+          "May cause CNS depression; avoid activities requiring mental alertness until accustomed to medication",
+          "Use caution in hepatic and renal impairment",
+          "The elderly may be more sensitive to adverse effects",
+        ]),
+    Drug(
+        id: 'cetir4',
+        tradeName: 'EPIRIZINE 5MG/ML SYRUP 60 ML',
+        genericName: 'CETIRIZINE',
+        cat: 'Allergy',
+        contra: [
+          "Hypersensitivity to cetirizine hydrochloride or any of its ingredients, levocetirizine, or hydroxyzine"
+        ],
+        conc: 5 / 24,
+        minD: 0,
+        maxD: 0,
+        freq: 'PO q8h for 7 days',
+        doseNote: '',
+        prec: [
+          "May cause CNS depression; avoid activities requiring mental alertness until accustomed to medication",
+          "Use caution in hepatic and renal impairment",
+          "The elderly may be more sensitive to adverse effects",
+        ]),
+    Drug(
+        id: 'cetir5',
+        tradeName: 'HISTAZINE-1 0.1% SYRUP 100ML',
+        genericName: 'CETIRIZINE',
+        cat: 'Allergy',
+        contra: [
+          "Hypersensitivity to cetirizine hydrochloride or any of its ingredients, levocetirizine, or hydroxyzine"
+        ],
+        conc: 5 / 24,
+        minD: 0,
+        maxD: 0,
+        freq: 'PO q8h for 7 days',
+        doseNote: '',
+        prec: [
+          "May cause CNS depression; avoid activities requiring mental alertness until accustomed to medication",
+          "Use caution in hepatic and renal impairment",
+          "The elderly may be more sensitive to adverse effects",
+        ]),
+    Drug(
+        id: 'cetir6',
+        tradeName: 'LERGFREE 5MG/5ML SYRUP 120ML',
+        genericName: 'CETIRIZINE',
+        cat: 'Allergy',
+        contra: [
+          "Hypersensitivity to cetirizine hydrochloride or any of its ingredients, levocetirizine, or hydroxyzine"
+        ],
+        conc: 5 / 24,
+        minD: 0,
+        maxD: 0,
+        freq: 'PO q8h for 7 days',
+        doseNote: '',
+        prec: [
+          "May cause CNS depression; avoid activities requiring mental alertness until accustomed to medication",
+          "Use caution in hepatic and renal impairment",
+          "The elderly may be more sensitive to adverse effects",
+        ]),
+    Drug(
+        id: 'cetir7',
+        tradeName: 'TOMAZINE 1MG/ML 60ML SYRUP',
+        genericName: 'CETIRIZINE',
+        cat: 'Allergy',
+        contra: [
+          "Hypersensitivity to cetirizine hydrochloride or any of its ingredients, levocetirizine, or hydroxyzine"
+        ],
+        conc: 5 / 24,
+        minD: 0,
+        maxD: 0,
+        freq: 'PO q8h for 7 days',
+        doseNote: '',
+        prec: [
+          "May cause CNS depression; avoid activities requiring mental alertness until accustomed to medication",
+          "Use caution in hepatic and renal impairment",
+          "The elderly may be more sensitive to adverse effects",
+        ]),
+    Drug(
+        id: 'cetir8',
+        tradeName: 'ZYRTEC 0.1% SYRUP 100ML',
+        genericName: 'CETIRIZINE',
+        cat: 'Allergy',
+        contra: [
+          "Hypersensitivity to cetirizine hydrochloride or any of its ingredients, levocetirizine, or hydroxyzine"
+        ],
+        conc: 5 / 24,
+        minD: 0,
+        maxD: 0,
+        freq: 'PO q8h for 7 days',
+        doseNote: '',
+        prec: [
+          "May cause CNS depression; avoid activities requiring mental alertness until accustomed to medication",
+          "Use caution in hepatic and renal impairment",
+          "The elderly may be more sensitive to adverse effects",
+        ]),
+    Drug(
+        id: 'chlor1',
+        tradeName: 'ALLERGYL 2MG/5ML SYRUP 120ML',
+        genericName: 'CHLORPHENIRAMINE',
+        cat: 'Allergy',
+        contra: [
+          "Documented hypersensitivity",
+          "Lower respiratory disease, eg, asthma (controversial)",
+          "Preemies & neonates",
+          "Nursing women",
+          "Acute asthma, sleep apnea",
+        ],
+        conc: 5 / 24,
+        minD: 0,
+        maxD: 0,
+        freq: 'PO q8h for 7 days',
+        doseNote: '',
+        prec: [
+          "Caution in narrow angle glaucoma, prostatic hypertrophy, stenosing peptic ulcer, pyloroduodenal obstruction, or bladder neck obstruction",
+          "Chlor Trimeton non-drowsy contains no chlorpheniramine, only pseudoephedrine",
+          "All injections discontinued",
+        ]),
+    Drug(
+        id: 'chlor2',
+        tradeName: 'ANALLERGE 2MG/5ML SYRUP 100ML',
+        genericName: 'CHLORPHENIRAMINE',
+        cat: 'Allergy',
+        contra: [
+          "Documented hypersensitivity",
+          "Lower respiratory disease, eg, asthma (controversial)",
+          "Preemies & neonates",
+          "Nursing women",
+          "Acute asthma, sleep apnea",
+        ],
+        conc: 5 / 24,
+        minD: 0,
+        maxD: 0,
+        freq: 'PO q8h for 7 days',
+        doseNote: '',
+        prec: [
+          "Caution in narrow angle glaucoma, prostatic hypertrophy, stenosing peptic ulcer, pyloroduodenal obstruction, or bladder neck obstruction",
+          "Chlor Trimeton non-drowsy contains no chlorpheniramine, only pseudoephedrine",
+          "All injections discontinued",
+        ]),
+    Drug(
+        id: 'chlor3',
+        tradeName: 'PIRAFENE 2MG/5ML SYRUP 120ML',
+        genericName: 'CHLORPHENIRAMINE',
+        cat: 'Allergy',
+        contra: [
+          "Documented hypersensitivity",
+          "Lower respiratory disease, eg, asthma (controversial)",
+          "Preemies & neonates",
+          "Nursing women",
+          "Acute asthma, sleep apnea",
+        ],
+        conc: 5 / 24,
+        minD: 0,
+        maxD: 0,
+        freq: 'PO q8h for 7 days',
+        doseNote: '',
+        prec: [
+          "Caution in narrow angle glaucoma, prostatic hypertrophy, stenosing peptic ulcer, pyloroduodenal obstruction, or bladder neck obstruction",
+          "Chlor Trimeton non-drowsy contains no chlorpheniramine, only pseudoephedrine",
+          "All injections discontinued",
+        ]),
   ];
 
   List<Drug> get drugs {
@@ -7266,5 +7495,9 @@ class AntipyreticProvider with ChangeNotifier {
 
   List<Drug> get respiratory {
     return _drugs.where((element) => element.cat == 'Respiratory').toList();
+  }
+
+  List<Drug> get allergy {
+    return _drugs.where((element) => element.cat == 'Allergy').toList();
   }
 }

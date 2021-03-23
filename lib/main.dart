@@ -19,6 +19,7 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (_) => AntipyreticProvider())
       ],
       child: MaterialApp(
+        debugShowCheckedModeBanner: false,
         home: MainScreen(),
         theme: ThemeData(
             canvasColor: Color(0xff28527a),

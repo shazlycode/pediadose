@@ -126,7 +126,9 @@ class _DetailsState extends State<Details> {
                     ? drugsData.respiratory
                     : catName == 'Common Cold'
                         ? drugsData.commomCold
-                        : drugsData.drugs;
+                        : catName == 'Allergy'
+                            ? drugsData.allergy
+                            : drugsData.drugs;
 
     return Scaffold(
         body: SafeArea(
@@ -1953,6 +1955,86 @@ class _DetailsState extends State<Details> {
                             _minDose = .6;
                             freq =
                                 ' Po ie: 12 drops q6hr after meals and at bedtime, not to exceed 480 mg/day';
+                            _doseView = true;
+
+                            _contraView = false;
+                            _precView = false;
+                            _tradeView = false;
+                          });
+                        }
+                      } else if (_selectedTotal.genericName == 'CETIRIZINE') {
+                        if (_weight < 12) {
+                          showDialog(
+                              context: context,
+                              builder: (BuildContext context) {
+                                return AlertDialog(
+                                  title: Text('Caution...'),
+                                  content: Text(
+                                      'Safety and efficacy for use under 2 years not established '),
+                                );
+                              });
+                          setState(() {
+                            _doseView = false;
+                          });
+                          return;
+                        } else if (_weight < 20) {
+                          setState(() {
+                            _maxDose = 0.0;
+                            _minDose = 2.5;
+                            freq =
+                                " Po once daily can increase to 5 mg PO qDay or 2.5 mg PO twice daily; not to exceed 5 mg qDay";
+                            _doseView = true;
+
+                            _contraView = false;
+                            _precView = false;
+                            _tradeView = false;
+                          });
+                        } else {
+                          setState(() {
+                            _maxDose = 10;
+                            _minDose = 5;
+                            freq =
+                                " PO qDay, depending on severity of symptoms; not to exceed 10 mg qDay";
+                            _doseView = true;
+
+                            _contraView = false;
+                            _precView = false;
+                            _tradeView = false;
+                          });
+                        }
+                      } else if (_selectedTotal.genericName ==
+                          'CHLORPHENIRAMINE') {
+                        if (_weight < 12) {
+                          showDialog(
+                              context: context,
+                              builder: (BuildContext context) {
+                                return AlertDialog(
+                                  title: Text('Caution...'),
+                                  content: Text(
+                                      'Safety and efficacy for use under 2 years not established '),
+                                );
+                              });
+                          setState(() {
+                            _doseView = false;
+                          });
+                          return;
+                        } else if (_weight < 20) {
+                          setState(() {
+                            _maxDose = 0.0;
+                            _minDose = 2.5;
+                            freq = " PO q4-6hr; not to exceed 6 mg/day";
+                            _doseView = true;
+
+                            _contraView = false;
+                            _precView = false;
+                            _tradeView = false;
+                          });
+                        } else {
+                          setState(() {
+                            _maxDose = 0;
+                            _minDose = 5;
+                            freq =
+                                " PO q4-6hr; not to exceed 12 mg/day or sustained release HS";
                             _doseView = true;
 
                             _contraView = false;
