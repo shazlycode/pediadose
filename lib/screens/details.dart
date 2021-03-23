@@ -2042,6 +2042,154 @@ class _DetailsState extends State<Details> {
                             _tradeView = false;
                           });
                         }
+                      } else if (_selectedTotal.genericName == 'CLEMASTINE') {
+                        if (_weight < 20) {
+                          setState(() {
+                            _maxDose = 0.0;
+                            _minDose = double.parse(
+                                ((_weight * 0.335 * _selectedTotal.conc) / 12)
+                                    .toStringAsFixed(1));
+                            freq = " PO q12hr; not to exceed 1.34 mg";
+                            _doseView = true;
+
+                            _contraView = false;
+                            _precView = false;
+                            _tradeView = false;
+                          });
+                        } else {
+                          setState(() {
+                            _maxDose = double.parse(
+                                ((_weight * 1 * _selectedTotal.conc) / 12)
+                                    .toStringAsFixed(1));
+                            _minDose = double.parse(
+                                ((_weight * 0.5 * _selectedTotal.conc) / 12)
+                                    .toStringAsFixed(1));
+                            freq = " PO q12hr; not to exceed 4.02 mg/day";
+                            _doseView = true;
+
+                            _contraView = false;
+                            _precView = false;
+                            _tradeView = false;
+                          });
+                        }
+                      } else if (_selectedTotal.genericName ==
+                          'DESLORATADINE') {
+                        if (_weight < 7.5) {
+                          showDialog(
+                              context: context,
+                              builder: (BuildContext context) {
+                                return AlertDialog(
+                                  title: Text('Caution...'),
+                                  content: Text(
+                                      'Safety and efficacy for use under 6 months not established '),
+                                );
+                              });
+                          setState(() {
+                            _doseView = false;
+                          });
+                          return;
+                        } else if (_weight < 12) {
+                          setState(() {
+                            _maxDose = 0.0;
+                            _minDose = double.parse(
+                                (1 * _selectedTotal.conc).toStringAsFixed(1));
+                            freq = " PO qd";
+                            _doseView = true;
+
+                            _contraView = false;
+                            _precView = false;
+                            _tradeView = false;
+                          });
+                        } else if (_weight < 18) {
+                          setState(() {
+                            _maxDose = 0.0;
+                            _minDose = double.parse((1.25 * _selectedTotal.conc)
+                                .toStringAsFixed(1));
+                            freq = " PO qd";
+                            _doseView = true;
+
+                            _contraView = false;
+                            _precView = false;
+                            _tradeView = false;
+                          });
+                        } else if (_weight < 32) {
+                          setState(() {
+                            _maxDose = 0.0;
+                            _minDose = double.parse(
+                                (2.5 * _selectedTotal.conc).toStringAsFixed(1));
+                            freq = " PO qd";
+                            _doseView = true;
+
+                            _contraView = false;
+                            _precView = false;
+                            _tradeView = false;
+                          });
+                        } else {
+                          setState(() {
+                            _maxDose = 0.0;
+                            _minDose = double.parse(
+                                (5 * _selectedTotal.conc).toStringAsFixed(1));
+                            freq = " PO qd";
+                            _doseView = true;
+
+                            _contraView = false;
+                            _precView = false;
+                            _tradeView = false;
+                          });
+                        }
+                      } else if (_selectedTotal.genericName == 'FEXOFENADINE') {
+                        if (_weight < 7.5) {
+                          showDialog(
+                              context: context,
+                              builder: (BuildContext context) {
+                                return AlertDialog(
+                                  title: Text('Caution...'),
+                                  content: Text(
+                                      'Safety and efficacy for use under 6 months not established '),
+                                );
+                              });
+                          setState(() {
+                            _doseView = false;
+                          });
+                          return;
+                        } else if (_weight < 12) {
+                          setState(() {
+                            _maxDose = 0.0;
+                            _minDose = double.parse(
+                                (15 * _selectedTotal.conc).toStringAsFixed(1));
+                            freq = " PO bid";
+                            _doseView = true;
+
+                            _contraView = false;
+                            _precView = false;
+                            _tradeView = false;
+                          });
+                        } else if (_weight < 32) {
+                          setState(() {
+                            _maxDose = 0.0;
+                            _minDose = double.parse(
+                                (30 * _selectedTotal.conc).toStringAsFixed(1));
+                            freq = " PO bid";
+                            _doseView = true;
+
+                            _contraView = false;
+                            _precView = false;
+                            _tradeView = false;
+                          });
+                        } else {
+                          setState(() {
+                            _maxDose = 0.0;
+                            _minDose = double.parse(
+                                (60 * _selectedTotal.conc).toStringAsFixed(1));
+                            freq =
+                                " PO bid or ${_minDose * 2} ml PO once daily";
+                            _doseView = true;
+
+                            _contraView = false;
+                            _precView = false;
+                            _tradeView = false;
+                          });
+                        }
                       } else {
                         setState(() {
                           _minDose = double.parse((_weight *
