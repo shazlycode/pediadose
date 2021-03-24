@@ -2456,6 +2456,399 @@ class _DetailsState extends State<Details> {
                             _tradeView = false;
                           });
                         }
+                      } else if (_selectedTotal.genericName ==
+                          'CHLORPHENIRAMINE+DEXTROMETHORPHAN+PHENYLEPHRINE') {
+                        if (_weight < 20) {
+                          showDialog(
+                              context: context,
+                              builder: (BuildContext context) {
+                                return AlertDialog(
+                                  title: Text('Caution...'),
+                                  content: Text(
+                                      'Safety and efficacy for use under 6 years not established '),
+                                );
+                              });
+                          setState(() {
+                            _doseView = false;
+                          });
+                          return;
+                        } else {
+                          setState(() {
+                            _maxDose = 0.0;
+                            _minDose = 5;
+                            freq = " PO tid";
+                            _doseView = true;
+
+                            _contraView = false;
+                            _precView = false;
+                            _tradeView = false;
+                          });
+                        }
+                      } else if (_selectedTotal.genericName == 'CLOPERASTINE') {
+                        if (_weight < 12) {
+                          showDialog(
+                              context: context,
+                              builder: (BuildContext context) {
+                                return AlertDialog(
+                                  title: Text('Caution...'),
+                                  content: Text(
+                                      'Safety and efficacy for use under 2 years not established '),
+                                );
+                              });
+                          setState(() {
+                            _doseView = false;
+                          });
+                          return;
+                        } else if (_weight < 20) {
+                          setState(() {
+                            _maxDose = 0.0;
+                            _minDose = 2.5;
+                            freq = " PO bid";
+                            _doseView = true;
+
+                            _contraView = false;
+                            _precView = false;
+                            _tradeView = false;
+                          });
+                        } else {
+                          setState(() {
+                            _maxDose = 0.0;
+                            _minDose = 5;
+                            freq = " PO bid";
+                            _doseView = true;
+
+                            _contraView = false;
+                            _precView = false;
+                            _tradeView = false;
+                          });
+                        }
+                      } else if (_selectedTotal.genericName ==
+                          'BUTAMIRATE CITRATE 7.5 mg/ 5ml') {
+                        if (_weight < 14) {
+                          showDialog(
+                              context: context,
+                              builder: (BuildContext context) {
+                                return AlertDialog(
+                                  title: Text('Caution...'),
+                                  content: Text(
+                                      'Safety and efficacy for use under 3 years not established '),
+                                );
+                              });
+                          setState(() {
+                            _doseView = false;
+                          });
+                          return;
+                        } else if (_weight < 20) {
+                          setState(() {
+                            _maxDose = 0.0;
+                            _minDose = 5;
+                            freq = " PO tid";
+                            _doseView = true;
+
+                            _contraView = false;
+                            _precView = false;
+                            _tradeView = false;
+                          });
+                        } else {
+                          setState(() {
+                            _maxDose = 0.0;
+                            _minDose = 10;
+                            freq = " PO tid";
+                            _doseView = true;
+
+                            _contraView = false;
+                            _precView = false;
+                            _tradeView = false;
+                          });
+                        }
+                      } else if (_selectedTotal.genericName ==
+                          'DEXTROMETHORPHAN') {
+                        if (_weight < 16) {
+                          showDialog(
+                              context: context,
+                              builder: (BuildContext context) {
+                                return AlertDialog(
+                                  title: Text('Caution...'),
+                                  content: Text(
+                                      'Safety and efficacy for use under 4 years not established '),
+                                );
+                              });
+                          setState(() {
+                            _doseView = false;
+                          });
+                          return;
+                        } else if (_weight < 20) {
+                          setState(() {
+                            _maxDose = double.parse(
+                                (5 * _selectedTotal.conc).toStringAsFixed(1));
+
+                            _minDose = double.parse(
+                                (2.5 * _selectedTotal.conc).toStringAsFixed(1));
+                            freq = " PO tid";
+                            _doseView = true;
+
+                            _contraView = false;
+                            _precView = false;
+                            _tradeView = false;
+                          });
+                        } else {
+                          setState(() {
+                            _maxDose = double.parse(
+                                (10 * _selectedTotal.conc).toStringAsFixed(1));
+
+                            _minDose = double.parse(
+                                (5 * _selectedTotal.conc).toStringAsFixed(1));
+                            freq = " PO tid";
+                            _doseView = true;
+
+                            _contraView = false;
+                            _precView = false;
+                            _tradeView = false;
+                          });
+                        }
+                      } else if (_selectedTotal.genericName ==
+                          'PENTOXYVERINE') {
+                        if (_weight < 12) {
+                          showDialog(
+                              context: context,
+                              builder: (BuildContext context) {
+                                return AlertDialog(
+                                  title: Text('Caution...'),
+                                  content: Text(
+                                      'Safety and efficacy for use under 2 years not established '),
+                                );
+                              });
+                          setState(() {
+                            _doseView = false;
+                          });
+                          return;
+                        } else if (_weight < 20) {
+                          setState(() {
+                            _maxDose = 0.0;
+
+                            _minDose = 1.25;
+                            freq = " PO tid";
+                            _doseView = true;
+
+                            _contraView = false;
+                            _precView = false;
+                            _tradeView = false;
+                          });
+                        } else {
+                          setState(() {
+                            _maxDose = 0.0;
+                            _minDose = 2.5;
+                            freq = " PO tid";
+                            _doseView = true;
+
+                            _contraView = false;
+                            _precView = false;
+                            _tradeView = false;
+                          });
+                        }
+                      } else if (_selectedTotal.genericName == 'BENPROPERINE') {
+                        if (_weight < 14) {
+                          setState(() {
+                            _maxDose = 0.0;
+
+                            _minDose = 2.5;
+                            freq = " PO tid";
+                            _doseView = true;
+
+                            _contraView = false;
+                            _precView = false;
+                            _tradeView = false;
+                          });
+                        } else if (_weight < 20) {
+                          setState(() {
+                            _maxDose = 0.0;
+
+                            _minDose = 5;
+                            freq = " PO tid";
+                            _doseView = true;
+
+                            _contraView = false;
+                            _precView = false;
+                            _tradeView = false;
+                          });
+                        } else {
+                          setState(() {
+                            _maxDose = 0.0;
+                            _minDose = 10;
+                            freq = " PO tid";
+                            _doseView = true;
+
+                            _contraView = false;
+                            _precView = false;
+                            _tradeView = false;
+                          });
+                        }
+                      } else if (_selectedTotal.genericName ==
+                          'ACETYLCYSTEINE') {
+                        if (_weight < 12) {
+                          showDialog(
+                              context: context,
+                              builder: (BuildContext context) {
+                                return AlertDialog(
+                                  title: Text('Caution...'),
+                                  content: Text(
+                                      'Safety and efficacy for use under 2 years not established '),
+                                );
+                              });
+                          setState(() {
+                            _doseView = false;
+                          });
+                          return;
+                        } else if (_weight < 20) {
+                          setState(() {
+                            _maxDose = 0.0;
+
+                            _minDose = 5;
+                            freq = " PO tid";
+                            _doseView = true;
+
+                            _contraView = false;
+                            _precView = false;
+                            _tradeView = false;
+                          });
+                        } else {
+                          setState(() {
+                            _maxDose = 0.0;
+                            _minDose = 10;
+                            freq = " PO tid";
+                            _doseView = true;
+
+                            _contraView = false;
+                            _precView = false;
+                            _tradeView = false;
+                          });
+                        }
+                      } else if (_selectedTotal.genericName == 'AMBROXOL') {
+                        if (_weight < 12) {
+                          setState(() {
+                            _maxDose = 0.0;
+
+                            _minDose = 2.5;
+                            freq = " PO bid";
+                            _doseView = true;
+
+                            _contraView = false;
+                            _precView = false;
+                            _tradeView = false;
+                          });
+                        } else if (_weight < 18) {
+                          setState(() {
+                            _maxDose = 0.0;
+
+                            _minDose = 2.5;
+                            freq = " PO tid";
+                            _doseView = true;
+
+                            _contraView = false;
+                            _precView = false;
+                            _tradeView = false;
+                          });
+                        } else {
+                          setState(() {
+                            _maxDose = 0.0;
+                            _minDose = 5;
+                            freq = " PO tid";
+                            _doseView = true;
+
+                            _contraView = false;
+                            _precView = false;
+                            _tradeView = false;
+                          });
+                        }
+                      } else if (_selectedTotal.genericName ==
+                          'AMBROXOL+GUAIFENESIN') {
+                        if (_weight < 12) {
+                          setState(() {
+                            _maxDose = 0.0;
+
+                            _minDose = 2.5;
+                            freq = " PO bid";
+                            _doseView = true;
+
+                            _contraView = false;
+                            _precView = false;
+                            _tradeView = false;
+                          });
+                        } else if (_weight < 18) {
+                          setState(() {
+                            _maxDose = 0.0;
+
+                            _minDose = 2.5;
+                            freq = " PO tid";
+                            _doseView = true;
+
+                            _contraView = false;
+                            _precView = false;
+                            _tradeView = false;
+                          });
+                        } else {
+                          setState(() {
+                            _maxDose = 0.0;
+                            _minDose = 5;
+                            freq = " PO tid";
+                            _doseView = true;
+
+                            _contraView = false;
+                            _precView = false;
+                            _tradeView = false;
+                          });
+                        }
+                      } else if (_selectedTotal.genericName == 'BROMHEXINE') {
+                        if (_weight < 12) {
+                          showDialog(
+                              context: context,
+                              builder: (BuildContext context) {
+                                return AlertDialog(
+                                  title: Text('Caution...'),
+                                  content: Text(
+                                      'Safety and efficacy for use under 2 years not established '),
+                                );
+                              });
+                          setState(() {
+                            _doseView = false;
+                          });
+                          return;
+                        } else if (_weight < 18) {
+                          setState(() {
+                            _maxDose = 0.0;
+
+                            _minDose = 2.5;
+                            freq = " PO tid";
+                            _doseView = true;
+
+                            _contraView = false;
+                            _precView = false;
+                            _tradeView = false;
+                          });
+                        } else if (_weight < 32) {
+                          setState(() {
+                            _maxDose = 0.0;
+
+                            _minDose = 5;
+                            freq = " PO tid";
+                            _doseView = true;
+
+                            _contraView = false;
+                            _precView = false;
+                            _tradeView = false;
+                          });
+                        } else {
+                          setState(() {
+                            _maxDose = 0.0;
+                            _minDose = 10;
+                            freq = " PO tid";
+                            _doseView = true;
+
+                            _contraView = false;
+                            _precView = false;
+                            _tradeView = false;
+                          });
+                        }
                       } else {
                         setState(() {
                           _minDose = double.parse((_weight *

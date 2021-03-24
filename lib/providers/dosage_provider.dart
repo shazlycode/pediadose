@@ -8547,6 +8547,425 @@ class AntipyreticProvider with ChangeNotifier {
           "Contraindicated for asthmatic patients",
           "Not recommended for children under 6 years",
         ]),
+    Drug(
+        id: 'cough7',
+        tradeName: 'CODILAR SYRUP 120ML',
+        genericName: 'CHLORPHENIRAMINE+DEXTROMETHORPHAN+PHENYLEPHRINE',
+        cat: 'Respiratory',
+        contra: [
+          "Hypersensitivity",
+          "Concomitant use with MAO inhibitors",
+          "Use within 2 weeks of discontinuing MAO inhibitors",
+          "Not recommended for children under 6 years",
+          "Hepatic impairment"
+        ],
+        conc: 5 / 5,
+        minD: 0,
+        maxD: 0,
+        freq: 'PO q8h for 7 days',
+        doseNote: '',
+        prec: [
+          "used with caution to ptns with liver disease",
+          "Contraindicated for asthmatic patients",
+          "Not recommended for children under 6 years",
+        ]),
+    Drug(
+        id: 'cough8',
+        tradeName: 'TUSSIVAN-N SYRUP 125ML',
+        genericName: 'CHLORPHENIRAMINE+DEXTROMETHORPHAN+PHENYLEPHRINE',
+        cat: 'Respiratory',
+        contra: [
+          "Hypersensitivity",
+          "Concomitant use with MAO inhibitors",
+          "Use within 2 weeks of discontinuing MAO inhibitors",
+          "Not recommended for children under 6 years",
+          "Hepatic impairment"
+        ],
+        conc: 5 / 5,
+        minD: 0,
+        maxD: 0,
+        freq: 'PO q8h for 7 days',
+        doseNote: '',
+        prec: [
+          "used with caution to ptns with liver disease",
+          "Contraindicated for asthmatic patients",
+          "Not recommended for children under 6 years",
+        ]),
+    Drug(
+        id: 'cough9',
+        tradeName: 'NOTUSSIL 4MG/ML SUSP. 60ML',
+        genericName: 'CLOPERASTINE',
+        cat: 'Respiratory',
+        contra: [
+          "Hypersensitivity",
+          "Pregnancy and lactation",
+          "Children under 2 years"
+        ],
+        conc: 5 / 5,
+        minD: 0,
+        maxD: 0,
+        freq: 'PO q8h for 7 days',
+        doseNote: '',
+        prec: [
+          "This medicine affects alertness, take care during driving",
+        ]),
+    Drug(
+        id: 'cough10',
+        tradeName: 'SEDATUSS 20MG/5ML 100 ML SUSP.',
+        genericName: 'CLOPERASTINE',
+        cat: 'Respiratory',
+        contra: [
+          "Hypersensitivity",
+          "Pregnancy and lactation",
+          "Children under 2 years"
+        ],
+        conc: 5 / 5,
+        minD: 0,
+        maxD: 0,
+        freq: 'PO q8h for 7 days',
+        doseNote: '',
+        prec: [
+          "This medicine affects alertness, take care during driving",
+        ]),
+    Drug(
+        id: 'cough11',
+        tradeName: 'COUGH CUT 7.5 MG/5 ML SYRUP 100ML',
+        genericName: 'BUTAMIRATE CITRATE 7.5 mg/ 5ml',
+        cat: 'Respiratory',
+        contra: [
+          "Hypersensitivity",
+          "Pregnancy and lactation",
+          "Children under 3 years",
+          "Diabetic patients"
+        ],
+        conc: 5 / 5,
+        minD: 0,
+        maxD: 0,
+        freq: 'PO q8h for 7 days',
+        doseNote: '',
+        prec: [
+          "This medicine affects alertness, take care during driving",
+        ]),
+    Drug(
+        id: 'cough12',
+        tradeName: 'SINECOD 0.15% SYRUP 100 ML',
+        genericName: 'BUTAMIRATE CITRATE 7.5 mg/ 5ml',
+        cat: 'Respiratory',
+        contra: [
+          "Hypersensitivity",
+          "Pregnancy and lactation",
+          "Children under 3 years",
+          "Diabetic patients"
+        ],
+        conc: 5 / 5,
+        minD: 0,
+        maxD: 0,
+        freq: 'PO q8h for 7 days',
+        doseNote: '',
+        prec: [
+          "This medicine affects alertness, take care during driving",
+        ]),
+    Drug(
+        id: 'cough13',
+        tradeName: 'CODIPHAN 10MG/5ML SYRUP 120ML',
+        genericName: 'DEXTROMETHORPHAN',
+        cat: 'Respiratory',
+        contra: [
+          "Hypersensitivity",
+          "Pregnancy and lactation",
+          "Concomitant use with MAO inhibitors",
+          "Children under 4 years",
+          "Diabetic patients"
+        ],
+        conc: 5 / 10,
+        minD: 0,
+        maxD: 0,
+        freq: 'PO q8h for 7 days',
+        doseNote: '',
+        prec: [
+          "This medicine affects alertness, take care during driving",
+          "Hallucination, agitation, confusion, shivering, hyperreflexia, myoclonus and tachycardia.",
+        ]),
+    Drug(
+        id: 'cough14',
+        tradeName: 'CABELLA  21.3MG/10ML SYRUP 125ML',
+        genericName: 'PENTOXYVERINE',
+        cat: 'Respiratory',
+        contra: [
+          "Hypersensitivity",
+          "Pregnancy and lactation",
+          "Concomitant use with MAO inhibitors",
+          "Children under 4 years",
+          "Diabetic patients"
+        ],
+        conc: 5 / 10.65,
+        minD: 0,
+        maxD: 0,
+        freq: 'PO q8h for 7 days',
+        doseNote: '',
+        prec: [
+          "This medicine affects alertness, take care during driving",
+          "Hallucination, agitation, confusion, shivering, hyperreflexia, myoclonus and tachycardia.",
+        ]),
+    Drug(
+        id: 'cough15',
+        tradeName: 'PECTIPRO 0.3% SYRUP 90ML',
+        genericName: 'BENPROPERINE',
+        cat: 'Respiratory',
+        contra: [
+          "Hypersensitivity",
+          "Pregnancy and lactation",
+        ],
+        conc: 5 / 10.65,
+        minD: 0,
+        maxD: 0,
+        freq: 'PO q8h for 7 days',
+        doseNote: '',
+        prec: [
+          "This medicine affects alertness, take care during driving",
+        ]),
+    Drug(
+        id: 'cough16',
+        tradeName: 'TUSSIGLOBE 0.3% SYRUP 120 ML',
+        genericName: 'BENPROPERINE',
+        cat: 'Respiratory',
+        contra: [
+          "Hypersensitivity",
+          "Pregnancy and lactation",
+        ],
+        conc: 5 / 10.65,
+        minD: 0,
+        maxD: 0,
+        freq: 'PO q8h for 7 days',
+        doseNote: '',
+        prec: [
+          "This medicine affects alertness, take care during driving",
+        ]),
+    Drug(
+        id: 'procough1',
+        tradeName: 'ACESOLV 2% SYRUP 60ML',
+        genericName: 'ACETYLCYSTEINE',
+        cat: 'Respiratory',
+        contra: ["Hypersensitivity", "Acute asthma", "Children under 2 years"],
+        conc: 5 / 100,
+        minD: 0,
+        maxD: 0,
+        freq: 'PO q8h for 7 days',
+        doseNote: '',
+        prec: [
+          "This medicine may interfere with blood and urin tests",
+          "Monitoring for asthmatic patients"
+        ]),
+    Drug(
+        id: 'procough2',
+        tradeName: 'SOLVIMYST 100MG/5ML SYRUP 120ML',
+        genericName: 'ACETYLCYSTEINE',
+        cat: 'Respiratory',
+        contra: ["Hypersensitivity", "Acute asthma", "Children under 2 years"],
+        conc: 5 / 100,
+        minD: 0,
+        maxD: 0,
+        freq: 'PO q8h for 7 days',
+        doseNote: '',
+        prec: [
+          "This medicine may interfere with blood and urin tests",
+          "Monitoring for asthmatic patients"
+        ]),
+    Drug(
+        id: 'procough3',
+        tradeName: 'BRONCHOPRO 15MG/5ML SYRUP 100ML',
+        genericName: 'AMBROXOL',
+        cat: 'Respiratory',
+        contra: ["Hypersensitivity"],
+        conc: 5 / 15,
+        minD: 0,
+        maxD: 0,
+        freq: 'PO q8h for 7 days',
+        doseNote: '',
+        prec: [
+          "Used with caution in patients with peptic ulcer",
+          "Concomitant administration of antitussives should be avoided due to risk of congetion of secretions"
+        ]),
+    Drug(
+        id: 'procough4',
+        tradeName: 'MUCO 15MG/5ML SYRUP 100ML',
+        genericName: 'AMBROXOL',
+        cat: 'Respiratory',
+        contra: ["Hypersensitivity"],
+        conc: 5 / 15,
+        minD: 0,
+        maxD: 0,
+        freq: 'PO q8h for 7 days',
+        doseNote: '',
+        prec: [
+          "Used with caution in patients with peptic ulcer",
+          "Concomitant administration of antitussives should be avoided due to risk of congetion of secretions"
+        ]),
+    Drug(
+        id: 'procough5',
+        tradeName: 'MUCOFAR 15MG/5ML SYRUP 120ML',
+        genericName: 'AMBROXOL',
+        cat: 'Respiratory',
+        contra: ["Hypersensitivity"],
+        conc: 5 / 15,
+        minD: 0,
+        maxD: 0,
+        freq: 'PO q8h for 7 days',
+        doseNote: '',
+        prec: [
+          "Used with caution in patients with peptic ulcer",
+          "Concomitant administration of antitussives should be avoided due to risk of congetion of secretions"
+        ]),
+    Drug(
+        id: 'procough6',
+        tradeName: 'MUCOPECT 15MG/5ML SYRUP 120ML',
+        genericName: 'AMBROXOL',
+        cat: 'Respiratory',
+        contra: ["Hypersensitivity"],
+        conc: 5 / 15,
+        minD: 0,
+        maxD: 0,
+        freq: 'PO q8h for 7 days',
+        doseNote: '',
+        prec: [
+          "Used with caution in patients with peptic ulcer",
+          "Concomitant administration of antitussives should be avoided due to risk of congetion of secretions"
+        ]),
+    Drug(
+        id: 'procough7',
+        tradeName: 'MUCOSOLVAN 15MG/5ML SYRUP 100ML',
+        genericName: 'AMBROXOL',
+        cat: 'Respiratory',
+        contra: ["Hypersensitivity"],
+        conc: 5 / 15,
+        minD: 0,
+        maxD: 0,
+        freq: 'PO q8h for 7 days',
+        doseNote: '',
+        prec: [
+          "Used with caution in patients with peptic ulcer",
+          "Concomitant administration of antitussives should be avoided due to risk of congetion of secretions"
+        ]),
+    Drug(
+        id: 'procough8',
+        tradeName: 'PULMOSOLVAN 15MG/5ML SYRUP 100ML',
+        genericName: 'AMBROXOL',
+        cat: 'Respiratory',
+        contra: ["Hypersensitivity"],
+        conc: 5 / 15,
+        minD: 0,
+        maxD: 0,
+        freq: 'PO q8h for 7 days',
+        doseNote: '',
+        prec: [
+          "Used with caution in patients with peptic ulcer",
+          "Concomitant administration of antitussives should be avoided due to risk of congetion of secretions"
+        ]),
+    Drug(
+        id: 'procough9',
+        tradeName: 'SEDOBROXOL 15MG/5ML 120ML SYRUP',
+        genericName: 'AMBROXOL',
+        cat: 'Respiratory',
+        contra: ["Hypersensitivity"],
+        conc: 5 / 15,
+        minD: 0,
+        maxD: 0,
+        freq: 'PO q8h for 7 days',
+        doseNote: '',
+        prec: [
+          "Used with caution in patients with peptic ulcer",
+          "Concomitant administration of antitussives should be avoided due to risk of congetion of secretions"
+        ]),
+    Drug(
+        id: 'procough10',
+        tradeName: 'MUCOSIN PLUS SYRUP 120ML',
+        genericName: 'AMBROXOL+GUAIFENESIN',
+        cat: 'Respiratory',
+        contra: ["Hypersensitivity"],
+        conc: 5 / 15,
+        minD: 0,
+        maxD: 0,
+        freq: 'PO q8h for 7 days',
+        doseNote: '',
+        prec: [
+          "Used with caution in patients with peptic ulcer",
+          "Concomitant administration of antitussives should be avoided due to risk of congetion of secretions"
+        ]),
+    Drug(
+        id: 'procough11',
+        tradeName: 'BROMHEXINE 4MG/5ML SYRUP 120ML',
+        genericName: 'BROMHEXINE',
+        cat: 'Respiratory',
+        contra: ["Hypersensitivity"],
+        conc: 5 / 15,
+        minD: 0,
+        maxD: 0,
+        freq: 'PO q8h for 7 days',
+        doseNote: '',
+        prec: [
+          "Used with caution in patients with peptic ulcer",
+          "Concomitant administration of antitussives should be avoided due to risk of congetion of secretions"
+        ]),
+    Drug(
+        id: 'procough12',
+        tradeName: 'MUCLEAR 4MG/5ML SYRUP 120ML',
+        genericName: 'BROMHEXINE',
+        cat: 'Respiratory',
+        contra: ["Hypersensitivity"],
+        conc: 5 / 15,
+        minD: 0,
+        maxD: 0,
+        freq: 'PO q8h for 7 days',
+        doseNote: '',
+        prec: [
+          "Used with caution in patients with peptic ulcer",
+          "Concomitant administration of antitussives should be avoided due to risk of congetion of secretions"
+        ]),
+    Drug(
+        id: 'procough13',
+        tradeName: 'SOLVIN N 4MG/5ML SYRUP 60ML',
+        genericName: 'BROMHEXINE',
+        cat: 'Respiratory',
+        contra: ["Hypersensitivity"],
+        conc: 5 / 15,
+        minD: 0,
+        maxD: 0,
+        freq: 'PO q8h for 7 days',
+        doseNote: '',
+        prec: [
+          "Used with caution in patients with peptic ulcer",
+          "Concomitant administration of antitussives should be avoided due to risk of congetion of secretions"
+        ]),
+    Drug(
+        id: 'procough14',
+        tradeName: 'SOLVOLYTIC 8MG/5ML SYRUP 115ML',
+        genericName: 'BROMHEXINE',
+        cat: 'Respiratory',
+        contra: ["Hypersensitivity"],
+        conc: 5 / 15,
+        minD: 0,
+        maxD: 0,
+        freq: 'PO q8h for 7 days',
+        doseNote: '',
+        prec: [
+          "Used with caution in patients with peptic ulcer",
+          "Concomitant administration of antitussives should be avoided due to risk of congetion of secretions"
+        ]),
+    Drug(
+        id: 'procough15',
+        tradeName: 'AVICHEST 2% 100ML SYRUP FOR CHILDREN & INFANTS',
+        genericName: 'CARBOCYSTEINE',
+        cat: 'Respiratory',
+        contra: ["Hypersensitivity"],
+        conc: 5 / 15,
+        minD: 0,
+        maxD: 0,
+        freq: 'PO q8h for 7 days',
+        doseNote: '',
+        prec: [
+          "Used with caution in patients with peptic ulcer",
+          "Concomitant administration of antitussives should be avoided due to risk of congetion of secretions"
+        ]),
   ];
 
   List<Drug> get drugs {
