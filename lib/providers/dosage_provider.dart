@@ -8966,6 +8966,1842 @@ class AntipyreticProvider with ChangeNotifier {
           "Used with caution in patients with peptic ulcer",
           "Concomitant administration of antitussives should be avoided due to risk of congetion of secretions"
         ]),
+    Drug(
+        id: 'procough16',
+        tradeName: 'CARBOLASE 2GM/100ML SYRUP 100ML',
+        genericName: 'CARBOCYSTEINE',
+        cat: 'Respiratory',
+        contra: ["Hypersensitivity"],
+        conc: 5 / 15,
+        minD: 0,
+        maxD: 0,
+        freq: 'PO q8h for 7 days',
+        doseNote: '',
+        prec: [
+          "Used with caution in patients with peptic ulcer",
+          "Concomitant administration of antitussives should be avoided due to risk of congetion of secretions"
+        ]),
+    Drug(
+        id: 'procough17',
+        tradeName: 'MUCOSOL PED. 125MG/5ML SYRUP 120ML',
+        genericName: 'CARBOCYSTEINE',
+        cat: 'Respiratory',
+        contra: ["Hypersensitivity"],
+        conc: 5 / 15,
+        minD: 0,
+        maxD: 0,
+        freq: 'PO q8h for 7 days',
+        doseNote: '',
+        prec: [
+          "Used with caution in patients with peptic ulcer",
+          "Concomitant administration of antitussives should be avoided due to risk of congetion of secretions"
+        ]),
+    Drug(
+        id: 'procough18',
+        tradeName: 'MUCOLASE 5% SYRUP 120ML',
+        genericName: 'CARBOXYMETHYLCYSTEINE',
+        cat: 'Respiratory',
+        contra: ["Hypersensitivity"],
+        conc: 5 / 15,
+        minD: 0,
+        maxD: 0,
+        freq: 'PO q8h for 7 days',
+        doseNote: '',
+        prec: [
+          "Used with caution in patients with peptic ulcer",
+          "Concomitant administration of antitussives should be avoided due to risk of congetion of secretions"
+        ]),
+    Drug(
+        id: 'procough19',
+        tradeName: 'SOLVEX 250MG/5ML SYRUP 120ML',
+        genericName: 'CARBOXYMETHYLCYSTEINE',
+        cat: 'Respiratory',
+        contra: ["Hypersensitivity"],
+        conc: 5 / 15,
+        minD: 0,
+        maxD: 0,
+        freq: 'PO q8h for 7 days',
+        doseNote: '',
+        prec: [
+          "Used with caution in patients with peptic ulcer",
+          "Concomitant administration of antitussives should be avoided due to risk of congetion of secretions"
+        ]),
+    Drug(
+        id: 'procough20',
+        tradeName: 'ERDOLYTIC 175MG PD. FOR ORAL SUSP. 100 ML',
+        genericName: 'ERDOSTEINE',
+        cat: 'Respiratory',
+        contra: [
+          "Hypersensitivity to the main component or the excepients",
+          "Peptic ulcer"
+        ],
+        conc: 5 / 15,
+        minD: 0,
+        maxD: 0,
+        freq: 'PO q8h for 7 days',
+        doseNote: '',
+        prec: [
+          "Used with caution in patients with Heart burn",
+        ]),
+    Drug(
+        id: 'procough21',
+        tradeName: 'LOPRECOUGH SYRUP 100 ML',
+        genericName: 'ACETYLCYSTEINE+CHLORPHENIRAMINE',
+        cat: 'Respiratory',
+        contra: [
+          "Hypersensitivity to the main component or the excepients",
+          "Urine retention",
+          "acute asthma",
+          "pregnancy and lactation",
+          "glaucoma",
+          "useing within 2 weeks of discontinuing MAO inhibitors",
+        ],
+        conc: 5 / 15,
+        minD: 0,
+        maxD: 0,
+        freq: 'PO q8h for 7 days',
+        doseNote: '',
+        prec: [
+          "Liver function monitoring during long term use",
+          "may cause drowiness",
+          "risk of gastrointestinal bleeding",
+        ]),
+    Drug(
+        id: 'procough22',
+        tradeName: 'BENALEX SYRUP 120ML',
+        genericName: 'AMMONIUM CHLORIDE+DIPHENHYDRAMINE',
+        cat: 'Respiratory',
+        contra: [
+          "Hypersensitivity to the main component or the excepients",
+          "Urine retention",
+          "acute asthma",
+          "Glaucoma",
+          "Porphyria",
+          "glaucoma",
+          "children under 2 years",
+        ],
+        conc: 5 / 15,
+        minD: 0,
+        maxD: 0,
+        freq: 'PO q8h for 7 days',
+        doseNote: '',
+        prec: [
+          "children under 2 years should be under supervision",
+          "Use with diabetes should be under medical supervision",
+          "using with glaucoma and urin retention",
+        ]),
+    Drug(
+        id: 'procough23',
+        tradeName: 'AVIPECT SYRUP100ML',
+        genericName: 'AMMONIUM CHLORIDE+PHENIRAMINE',
+        cat: 'Respiratory',
+        contra: [
+          "Hypersensitivity to the main component or the excepients",
+          "Prostatic hypertrophy",
+        ],
+        conc: 5 / 15,
+        minD: 0,
+        maxD: 0,
+        freq: 'PO q8h for 7 days',
+        doseNote: '',
+        prec: [
+          "affects patients allertness",
+          "Not recommended in patients with impaired renal and hepatic function",
+        ]),
+    Drug(
+        id: 'procough24',
+        tradeName: 'EXPECTYL SYRUP 120ML',
+        genericName:
+            'AMMONIUM CHLORIDE+PROMETHAZINE+SENEGA EXTRACT+SODIUM BENZOATE+SQUILL TINCTURE',
+        cat: 'Respiratory',
+        contra: [
+          "Hypersensitivity to the main component or the excepients",
+          "Children under 2 years",
+        ],
+        conc: 5 / 15,
+        minD: 0,
+        maxD: 0,
+        freq: 'PO q8h for 7 days',
+        doseNote: '',
+        prec: [
+          "Children 2-6 years use under medical supervision",
+        ]),
+    Drug(
+        id: 'procough25',
+        tradeName: 'EXTRASOLV SYRUP 120 ML',
+        genericName: 'CARBOCYSTEINE+GUAIFENESIN+OXOMEMAZINE',
+        cat: 'Respiratory',
+        contra: [
+          "Hypersensitivity to the main component or the excepients",
+          "Children under 2 years",
+          "During first trimester of pregnancy"
+        ],
+        conc: 5 / 15,
+        minD: 0,
+        maxD: 0,
+        freq: 'PO q8h for 7 days',
+        doseNote: '',
+        prec: [
+          "Patients with peptic ulcer",
+          "Sedation may affects alertness",
+        ]),
+    Drug(
+        id: 'procough26',
+        tradeName: 'MUCOSWAB 20 UNIDOSE ORAL SOLN.* 5 ML',
+        genericName: 'CARBOCYSTEINE+GUAIFENESIN+OXOMEMAZINE',
+        cat: 'Respiratory',
+        contra: [
+          "Hypersensitivity to the main component or the excepients",
+          "Children under 2 years",
+          "During first trimester of pregnancy"
+        ],
+        conc: 5 / 15,
+        minD: 0,
+        maxD: 0,
+        freq: 'PO q8h for 7 days',
+        doseNote: '',
+        prec: [
+          "Patients with peptic ulcer",
+          "Sedation may affects alertness",
+        ]),
+    Drug(
+        id: 'procough27',
+        tradeName: 'ULTRASOLV 10 F.C. TAB',
+        genericName: 'CARBOCYSTEINE+GUAIFENESIN+OXOMEMAZINE',
+        cat: 'Respiratory',
+        contra: [
+          "Hypersensitivity to the main component or the excepients",
+          "Children under 2 years",
+          "During first trimester of pregnancy"
+        ],
+        conc: 5 / 15,
+        minD: 0,
+        maxD: 0,
+        freq: 'PO q8h for 7 days',
+        doseNote: '',
+        prec: [
+          "Patients with peptic ulcer",
+          "Sedation may affects alertness",
+        ]),
+    Drug(
+        id: 'procough28',
+        tradeName: 'ULTRASOLV SYRUP 120ML',
+        genericName: 'CARBOCYSTEINE+GUAIFENESIN+OXOMEMAZINE',
+        cat: 'Respiratory',
+        contra: [
+          "Hypersensitivity to the main component or the excepients",
+          "Children under 2 years",
+          "During first trimester of pregnancy"
+        ],
+        conc: 5 / 15,
+        minD: 0,
+        maxD: 0,
+        freq: 'PO q8h for 7 days',
+        doseNote: '',
+        prec: [
+          "Patients with peptic ulcer",
+          "Sedation may affects alertness",
+        ]),
+    Drug(
+        id: 'procough29',
+        tradeName: 'TUSSKAN SYRUP 100 ML',
+        genericName: 'DEXTROMETHORPHAN+DIPHENHYDRAMINE+EPHEDRINE+GUAIFENESIN',
+        cat: 'Respiratory',
+        contra: [
+          "Hypersensitivity to the main component or the excepients",
+          "Hypertension",
+          "Children under 6 years",
+          "Pregnancy and lactation",
+          "Concomitant use with MAO inhibitors"
+        ],
+        conc: 5 / 15,
+        minD: 0,
+        maxD: 0,
+        freq: 'PO q8h for 7 days',
+        doseNote: '',
+        prec: [
+          "Patients with diabetes and hypertension",
+          "Sedation may affects alertness",
+          "Concomitant use with MAO inhibitors"
+        ]),
+    Drug(
+        id: 'procough30',
+        tradeName: 'NEO-BRONCHOPHANE 125ML SYRUP.',
+        genericName: 'DIPHENHYDRAMINE+GUAIFENESIN+OXELADINE',
+        cat: 'Respiratory',
+        contra: [
+          "Hypersensitivity to the main component or the excepients",
+          "Hypertension",
+          "Children under 6 years",
+          "Pregnancy and lactation",
+          "Concomitant use with MAO inhibitors"
+        ],
+        conc: 5 / 15,
+        minD: 0,
+        maxD: 0,
+        freq: 'PO q8h for 7 days',
+        doseNote: '',
+        prec: [
+          "Patients with diabetes and hypertension",
+          "Sedation may affects alertness",
+          "Concomitant use with MAO inhibitors"
+        ]),
+    Drug(
+        id: 'procough31',
+        tradeName: 'BRONCOXIL SYRUP 120ML',
+        genericName:
+            'GUAIFENESIN+OXOMEMAZINE+PARACETAMOL(ACETAMINOPHEN)+SODIUM BENZOATE',
+        cat: 'Respiratory',
+        contra: [
+          "Hypersensitivity to the main component or the excepients",
+          "Hepatic failure"
+        ],
+        conc: 5 / 15,
+        minD: 0,
+        maxD: 0,
+        freq: 'PO q8h for 7 days',
+        doseNote: '',
+        prec: [
+          "Patients with diabetes due to suger content",
+          "Sedation may affects alertness",
+          "Concomitant use with MAO inhibitors"
+        ]),
+    Drug(
+        id: 'procough32',
+        tradeName: 'COUGH REST SYRUP 120ML',
+        genericName:
+            'GUAIFENESIN+OXOMEMAZINE+PARACETAMOL(ACETAMINOPHEN)+SODIUM BENZOATE',
+        cat: 'Respiratory',
+        contra: [
+          "Hypersensitivity to the main component or the excepients",
+          "Hepatic failure"
+        ],
+        conc: 5 / 15,
+        minD: 0,
+        maxD: 0,
+        freq: 'PO q8h for 7 days',
+        doseNote: '',
+        prec: [
+          "Patients with diabetes due to suger content",
+          "Sedation may affects alertness",
+          "Concomitant use with MAO inhibitors"
+        ]),
+    Drug(
+        id: 'procough33',
+        tradeName: 'HILEXIL 125ML SYRUP',
+        genericName:
+            'GUAIFENESIN+OXOMEMAZINE+PARACETAMOL(ACETAMINOPHEN)+SODIUM BENZOATE',
+        cat: 'Respiratory',
+        contra: [
+          "Hypersensitivity to the main component or the excepients",
+          "Hepatic failure"
+        ],
+        conc: 5 / 15,
+        minD: 0,
+        maxD: 0,
+        freq: 'PO q8h for 7 days',
+        doseNote: '',
+        prec: [
+          "Patients with diabetes due to suger content",
+          "Sedation may affects alertness",
+          "Concomitant use with MAO inhibitors"
+        ]),
+    Drug(
+        id: 'procough34',
+        tradeName: 'RECTOPLEXIL 10 PAED.SUPP.',
+        genericName:
+            'GUAIFENESIN+OXOMEMAZINE+PARACETAMOL(ACETAMINOPHEN)+SODIUM BENZOATE',
+        cat: 'Respiratory',
+        contra: [
+          "Hypersensitivity to the main component or the excepients",
+          "Hepatic failure"
+        ],
+        conc: 5 / 15,
+        minD: 0,
+        maxD: 0,
+        freq: 'PO q8h for 7 days',
+        doseNote: '',
+        prec: [
+          "Patients with diabetes due to suger content",
+          "Sedation may affects alertness",
+          "Concomitant use with MAO inhibitors"
+        ]),
+    Drug(
+        id: 'procough35',
+        tradeName: 'TOPLEXIL 125ML SYRUP',
+        genericName:
+            'GUAIFENESIN+OXOMEMAZINE+PARACETAMOL(ACETAMINOPHEN)+SODIUM BENZOATE',
+        cat: 'Respiratory',
+        contra: [
+          "Hypersensitivity to the main component or the excepients",
+          "Hepatic failure"
+        ],
+        conc: 5 / 15,
+        minD: 0,
+        maxD: 0,
+        freq: 'PO q8h for 7 days',
+        doseNote: '',
+        prec: [
+          "Patients with diabetes due to suger content",
+          "Sedation may affects alertness",
+          "Concomitant use with MAO inhibitors"
+        ]),
+    Drug(
+        id: 'procough36',
+        tradeName: 'OPLEX-N SYRUP 125ML',
+        genericName: 'GUAIFENESIN+OXOMEMAZINE+SODIUM BENZOATE',
+        cat: 'Respiratory',
+        contra: [
+          "Hypersensitivity to the main component or the excepients",
+          "Hepatic failure"
+        ],
+        conc: 5 / 15,
+        minD: 0,
+        maxD: 0,
+        freq: 'PO q8h for 7 days',
+        doseNote: '',
+        prec: [
+          "Patients with diabetes due to suger content",
+          "Sedation may affects alertness",
+          "Concomitant use with MAO inhibitors"
+        ]),
+    Drug(
+        id: 'procough37',
+        tradeName: 'ACTIFED EXPECTORANT SYRUP 120 ML',
+        genericName: 'GUAIFENESIN+PSEUDOEPHEDRINE+TRIPROLIDINE',
+        cat: 'Respiratory',
+        contra: [
+          "Hypersensitivity to the main component or the excepients",
+          "Concomitant use with othet sympathomimetics decongestants, beta-blockers, SSRIs, MAO inhibitors or with in 14 days of stoping MAOIs",
+          "Glaucoma",
+          "Hypertension"
+        ],
+        conc: 5 / 15,
+        minD: 0,
+        maxD: 0,
+        freq: 'PO q8h for 7 days',
+        doseNote: '',
+        prec: [
+          "patients with hypertension",
+          "Patients with diabetes due to suger content",
+          "Sedation may affects alertness",
+          "Concomitant use with MAO inhibitors"
+        ]),
+    Drug(
+        id: 'procough38',
+        tradeName: 'BRONCHOTEC SYRUP 120ML',
+        genericName: 'DEXTROMETHORPHAN+GUAIFENESIN',
+        cat: 'Respiratory',
+        contra: [
+          "Hypersensitivity to the main component or the excepients",
+          "children under 6 years",
+          "respiratory failure",
+          "patients with porphyria"
+        ],
+        conc: 5 / 15,
+        minD: 0,
+        maxD: 0,
+        freq: 'PO q8h for 7 days',
+        doseNote: '',
+        prec: [
+          "Patients with diabetes due to suger content",
+          "Sedation may affects alertness",
+        ]),
+    Drug(
+        id: 'broncho1',
+        tradeName: 'EPICOPHYLLINE 2.5G/100ML SYRUP 125ML',
+        genericName: 'ACEFYLLINE PIPERAZINE',
+        cat: 'Respiratory',
+        contra: [
+          "Hypersensitivity to the main component or the excepients",
+        ],
+        conc: 5 / 15,
+        minD: 0,
+        maxD: 0,
+        freq: 'PO q8h for 7 days',
+        doseNote: '',
+        prec: [
+          "Patients with diabetes due to suger content",
+        ]),
+    Drug(
+        id: 'broncho2',
+        tradeName: 'BRONCHOTEROL SYRUP 120 ML',
+        genericName: 'SALBUTAMOL',
+        cat: 'Respiratory',
+        contra: [
+          "Hypersensitivity to the main component or the excepients",
+          "Children under 2 years"
+        ],
+        conc: 5 / 15,
+        minD: 0,
+        maxD: 0,
+        freq: 'PO q8h for 7 days',
+        doseNote: '',
+        prec: [
+          "Patients with diabetes due to suger content",
+          "Hypertensive patients",
+          "over active thyroid gland",
+          "Patients with history of heart problems as tachycardia",
+        ]),
+    Drug(
+        id: 'broncho3',
+        tradeName: 'MEPACOVENT 2MG/5ML SYRUP 125ML',
+        genericName: 'SALBUTAMOL',
+        cat: 'Respiratory',
+        contra: [
+          "Hypersensitivity to the main component or the excepients",
+          "Children under 2 years"
+        ],
+        conc: 5 / 15,
+        minD: 0,
+        maxD: 0,
+        freq: 'PO q8h for 7 days',
+        doseNote: '',
+        prec: [
+          "Patients with diabetes due to suger content",
+          "Hypertensive patients",
+          "over active thyroid gland",
+          "Patients with history of heart problems as tachycardia",
+        ]),
+    Drug(
+        id: 'broncho4',
+        tradeName: 'OPICHESTAL SYRUP 120ML',
+        genericName: 'SALBUTAMOL',
+        cat: 'Respiratory',
+        contra: [
+          "Hypersensitivity to the main component or the excepients",
+          "Children under 2 years"
+        ],
+        conc: 5 / 15,
+        minD: 0,
+        maxD: 0,
+        freq: 'PO q8h for 7 days',
+        doseNote: '',
+        prec: [
+          "Patients with diabetes due to suger content",
+          "Hypertensive patients",
+          "over active thyroid gland",
+          "Patients with history of heart problems as tachycardia",
+        ]),
+    Drug(
+        id: 'broncho5',
+        tradeName: 'SALBOVENT 2MG/5ML SYRUP 120ML',
+        genericName: 'SALBUTAMOL',
+        cat: 'Respiratory',
+        contra: [
+          "Hypersensitivity to the main component or the excepients",
+          "Children under 2 years"
+        ],
+        conc: 5 / 15,
+        minD: 0,
+        maxD: 0,
+        freq: 'PO q8h for 7 days',
+        doseNote: '',
+        prec: [
+          "Patients with diabetes due to suger content",
+          "Hypertensive patients",
+          "over active thyroid gland",
+          "Patients with history of heart problems as tachycardia",
+        ]),
+    Drug(
+        id: 'broncho6',
+        tradeName: 'SALBUTAMOL 2MG/5ML SYRUP 120ML',
+        genericName: 'SALBUTAMOL',
+        cat: 'Respiratory',
+        contra: [
+          "Hypersensitivity to the main component or the excepients",
+          "Children under 2 years"
+        ],
+        conc: 5 / 15,
+        minD: 0,
+        maxD: 0,
+        freq: 'PO q8h for 7 days',
+        doseNote: '',
+        prec: [
+          "Patients with diabetes due to suger content",
+          "Hypertensive patients",
+          "over active thyroid gland",
+          "Patients with history of heart problems as tachycardia",
+        ]),
+    Drug(
+        id: 'broncho7',
+        tradeName: 'VENTAL 2MG/5ML SYRUP 120ML',
+        genericName: 'SALBUTAMOL',
+        cat: 'Respiratory',
+        contra: [
+          "Hypersensitivity to the main component or the excepients",
+          "Children under 2 years"
+        ],
+        conc: 5 / 15,
+        minD: 0,
+        maxD: 0,
+        freq: 'PO q8h for 7 days',
+        doseNote: '',
+        prec: [
+          "Patients with diabetes due to suger content",
+          "Hypertensive patients",
+          "over active thyroid gland",
+          "Patients with history of heart problems as tachycardia",
+        ]),
+    Drug(
+        id: 'broncho8',
+        tradeName: 'VENTOLIN 2MG/5ML SYRUP 125ML',
+        genericName: 'SALBUTAMOL',
+        cat: 'Respiratory',
+        contra: [
+          "Hypersensitivity to the main component or the excepients",
+          "Children under 2 years"
+        ],
+        conc: 5 / 15,
+        minD: 0,
+        maxD: 0,
+        freq: 'PO q8h for 7 days',
+        doseNote: '',
+        prec: [
+          "Patients with diabetes due to suger content",
+          "Hypertensive patients",
+          "over active thyroid gland",
+          "Patients with history of heart problems as tachycardia",
+        ]),
+    Drug(
+        id: 'broncho9',
+        tradeName: 'BAMBEDIL 1MG/ML SYRUP 120ML',
+        genericName: 'BAMBUTEROL',
+        cat: 'Respiratory',
+        contra: [
+          "Hypersensitivity to the main component or the excepients",
+          "Children under 2 years"
+        ],
+        conc: 5 / 15,
+        minD: 0,
+        maxD: 0,
+        freq: 'PO q8h for 7 days',
+        doseNote: '',
+        prec: [
+          "Patients with diabetes due to suger content",
+          "Hypertensive patients",
+          "over active thyroid gland",
+          "Patients with history of heart problems as tachycardia",
+        ]),
+    Drug(
+        id: 'broncho10',
+        tradeName: 'PROBRIC 5MG/5ML SYRUP 125ML',
+        genericName: 'BAMBUTEROL',
+        cat: 'Respiratory',
+        contra: [
+          "Hypersensitivity to the main component or the excepients",
+          "Children under 2 years"
+        ],
+        conc: 5 / 15,
+        minD: 0,
+        maxD: 0,
+        freq: 'PO q8h for 7 days',
+        doseNote: '',
+        prec: [
+          "Patients with diabetes due to suger content",
+          "Hypertensive patients",
+          "over active thyroid gland",
+          "Patients with history of heart problems as tachycardia",
+        ]),
+    Drug(
+        id: 'broncho11',
+        tradeName: 'AIRONYL 30MG/100ML SYRUP 120ML',
+        genericName: 'TERBUTALINE',
+        cat: 'Respiratory',
+        contra: [
+          "Hypersensitivity to the main component or the excepients",
+          "Children under 2 years",
+          "Hypertension",
+          "Hyperthirodism",
+        ],
+        conc: 5 / 1.5,
+        minD: 0,
+        maxD: 0,
+        freq: 'PO q8h for 7 days',
+        doseNote: '',
+        prec: [
+          "Patients with diabetes due to suger content, thyrotoxicosis",
+          "patients suffering from myocardial insufficiency",
+          "Patients with peptic ulcer"
+        ]),
+    Drug(
+        id: 'broncho12',
+        tradeName: 'BRICANYL 30MG/100ML SYRUP 120ML',
+        genericName: 'TERBUTALINE',
+        cat: 'Respiratory',
+        contra: [
+          "Hypersensitivity to the main component or the excepients",
+          "Children under 2 years",
+          "Hypertension",
+          "Hyperthirodism",
+        ],
+        conc: 5 / 1.5,
+        minD: 0,
+        maxD: 0,
+        freq: 'PO q8h for 7 days',
+        doseNote: '',
+        prec: [
+          "Patients with diabetes due to suger content, thyrotoxicosis",
+          "patients suffering from myocardial insufficiency",
+          "Patients with peptic ulcer"
+        ]),
+    Drug(
+        id: 'broncho13',
+        tradeName: 'TERBUTANYL 1.5MG/5ML SYRUP 120ML',
+        genericName: 'TERBUTALINE',
+        cat: 'Respiratory',
+        contra: [
+          "Hypersensitivity to the main component or the excepients",
+          "Children under 2 years",
+          "Hypertension",
+          "Hyperthirodism",
+        ],
+        conc: 5 / 1.5,
+        minD: 0,
+        maxD: 0,
+        freq: 'PO q8h for 7 days',
+        doseNote: '',
+        prec: [
+          "Patients with diabetes due to suger content, thyrotoxicosis",
+          "patients suffering from myocardial insufficiency",
+          "Patients with peptic ulcer"
+        ]),
+    Drug(
+        id: 'broncho14',
+        tradeName: 'BRONCHOVENT SYRUP 125ML',
+        genericName: 'GUAIFENESIN+SALBUTAMOL',
+        cat: 'Respiratory',
+        contra: [
+          "Hypersensitivity to the main component or the excepients",
+          "Children under 2 years",
+        ],
+        conc: 5 / 1.5,
+        minD: 0,
+        maxD: 0,
+        freq: 'PO q8h for 7 days',
+        doseNote: '',
+        prec: [
+          "Patients with diabetes due to suger content, thyrotoxicosis",
+          "patients suffering from myocardial insufficiency",
+          "Hypokalemia from B2-agonist",
+          "Children 2-6 years use under medical supervison"
+        ]),
+    Drug(
+        id: 'broncho15',
+        tradeName: 'OCTOVENT PLUS SYRUP 100ML',
+        genericName: 'GUAIFENESIN+SALBUTAMOL',
+        cat: 'Respiratory',
+        contra: [
+          "Hypersensitivity to the main component or the excepients",
+          "Children under 2 years",
+        ],
+        conc: 5 / 1.5,
+        minD: 0,
+        maxD: 0,
+        freq: 'PO q8h for 7 days',
+        doseNote: '',
+        prec: [
+          "Patients with diabetes due to suger content, thyrotoxicosis",
+          "patients suffering from myocardial insufficiency",
+          "Hypokalemia from B2-agonist",
+          "Children 2-6 years use under medical supervison"
+        ]),
+    Drug(
+        id: 'broncho16',
+        tradeName: 'VENTOLIN EXPECTORANT SYRUP 125ML',
+        genericName: 'GUAIFENESIN+SALBUTAMOL',
+        cat: 'Respiratory',
+        contra: [
+          "Hypersensitivity to the main component or the excepients",
+          "Children under 2 years",
+        ],
+        conc: 5 / 1.5,
+        minD: 0,
+        maxD: 0,
+        freq: 'PO q8h for 7 days',
+        doseNote: '',
+        prec: [
+          "Patients with diabetes due to suger content, thyrotoxicosis",
+          "patients suffering from myocardial insufficiency",
+          "Hypokalemia from B2-agonist",
+          "Children 2-6 years use under medical supervison"
+        ]),
+    Drug(
+        id: 'broncho17',
+        tradeName: 'VENTOCOUGH SUGAR FREE SYRUP 125ML',
+        genericName: 'GUAIFENESIN+SALBUTAMOL+BROMHEXINE',
+        cat: 'Respiratory',
+        contra: [
+          "Hypersensitivity to the main component or the excepients",
+          "Children under 2 years",
+        ],
+        conc: 5 / 1.5,
+        minD: 0,
+        maxD: 0,
+        freq: 'PO q8h for 7 days',
+        doseNote: '',
+        prec: [
+          "Patients with diabetes due to suger content, thyrotoxicosis",
+          "patients suffering from myocardial insufficiency",
+          "Hypokalemia from B2-agonist",
+          "Children 2-6 years use under medical supervison"
+        ]),
+    Drug(
+        id: 'broncho18',
+        tradeName: 'VENTOCOUGH SYRUP 125 ML',
+        genericName: 'GUAIFENESIN+SALBUTAMOL+BROMHEXINE',
+        cat: 'Respiratory',
+        contra: [
+          "Hypersensitivity to the main component or the excepients",
+          "Children under 2 years",
+        ],
+        conc: 5 / 1.5,
+        minD: 0,
+        maxD: 0,
+        freq: 'PO q8h for 7 days',
+        doseNote: '',
+        prec: [
+          "Patients with diabetes due to suger content, thyrotoxicosis",
+          "patients suffering from myocardial insufficiency",
+          "Hypokalemia from B2-agonist",
+          "Children 2-6 years use under medical supervison"
+        ]),
+    Drug(
+        id: 'broncho19',
+        tradeName: 'ALL-VENT SYRUP 125ML',
+        genericName: 'BROMHEXINE+GUAIFENESIN+MENTHOL+TERBUTALINE',
+        cat: 'Respiratory',
+        contra: [
+          "Hypersensitivity to the main component or the excepients",
+          "Hypertension",
+          "Hyperthyroidism",
+          "sellp disturbance"
+        ],
+        conc: 5 / 1.5,
+        minD: 0,
+        maxD: 0,
+        freq: 'PO q8h for 7 days',
+        doseNote: '',
+        prec: [
+          "Patients with diabetes due to suger content, thyrotoxicosis",
+          "patients suffering from myocardial insufficiency",
+          "Hypokalemia from B2-agonist",
+          "Peptic ulcer from bromhexine",
+        ]),
+    Drug(
+        id: 'broncho20',
+        tradeName: 'BRO-ZEDEX SYRUP 120ML',
+        genericName: 'BROMHEXINE+GUAIFENESIN+MENTHOL+TERBUTALINE',
+        cat: 'Respiratory',
+        contra: [
+          "Hypersensitivity to the main component or the excepients",
+          "Hypertension",
+          "Hyperthyroidism",
+          "sellp disturbance"
+        ],
+        conc: 5 / 1.5,
+        minD: 0,
+        maxD: 0,
+        freq: 'PO q8h for 7 days',
+        doseNote: '',
+        prec: [
+          "Patients with diabetes due to suger content, thyrotoxicosis",
+          "patients suffering from myocardial insufficiency",
+          "Hypokalemia from B2-agonist",
+          "Peptic ulcer from bromhexine",
+        ]),
+    Drug(
+        id: 'broncho21',
+        tradeName: 'FOUR VENT SYRUP 125ML',
+        genericName: 'BROMHEXINE+GUAIFENESIN+MENTHOL+TERBUTALINE',
+        cat: 'Respiratory',
+        contra: [
+          "Hypersensitivity to the main component or the excepients",
+          "Hypertension",
+          "Hyperthyroidism",
+          "sellp disturbance"
+        ],
+        conc: 5 / 1.5,
+        minD: 0,
+        maxD: 0,
+        freq: 'PO q8h for 7 days',
+        doseNote: '',
+        prec: [
+          "Patients with diabetes due to suger content, thyrotoxicosis",
+          "patients suffering from myocardial insufficiency",
+          "Hypokalemia from B2-agonist",
+          "Peptic ulcer from bromhexine",
+        ]),
+    Drug(
+        id: 'broncho22',
+        tradeName: 'TERHEXINE SYRUP 120ML',
+        genericName: 'BROMHEXINE+GUAIFENESIN+MENTHOL+TERBUTALINE',
+        cat: 'Respiratory',
+        contra: [
+          "Hypersensitivity to the main component or the excepients",
+          "Hypertension",
+          "Hyperthyroidism",
+          "sellp disturbance"
+        ],
+        conc: 5 / 1.5,
+        minD: 0,
+        maxD: 0,
+        freq: 'PO q8h for 7 days',
+        doseNote: '',
+        prec: [
+          "Patients with diabetes due to suger content, thyrotoxicosis",
+          "patients suffering from myocardial insufficiency",
+          "Hypokalemia from B2-agonist",
+          "Peptic ulcer from bromhexine",
+        ]),
+    Drug(
+        id: 'broncho23',
+        tradeName: 'OSIPECT SYRUP 120 ML',
+        genericName:
+            'GLYCERYL GUAICOLATE+POTASSIUM CITRATE+TERBUTALINE+DIPHENHYDRAMINE',
+        cat: 'Respiratory',
+        contra: [
+          "Hypersensitivity to the main component or the excepients",
+          "Hypertension",
+          "Glaucoma",
+          "Concomitant use with MAOIs",
+          "Renal disfunction, arrhythmia",
+        ],
+        conc: 5 / 1.5,
+        minD: 0,
+        maxD: 0,
+        freq: 'PO q8h for 7 days',
+        doseNote: '',
+        prec: [
+          "Patients with diabetes due to suger content, thyrotoxicosis",
+          "patients suffering from myocardial insufficiency",
+          "Hypokalemia from B2-agonist",
+          "Peptic ulcer from bromhexine",
+        ]),
+    Drug(
+        id: 'broncho24',
+        tradeName: 'MUCOPHYLLINE SYRUP 125ML',
+        genericName: 'ACEFYLLINE PIPERAZINE+BROMHEXINE',
+        cat: 'Respiratory',
+        contra: [
+          "Hypersensitivity to the main component or the excepients",
+          "Hypertension",
+          "Gastritis and Peptic ulcer",
+          "Concomitant use with MAOIs",
+          "Renal disfunction, Hepatic impairment, arrhythmia",
+        ],
+        conc: 5 / 1.5,
+        minD: 0,
+        maxD: 0,
+        freq: 'PO q8h for 7 days',
+        doseNote: '',
+        prec: [
+          "Patients with diabetes due to suger content, thyrotoxicosis",
+          "patients suffering from myocardial insufficiency",
+          "Hypokalemia from B2-agonist",
+          "Peptic ulcer from bromhexine",
+        ]),
+    Drug(
+        id: 'broncho25',
+        tradeName: 'FARCOSOLVIN SYRUP 120ML',
+        genericName: 'AMBROXOL+GUAIFENESIN+THEOPHYLLINE',
+        cat: 'Respiratory',
+        contra: [
+          "Hypersensitivity to the main component or the excepients",
+          "Hypertension",
+          "Hyperthyroidism",
+          "CHF",
+          "Renal disfunction, Hepatic impairment, arrhythmia",
+        ],
+        conc: 5 / 1.5,
+        minD: 0,
+        maxD: 0,
+        freq: 'PO q8h for 7 days',
+        doseNote: '',
+        prec: [
+          "Patients with diabetes due to suger content, thyrotoxicosis",
+          "patients suffering from myocardial insufficiency",
+          "Hypertension",
+          "History of Peptic ulcer",
+        ]),
+    Drug(
+        id: 'broncho26',
+        tradeName: 'TRI-BROXOL SYRUP 100ML',
+        genericName: 'AMBROXOL+GUAIFENESIN+THEOPHYLLINE',
+        cat: 'Respiratory',
+        contra: [
+          "Hypersensitivity to the main component or the excepients",
+          "Hypertension",
+          "Hyperthyroidism",
+          "CHF",
+          "Renal disfunction, Hepatic impairment, arrhythmia",
+        ],
+        conc: 5 / 1.5,
+        minD: 0,
+        maxD: 0,
+        freq: 'PO q8h for 7 days',
+        doseNote: '',
+        prec: [
+          "Patients with diabetes due to suger content, thyrotoxicosis",
+          "patients suffering from myocardial insufficiency",
+          "Hypertension",
+          "History of Peptic ulcer",
+        ]),
+    Drug(
+        id: 'broncho27',
+        tradeName: 'FARCOLIN SYRUP 120ML',
+        genericName: 'AMMONIUM CHLORIDE+SALBUTAMOL',
+        cat: 'Respiratory',
+        contra: [
+          "Hypersensitivity to the main component or the excepients",
+        ],
+        conc: 5 / 1.5,
+        minD: 0,
+        maxD: 0,
+        freq: 'PO q8h for 7 days',
+        doseNote: '',
+        prec: [
+          "Patients with diabetes due to suger content, thyrotoxicosis",
+          "patients suffering from myocardial insufficiency",
+          "Hypertension",
+        ]),
+    Drug(
+        id: 'broncho28',
+        tradeName: 'COUGH ZERO SYRUP 120 ML',
+        genericName: 'GUAVA LEAVES+TILIA FLOWER+FENNEL OIL',
+        cat: 'Respiratory',
+        contra: [
+          "Hypersensitivity to the main component or the excepients",
+          "Children under 3 years",
+          "Pregnancy and lactation"
+        ],
+        conc: 5 / 1.5,
+        minD: 0,
+        maxD: 0,
+        freq: 'PO q8h for 7 days',
+        doseNote: '',
+        prec: [
+          "Patients with diabetes due to suger content, thyrotoxicosis",
+          "High dose may cause diarhhea due to sorbitol",
+          "May cause urinary tract or GIT inflamation",
+        ]),
+    Drug(
+        id: 'broncho29',
+        tradeName: 'FALCOMIX SYRUP 120 ML',
+        genericName: 'GUAVA LEAVES+TILIA FLOWER+FENNEL OIL',
+        cat: 'Respiratory',
+        contra: [
+          "Hypersensitivity to the main component or the excepients",
+          "Children under 3 years",
+          "Pregnancy and lactation"
+        ],
+        conc: 5 / 1.5,
+        minD: 0,
+        maxD: 0,
+        freq: 'PO q8h for 7 days',
+        doseNote: '',
+        prec: [
+          "Patients with diabetes due to suger content, thyrotoxicosis",
+          "High dose may cause diarhhea due to sorbitol",
+          "May cause urinary tract or GIT inflamation",
+        ]),
+    Drug(
+        id: 'broncho30',
+        tradeName: 'FOUR MIX SYRUP 120 ML',
+        genericName: 'GUAVA LEAVES+TILIA FLOWER+FENNEL OIL',
+        cat: 'Respiratory',
+        contra: [
+          "Hypersensitivity to the main component or the excepients",
+          "Children under 3 years",
+          "Pregnancy and lactation"
+        ],
+        conc: 5 / 1.5,
+        minD: 0,
+        maxD: 0,
+        freq: 'PO q8h for 7 days',
+        doseNote: '',
+        prec: [
+          "Patients with diabetes due to suger content, thyrotoxicosis",
+          "High dose may cause diarhhea due to sorbitol",
+          "May cause urinary tract or GIT inflamation",
+        ]),
+    Drug(
+        id: 'broncho31',
+        tradeName: 'GUAFLEX-N SYRUP 120 ML',
+        genericName: 'GUAVA LEAVES+TILIA FLOWER+FENNEL OIL',
+        cat: 'Respiratory',
+        contra: [
+          "Hypersensitivity to the main component or the excepients",
+          "Children under 3 years",
+          "Pregnancy and lactation"
+        ],
+        conc: 5 / 1.5,
+        minD: 0,
+        maxD: 0,
+        freq: 'PO q8h for 7 days',
+        doseNote: '',
+        prec: [
+          "Patients with diabetes due to suger content, thyrotoxicosis",
+          "High dose may cause diarhhea due to sorbitol",
+          "May cause urinary tract or GIT inflamation",
+        ]),
+    Drug(
+        id: 'broncho32',
+        tradeName: 'GUAVA SYRUP 120 ML',
+        genericName: 'GUAVA LEAVES+TILIA FLOWER+FENNEL OIL',
+        cat: 'Respiratory',
+        contra: [
+          "Hypersensitivity to the main component or the excepients",
+          "Children under 3 years",
+          "Pregnancy and lactation"
+        ],
+        conc: 5 / 1.5,
+        minD: 0,
+        maxD: 0,
+        freq: 'PO q8h for 7 days',
+        doseNote: '',
+        prec: [
+          "Patients with diabetes due to suger content, thyrotoxicosis",
+          "High dose may cause diarhhea due to sorbitol",
+          "May cause urinary tract or GIT inflamation",
+        ]),
+    Drug(
+        id: 'broncho33',
+        tradeName: 'GUAVA TRIX 120 ML SYRUP',
+        genericName: 'GUAVA LEAVES+TILIA FLOWER+FENNEL OIL',
+        cat: 'Respiratory',
+        contra: [
+          "Hypersensitivity to the main component or the excepients",
+          "Children under 3 years",
+          "Pregnancy and lactation"
+        ],
+        conc: 5 / 1.5,
+        minD: 0,
+        maxD: 0,
+        freq: 'PO q8h for 7 days',
+        doseNote: '',
+        prec: [
+          "Patients with diabetes due to suger content, thyrotoxicosis",
+          "High dose may cause diarhhea due to sorbitol",
+          "May cause urinary tract or GIT inflamation",
+        ]),
+    Drug(
+        id: 'broncho34',
+        tradeName: 'GUAVAGED SYRUP 120 ML',
+        genericName: 'GUAVA LEAVES+TILIA FLOWER+FENNEL OIL',
+        cat: 'Respiratory',
+        contra: [
+          "Hypersensitivity to the main component or the excepients",
+          "Children under 3 years",
+          "Pregnancy and lactation"
+        ],
+        conc: 5 / 1.5,
+        minD: 0,
+        maxD: 0,
+        freq: 'PO q8h for 7 days',
+        doseNote: '',
+        prec: [
+          "Patients with diabetes due to suger content, thyrotoxicosis",
+          "High dose may cause diarhhea due to sorbitol",
+          "May cause urinary tract or GIT inflamation",
+        ]),
+    Drug(
+        id: 'broncho35',
+        tradeName: 'GUAVAROLAP SYRUP 120 ML',
+        genericName: 'GUAVA LEAVES+TILIA FLOWER+FENNEL OIL',
+        cat: 'Respiratory',
+        contra: [
+          "Hypersensitivity to the main component or the excepients",
+          "Children under 3 years",
+          "Pregnancy and lactation"
+        ],
+        conc: 5 / 1.5,
+        minD: 0,
+        maxD: 0,
+        freq: 'PO q8h for 7 days',
+        doseNote: '',
+        prec: [
+          "Patients with diabetes due to suger content, thyrotoxicosis",
+          "High dose may cause diarhhea due to sorbitol",
+          "May cause urinary tract or GIT inflamation",
+        ]),
+    Drug(
+        id: 'broncho36',
+        tradeName: 'HERBA CAF SYRUP 80 ML',
+        genericName: 'GUAVA LEAVES+TILIA FLOWER+FENNEL OIL',
+        cat: 'Respiratory',
+        contra: [
+          "Hypersensitivity to the main component or the excepients",
+          "Children under 3 years",
+          "Pregnancy and lactation"
+        ],
+        conc: 5 / 1.5,
+        minD: 0,
+        maxD: 0,
+        freq: 'PO q8h for 7 days',
+        doseNote: '',
+        prec: [
+          "Patients with diabetes due to suger content, thyrotoxicosis",
+          "High dose may cause diarhhea due to sorbitol",
+          "May cause urinary tract or GIT inflamation",
+        ]),
+    Drug(
+        id: 'broncho37',
+        tradeName: 'HERBAZOLE SYRUP 120 ML',
+        genericName: 'GUAVA LEAVES+TILIA FLOWER+FENNEL OIL',
+        cat: 'Respiratory',
+        contra: [
+          "Hypersensitivity to the main component or the excepients",
+          "Children under 3 years",
+          "Pregnancy and lactation"
+        ],
+        conc: 5 / 1.5,
+        minD: 0,
+        maxD: 0,
+        freq: 'PO q8h for 7 days',
+        doseNote: '',
+        prec: [
+          "Patients with diabetes due to suger content, thyrotoxicosis",
+          "High dose may cause diarhhea due to sorbitol",
+          "May cause urinary tract or GIT inflamation",
+        ]),
+    Drug(
+        id: 'broncho38',
+        tradeName: 'JUVIEX SYRUP 120 ML',
+        genericName: 'GUAVA LEAVES+TILIA FLOWER+FENNEL OIL',
+        cat: 'Respiratory',
+        contra: [
+          "Hypersensitivity to the main component or the excepients",
+          "Children under 3 years",
+          "Pregnancy and lactation"
+        ],
+        conc: 5 / 1.5,
+        minD: 0,
+        maxD: 0,
+        freq: 'PO q8h for 7 days',
+        doseNote: '',
+        prec: [
+          "Patients with diabetes due to suger content, thyrotoxicosis",
+          "High dose may cause diarhhea due to sorbitol",
+          "May cause urinary tract or GIT inflamation",
+        ]),
+    Drug(
+        id: 'broncho39',
+        tradeName: 'MASTER COUGH SYRUP 120 ML',
+        genericName: 'GUAVA LEAVES+TILIA FLOWER+FENNEL OIL',
+        cat: 'Respiratory',
+        contra: [
+          "Hypersensitivity to the main component or the excepients",
+          "Children under 3 years",
+          "Pregnancy and lactation"
+        ],
+        conc: 5 / 1.5,
+        minD: 0,
+        maxD: 0,
+        freq: 'PO q8h for 7 days',
+        doseNote: '',
+        prec: [
+          "Patients with diabetes due to suger content, thyrotoxicosis",
+          "High dose may cause diarhhea due to sorbitol",
+          "May cause urinary tract or GIT inflamation",
+        ]),
+    Drug(
+        id: 'broncho40',
+        tradeName: 'NORMASS SYRUP 120 ML',
+        genericName: 'GUAVA LEAVES+TILIA FLOWER+FENNEL OIL',
+        cat: 'Respiratory',
+        contra: [
+          "Hypersensitivity to the main component or the excepients",
+          "Children under 3 years",
+          "Pregnancy and lactation"
+        ],
+        conc: 5 / 1.5,
+        minD: 0,
+        maxD: 0,
+        freq: 'PO q8h for 7 days',
+        doseNote: '',
+        prec: [
+          "Patients with diabetes due to suger content, thyrotoxicosis",
+          "High dose may cause diarhhea due to sorbitol",
+          "May cause urinary tract or GIT inflamation",
+        ]),
+    Drug(
+        id: 'broncho41',
+        tradeName: 'OPTY COUGH SYRUP 120 ML',
+        genericName: 'GUAVA LEAVES+TILIA FLOWER+FENNEL OIL',
+        cat: 'Respiratory',
+        contra: [
+          "Hypersensitivity to the main component or the excepients",
+          "Children under 3 years",
+          "Pregnancy and lactation"
+        ],
+        conc: 5 / 1.5,
+        minD: 0,
+        maxD: 0,
+        freq: 'PO q8h for 7 days',
+        doseNote: '',
+        prec: [
+          "Patients with diabetes due to suger content, thyrotoxicosis",
+          "High dose may cause diarhhea due to sorbitol",
+          "May cause urinary tract or GIT inflamation",
+        ]),
+    Drug(
+        id: 'broncho42',
+        tradeName: 'PENTAMIX SYRUP 120 ML',
+        genericName: 'GUAVA LEAVES+TILIA FLOWER+FENNEL OIL',
+        cat: 'Respiratory',
+        contra: [
+          "Hypersensitivity to the main component or the excepients",
+          "Children under 3 years",
+          "Pregnancy and lactation"
+        ],
+        conc: 5 / 1.5,
+        minD: 0,
+        maxD: 0,
+        freq: 'PO q8h for 7 days',
+        doseNote: '',
+        prec: [
+          "Patients with diabetes due to suger content, thyrotoxicosis",
+          "High dose may cause diarhhea due to sorbitol",
+          "May cause urinary tract or GIT inflamation",
+        ]),
+    Drug(
+        id: 'broncho43',
+        tradeName: 'SOL COUGH SYRUP 120 ML',
+        genericName: 'GUAVA LEAVES+TILIA FLOWER+FENNEL OIL',
+        cat: 'Respiratory',
+        contra: [
+          "Hypersensitivity to the main component or the excepients",
+          "Children under 3 years",
+          "Pregnancy and lactation"
+        ],
+        conc: 5 / 1.5,
+        minD: 0,
+        maxD: 0,
+        freq: 'PO q8h for 7 days',
+        doseNote: '',
+        prec: [
+          "Patients with diabetes due to suger content, thyrotoxicosis",
+          "High dose may cause diarhhea due to sorbitol",
+          "May cause urinary tract or GIT inflamation",
+        ]),
+    Drug(
+        id: 'broncho44',
+        tradeName: 'TUSSINOR SYRUP 120 ML',
+        genericName: 'GUAVA LEAVES+TILIA FLOWER+FENNEL OIL',
+        cat: 'Respiratory',
+        contra: [
+          "Hypersensitivity to the main component or the excepients",
+          "Children under 3 years",
+          "Pregnancy and lactation"
+        ],
+        conc: 5 / 1.5,
+        minD: 0,
+        maxD: 0,
+        freq: 'PO q8h for 7 days',
+        doseNote: '',
+        prec: [
+          "Patients with diabetes due to suger content, thyrotoxicosis",
+          "High dose may cause diarhhea due to sorbitol",
+          "May cause urinary tract or GIT inflamation",
+        ]),
+    Drug(
+        id: 'broncho45',
+        tradeName: 'FOUR MIX SYRUP 120 ML',
+        genericName: 'GUAVA LEAVES+THYME LEAVES+FENNEL',
+        cat: 'Respiratory',
+        contra: [
+          "Hypersensitivity to the main component or the excepients",
+          "Children under 4 years",
+          "Pregnancy"
+        ],
+        conc: 5 / 1.5,
+        minD: 0,
+        maxD: 0,
+        freq: 'PO q8h for 7 days',
+        doseNote: '',
+        prec: [
+          "Patients with diabetes due to suger content, thyrotoxicosis",
+          "High dose may cause diarhhea due to sorbitol",
+          "May cause urinary tract or GIT inflamation",
+        ]),
+    Drug(
+        id: 'broncho46',
+        tradeName: 'Prima-5 syrup 120ml',
+        genericName: 'GUAVA LEAVES+THYME LEAVES+FENNEL',
+        cat: 'Respiratory',
+        contra: [
+          "Hypersensitivity to the main component or the excepients",
+          "Children under 4 years",
+          "Pregnancy"
+        ],
+        conc: 5 / 1.5,
+        minD: 0,
+        maxD: 0,
+        freq: 'PO q8h for 7 days',
+        doseNote: '',
+        prec: [
+          "Patients with diabetes due to suger content, thyrotoxicosis",
+          "High dose may cause diarhhea due to sorbitol",
+          "May cause urinary tract or GIT inflamation",
+        ]),
+    Drug(
+        id: 'broncho47',
+        tradeName: 'Guava reme plus syrup 120ml',
+        genericName: 'GUAVA LEAVES+THYME LEAVES+FENNEL',
+        cat: 'Respiratory',
+        contra: [
+          "Hypersensitivity to the main component or the excepients",
+          "Children under 4 years",
+          "Pregnancy"
+        ],
+        conc: 5 / 1.5,
+        minD: 0,
+        maxD: 0,
+        freq: 'PO q8h for 7 days',
+        doseNote: '',
+        prec: [
+          "Patients with diabetes due to suger content, thyrotoxicosis",
+          "High dose may cause diarhhea due to sorbitol",
+          "May cause urinary tract or GIT inflamation",
+        ]),
+    Drug(
+        id: 'broncho48',
+        tradeName: 'Fast syrup 120ml',
+        genericName: 'GUAVA LEAVES+THYME LEAVES+FENNEL',
+        cat: 'Respiratory',
+        contra: [
+          "Hypersensitivity to the main component or the excepients",
+          "Children under 4 years",
+          "Pregnancy"
+        ],
+        conc: 5 / 1.5,
+        minD: 0,
+        maxD: 0,
+        freq: 'PO q8h for 7 days',
+        doseNote: '',
+        prec: [
+          "Patients with diabetes due to suger content, thyrotoxicosis",
+          "High dose may cause diarhhea due to sorbitol",
+          "May cause urinary tract or GIT inflamation",
+        ]),
+    Drug(
+        id: 'broncho49',
+        tradeName: 'SINADRY SYRUP 120 ML',
+        genericName:
+            'PIMPINELLA ROOT EXT+GRINDELIA HERB EXT+PRIMULA ROOT TINCTURE EXT+THYME+ROSE EXT+HONEY',
+        cat: 'Respiratory',
+        contra: [
+          "Hypersensitivity to the main component or the excepients",
+          "Children under 4 years",
+          "Pregnancy"
+        ],
+        conc: 5 / 1.5,
+        minD: 0,
+        maxD: 0,
+        freq: 'PO q8h for 7 days',
+        doseNote: '',
+        prec: [
+          "Patients with diabetes due to suger content, thyrotoxicosis",
+          "High dose may cause diarhhea due to sorbitol",
+          "May cause urinary tract or GIT inflamation",
+        ]),
+    Drug(
+        id: 'broncho50',
+        tradeName: 'SINAWET SYRUP 120 ML',
+        genericName:
+            'PIMPINELLA ROOT EXT+GRINDELIA HERB EXT+PRIMULA ROOT TINCTURE EXT+THYME+ROSE EXT+HONEY',
+        cat: 'Respiratory',
+        contra: [
+          "Hypersensitivity to the main component or the excepients",
+          "Children under 4 years",
+          "Pregnancy"
+        ],
+        conc: 5 / 1.5,
+        minD: 0,
+        maxD: 0,
+        freq: 'PO q8h for 7 days',
+        doseNote: '',
+        prec: [
+          "Patients with diabetes due to suger content, thyrotoxicosis",
+          "High dose may cause diarhhea due to sorbitol",
+          "May cause urinary tract or GIT inflamation",
+        ]),
+    Drug(
+        id: 'broncho51',
+        tradeName: 'Alveolin syrup 100ml',
+        genericName:
+            'PIMPINELLA ROOT EXT+GRINDELIA HERB EXT+PRIMULA ROOT TINCTURE EXT+THYME+ROSE EXT+HONEY',
+        cat: 'Respiratory',
+        contra: [
+          "Hypersensitivity to the main component or the excepients",
+          "Children under 4 years",
+          "Pregnancy"
+        ],
+        conc: 5 / 1.5,
+        minD: 0,
+        maxD: 0,
+        freq: 'PO q8h for 7 days',
+        doseNote: '',
+        prec: [
+          "Patients with diabetes due to suger content, thyrotoxicosis",
+          "High dose may cause diarhhea due to sorbitol",
+          "May cause urinary tract or GIT inflamation",
+        ]),
+    Drug(
+        id: 'broncho52',
+        tradeName: 'Alveolin-p syrup 100ml',
+        genericName:
+            'PIMPINELLA ROOT EXT+GRINDELIA HERB EXT+PRIMULA ROOT TINCTURE EXT+THYME+ROSE EXT+HONEY',
+        cat: 'Respiratory',
+        contra: [
+          "Hypersensitivity to the main component or the excepients",
+          "Children under 4 years",
+          "Pregnancy"
+        ],
+        conc: 5 / 1.5,
+        minD: 0,
+        maxD: 0,
+        freq: 'PO q8h for 7 days',
+        doseNote: '',
+        prec: [
+          "Patients with diabetes due to suger content, thyrotoxicosis",
+          "High dose may cause diarhhea due to sorbitol",
+          "May cause urinary tract or GIT inflamation",
+        ]),
+    Drug(
+        id: 'broncho53',
+        tradeName: 'Herbal bronch n syrup 120 ml',
+        genericName:
+            'PIMPINELLA ROOT EXT+GRINDELIA HERB EXT+PRIMULA ROOT TINCTURE EXT+THYME+ROSE EXT+HONEY',
+        cat: 'Respiratory',
+        contra: [
+          "Hypersensitivity to the main component or the excepients",
+          "Children under 4 years",
+          "Pregnancy"
+        ],
+        conc: 5 / 1.5,
+        minD: 0,
+        maxD: 0,
+        freq: 'PO q8h for 7 days',
+        doseNote: '',
+        prec: [
+          "Patients with diabetes due to suger content, thyrotoxicosis",
+          "High dose may cause diarhhea due to sorbitol",
+          "May cause urinary tract or GIT inflamation",
+        ]),
+    Drug(
+        id: 'broncho54',
+        tradeName: 'BABETONE SYRUP 120 ML',
+        genericName: 'THYME+FENNEL+BEE PROPOLIS+ROSE HIP+HONEY BASE',
+        cat: 'Respiratory',
+        contra: [
+          "Hypersensitivity to the main component or the excepients",
+          "Children under 3 years",
+          "Pregnancy"
+        ],
+        conc: 5 / 1.5,
+        minD: 0,
+        maxD: 0,
+        freq: 'PO q8h for 7 days',
+        doseNote: '',
+        prec: [
+          "Patients with diabetes due to suger content, thyrotoxicosis",
+          "High dose may cause diarhhea due to sorbitol",
+          "May cause urinary tract or GIT inflamation",
+        ]),
+    Drug(
+        id: 'broncho55',
+        tradeName: 'BABETONE SYRUP SUGAR FREE 120 ML',
+        genericName: 'THYME+FENNEL+BEE PROPOLIS+ROSE HIP+HONEY BASE',
+        cat: 'Respiratory',
+        contra: [
+          "Hypersensitivity to the main component or the excepients",
+          "Children under 3 years",
+          "Pregnancy"
+        ],
+        conc: 5 / 1.5,
+        minD: 0,
+        maxD: 0,
+        freq: 'PO q8h for 7 days',
+        doseNote: '',
+        prec: [
+          "Patients with thyrotoxicosis",
+          "May cause urinary tract or GIT inflamation",
+        ]),
+    Drug(
+        id: 'broncho56',
+        tradeName: 'BIORELIXIT SYRUP 120 ML',
+        genericName: 'IVY LEAVES',
+        cat: 'Respiratory',
+        contra: [
+          "Hypersensitivity to the main component or the excepients",
+        ],
+        conc: 5 / 1.5,
+        minD: 0,
+        maxD: 0,
+        freq: 'PO q8h for 7 days',
+        doseNote: '',
+        prec: [
+          "High dose may cause diarhhea",
+          "Caution in pregnancy and lactation",
+        ]),
+    Drug(
+        id: 'broncho57',
+        tradeName: 'HI PAN SYRUP 100 ML',
+        genericName: 'IVY LEAVES',
+        cat: 'Respiratory',
+        contra: [
+          "Hypersensitivity to the main component or the excepients",
+        ],
+        conc: 5 / 1.5,
+        minD: 0,
+        maxD: 0,
+        freq: 'PO q8h for 7 days',
+        doseNote: '',
+        prec: [
+          "High dose may cause diarhhea",
+          "Caution in pregnancy and lactation",
+        ]),
+    Drug(
+        id: 'broncho58',
+        tradeName: 'IVYPRONT SYRUP 120ML',
+        genericName: 'IVY LEAVES',
+        cat: 'Respiratory',
+        contra: [
+          "Hypersensitivity to the main component or the excepients",
+        ],
+        conc: 5 / 1.5,
+        minD: 0,
+        maxD: 0,
+        freq: 'PO q8h for 7 days',
+        doseNote: '',
+        prec: [
+          "High dose may cause diarhhea",
+          "Caution in pregnancy and lactation",
+        ]),
+    Drug(
+        id: 'broncho59',
+        tradeName: 'IVYROSPAN SYRUP 100 ML',
+        genericName: 'IVY LEAVES',
+        cat: 'Respiratory',
+        contra: [
+          "Hypersensitivity to the main component or the excepients",
+        ],
+        conc: 5 / 1.5,
+        minD: 0,
+        maxD: 0,
+        freq: 'PO q8h for 7 days',
+        doseNote: '',
+        prec: [
+          "High dose may cause diarhhea",
+          "Caution in pregnancy and lactation",
+        ]),
+    Drug(
+        id: 'broncho60',
+        tradeName: 'KAFINOL SYRUP 120 ML',
+        genericName: 'IVY LEAVES',
+        cat: 'Respiratory',
+        contra: [
+          "Hypersensitivity to the main component or the excepients",
+        ],
+        conc: 5 / 1.5,
+        minD: 0,
+        maxD: 0,
+        freq: 'PO q8h for 7 days',
+        doseNote: '',
+        prec: [
+          "High dose may cause diarhhea",
+          "Caution in pregnancy and lactation",
+        ]),
+    Drug(
+        id: 'broncho61',
+        tradeName: 'KIFPAN SYRUP 120 ML',
+        genericName: 'IVY LEAVES',
+        cat: 'Respiratory',
+        contra: [
+          "Hypersensitivity to the main component or the excepients",
+        ],
+        conc: 5 / 1.5,
+        minD: 0,
+        maxD: 0,
+        freq: 'PO q8h for 7 days',
+        doseNote: '',
+        prec: [
+          "High dose may cause diarhhea",
+          "Caution in pregnancy and lactation",
+        ]),
+    Drug(
+        id: 'broncho62',
+        tradeName: 'PEOPOSPAN 0.7GM/100ML SYRUP 100ML',
+        genericName: 'IVY LEAVES',
+        cat: 'Respiratory',
+        contra: [
+          "Hypersensitivity to the main component or the excepients",
+        ],
+        conc: 5 / 1.5,
+        minD: 0,
+        maxD: 0,
+        freq: 'PO q8h for 7 days',
+        doseNote: '',
+        prec: [
+          "High dose may cause diarhhea",
+          "Caution in pregnancy and lactation",
+        ]),
+    Drug(
+        id: 'broncho63',
+        tradeName: 'ROTAHELEX SYRUP 120 ML',
+        genericName: 'IVY LEAVES',
+        cat: 'Respiratory',
+        contra: [
+          "Hypersensitivity to the main component or the excepients",
+        ],
+        conc: 5 / 1.5,
+        minD: 0,
+        maxD: 0,
+        freq: 'PO q8h for 7 days',
+        doseNote: '',
+        prec: [
+          "High dose may cause diarhhea",
+          "Caution in pregnancy and lactation",
+        ]),
+    Drug(
+        id: 'broncho63',
+        tradeName: 'SINUC 0.9% SYRUP 100 ML',
+        genericName: 'IVY LEAVES',
+        cat: 'Respiratory',
+        contra: [
+          "Hypersensitivity to the main component or the excepients",
+        ],
+        conc: 5 / 1.5,
+        minD: 0,
+        maxD: 0,
+        freq: 'PO q8h for 7 days',
+        doseNote: '',
+        prec: [
+          "High dose may cause diarhhea",
+          "Caution in pregnancy and lactation",
+        ]),
+    Drug(
+        id: 'broncho64',
+        tradeName: 'SPANOMEP SYRUP 120 ML',
+        genericName: 'IVY LEAVES',
+        cat: 'Respiratory',
+        contra: [
+          "Hypersensitivity to the main component or the excepients",
+        ],
+        conc: 5 / 1.5,
+        minD: 0,
+        maxD: 0,
+        freq: 'PO q8h for 7 days',
+        doseNote: '',
+        prec: [
+          "High dose may cause diarhhea",
+          "Caution in pregnancy and lactation",
+        ]),
+    Drug(
+        id: 'broncho65',
+        tradeName: 'IVY PAN SYRUP 100 ML',
+        genericName: 'IVY LEAVES+TILIA FLOWER EXT.',
+        cat: 'Respiratory',
+        contra: [
+          "Hypersensitivity to the main component or the excepients",
+        ],
+        conc: 5 / 1.5,
+        minD: 0,
+        maxD: 0,
+        freq: 'PO q8h for 7 days',
+        doseNote: '',
+        prec: [
+          "High dose may cause diarhhea",
+          "Caution in pregnancy and lactation",
+        ]),
+    Drug(
+        id: 'broncho66',
+        tradeName: 'THYMOTAL PLUS SYRUP 100 ML',
+        genericName: 'THYME FLUID EXTRACT+IVY',
+        cat: 'Respiratory',
+        contra: [
+          "Hypersensitivity to the main component or the excepients",
+          "Pregnancy",
+          "Children under 2 years"
+        ],
+        conc: 5 / 1.5,
+        minD: 0,
+        maxD: 0,
+        freq: 'PO q8h for 7 days',
+        doseNote: '',
+        prec: [
+          "High dose may cause diarhhea",
+          "Caution in pregnancy and lactation",
+          "May cause urinary tract or GIT inflamation",
+          "Care with patients with thyroid gland disorder"
+        ]),
+    Drug(
+        id: 'broncho67',
+        tradeName: 'THYMOTAL SYRUP 100 ML',
+        genericName: 'THYME FLUID EXTRACT',
+        cat: 'Respiratory',
+        contra: [
+          "Hypersensitivity to the main component or the excepients",
+          "Pregnancy",
+          "Children under 2 years"
+        ],
+        conc: 5 / 1.5,
+        minD: 0,
+        maxD: 0,
+        freq: 'PO q8h for 7 days',
+        doseNote: '',
+        prec: [
+          "High dose may cause diarhhea",
+          "Caution in pregnancy and lactation",
+          "May cause urinary tract or GIT inflamation",
+          "Care with patients with thyroid gland disorder"
+        ]),
+    Drug(
+        id: 'broncho68',
+        tradeName: 'BRONCARE SYRUP 120 ML',
+        genericName:
+            'LIQUORICE ROOT EXT.+THYME EXT.+ANISE OIL+BITTER FENNEL FRUIT OIL',
+        cat: 'Respiratory',
+        contra: [
+          "Hypersensitivity to the main component or the excepients",
+          "Contraindicated with furosemide/thiazide diuretics due to additeve effect of hypokalemia",
+          "Contraindicated with digitalis glycosides, antiarrhythmic agents and corticosteroids",
+          "Pregnancy",
+          "Children under 2 years"
+        ],
+        conc: 5 / 1.5,
+        minD: 0,
+        maxD: 0,
+        freq: 'PO q8h for 7 days',
+        doseNote: '',
+        prec: [
+          "High dose may cause hypokalemia, hypernatremia, edema and hypertension",
+          "Caution in pregnancy and lactation",
+          "May cause urinary tract or GIT inflamation",
+          "High dose may cause diarrhea due to sorbitol",
+          "Care with patients with thyroid gland disorder"
+        ]),
+    Drug(
+        id: 'broncho69',
+        tradeName: 'BRONCHICUM ELIXIR 100 ML',
+        genericName: 'PRIMULA ROOT FLUID EXTRACT+THYME FLUID EXTRACT',
+        cat: 'Respiratory',
+        contra: [
+          "Hypersensitivity to the main component or the excepients",
+          "Pregnancy",
+          "Children under 2 years"
+        ],
+        conc: 5 / 1.5,
+        minD: 0,
+        maxD: 0,
+        freq: 'PO q8h for 7 days',
+        doseNote: '',
+        prec: [
+          "May cause urinary tract or GIT inflamation",
+          "Care with patients with thyroid gland disorder"
+        ]),
   ];
 
   List<Drug> get drugs {

@@ -5,6 +5,7 @@ import 'package:provider/provider.dart';
 
 class Details extends StatefulWidget {
   static const String id = 'antipyretic';
+
   @override
   _DetailsState createState() => _DetailsState();
 }
@@ -29,7 +30,7 @@ class _DetailsState extends State<Details> {
   String freq = '';
   String query;
   double age;
-  double _weight = 0;
+  double _weight = 18;
   List<int> years = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
   List<int> months = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
   final _amoxiKey = GlobalKey<FormState>();
@@ -112,6 +113,22 @@ class _DetailsState extends State<Details> {
     'Trichomoniasis',
   ];
   final _searchController = TextEditingController();
+  double _a = 5;
+  double _w = 0.0;
+  final _controller = TextEditingController();
+  @override
+  void initState() {
+    super.initState();
+    _controller.text = _weight.toString();
+    // _controller.addListener(_setValue);
+  }
+
+  // _setValue() {
+  //   setState(() {
+  //     _weight = double.parse(_controller.text);
+  //   });
+  // }
+
   @override
   Widget build(BuildContext context) {
     final catName = ModalRoute.of(context).settings.arguments;
@@ -480,59 +497,121 @@ class _DetailsState extends State<Details> {
             SizedBox(
               height: 10,
             ),
-            Container(
-              padding: EdgeInsets.only(left: 10, right: 10),
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.all(Radius.circular(10)),
-                  border: Border.all(color: Colors.white)),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text('Year'),
-                  DropdownButton(
-                    items: years
-                        .map((e) => DropdownMenuItem(
-                              child: Text(e.toString()),
-                              value: e,
-                            ))
-                        .toList(),
-                    onChanged: (value) {
-                      setState(() {
-                        selectedYear = value;
-                      });
-                    },
-                    value: selectedYear,
-                  ),
-                  Text('Month'),
-                  DropdownButton(
-                    items: months
-                        .map((e) => DropdownMenuItem(
-                              child: Text(e.toString()),
-                              value: e,
-                            ))
-                        .toList(),
-                    onChanged: (value) {
-                      setState(() {
-                        selectedMonth = value;
-                        selectedYear == 0
-                            ? _weight = double.parse(
-                                ((selectedMonth + 9) / 2).toStringAsFixed(1))
-                            : _weight = double.parse(
-                                ((selectedYear + selectedMonth / 12) * 2 + 8)
-                                    .toStringAsFixed(1));
-                      });
-                    },
-                    value: selectedMonth,
-                  ),
-                  Divider(
-                    color: Colors.red,
-                    thickness: 10,
-                  ),
-                  Text('Weight'),
-                  Text('$_weight'),
-                ],
-              ),
+            // Container(
+            //   padding: EdgeInsets.only(left: 10, right: 10),
+            //   decoration: BoxDecoration(
+            //       borderRadius: BorderRadius.all(Radius.circular(10)),
+            //       border: Border.all(color: Colors.white)),
+            //   child: Row(
+            //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            //     children: [
+            //       Text('Year'),
+            //       DropdownButton(
+            //         items: years
+            //             .map((e) => DropdownMenuItem(
+            //                   child: Text(e.toString()),
+            //                   value: e,
+            //                 ))
+            //             .toList(),
+            //         onChanged: (value) {
+            //           setState(() {
+            //             selectedYear = value;
+            //           });
+            //         },
+            //         value: selectedYear,
+            //       ),
+            //       Text('Month'),
+            //       DropdownButton(
+            //         items: months
+            //             .map((e) => DropdownMenuItem(
+            //                   child: Text(e.toString()),
+            //                   value: e,
+            //                 ))
+            //             .toList(),
+            //         onChanged: (value) {
+            //           setState(() {
+            //             selectedMonth = value;
+            //             selectedYear == 0
+            //                 ? _weight = double.parse(
+            //                     ((selectedMonth + 9) / 2).toStringAsFixed(1))
+            //                 : _weight = double.parse(
+            //                     ((selectedYear + selectedMonth / 12) * 2 + 8)
+            //                         .toStringAsFixed(1));
+            //           });
+            //         },
+            //         value: selectedMonth,
+            //       ),
+            //       Divider(
+            //         color: Colors.red,
+            //         thickness: 10,
+            //       ),
+            //       Text('Weight'),
+            //       Text('$_weight kg'),
+            //     ],
+            //   ),
+            // ),
+            SizedBox(
+              height: 10,
             ),
+            Text('Age= $_a'),
+
+            SizedBox(
+              height: 10,
+            ),
+
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text('Weight= '),
+                Expanded(
+                  child: TextField(
+                    style: TextStyle(color: Colors.white),
+                    decoration: InputDecoration(
+                      border: InputBorder.none,
+                    ),
+                    keyboardType: TextInputType.number,
+                    controller: _controller,
+                    onChanged: (value) {
+                      setState(() {
+                        _weight = double.parse(value);
+                        _controller.text = _weight.toString();
+                      });
+                    },
+                  ),
+                ),
+              ],
+            ),
+
+            SizedBox(
+              height: 10,
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            Slider(
+              value: _a,
+              onChanged: (v) {
+                setState(() {
+                  _a = v;
+                });
+                if (v < 1) {
+                  setState(() {
+                    _w = double.parse(((_a + 9) / 2).toStringAsFixed(1));
+                    _weight = _w;
+                    _controller.text = _w.toString();
+                  });
+                } else {
+                  setState(() {
+                    _w = double.parse(((_a * 2) + 8).toStringAsFixed(1));
+                    _weight = _w;
+                    _controller.text = _w.toString();
+                  });
+                }
+              },
+              min: 0.0,
+              max: 12,
+            ),
+
             SizedBox(
               height: 10,
             ),
@@ -542,6 +621,7 @@ class _DetailsState extends State<Details> {
                 Expanded(
                   child: ElevatedButton(
                     onPressed: () {
+                      print(_weight);
                       if (_selectedTotal.genericName == null ||
                           _weight == 0.0) {
                         showDialog(
@@ -568,7 +648,7 @@ class _DetailsState extends State<Details> {
                         });
                         return;
                       } else if (catName == 'Common Cold') {
-                        if (selectedYear < 6) {
+                        if (_weight < 20) {
                           showDialog(
                               context: context,
                               builder: (BuildContext context) => AlertDialog(
@@ -2849,6 +2929,1288 @@ class _DetailsState extends State<Details> {
                             _tradeView = false;
                           });
                         }
+                      } else if (_selectedTotal.genericName ==
+                          'CARBOCYSTEINE') {
+                        if (_weight < 12) {
+                          showDialog(
+                              context: context,
+                              builder: (BuildContext context) {
+                                return AlertDialog(
+                                  title: Text('Caution...'),
+                                  content: Text(
+                                      'Safety and efficacy for use under 2 years not established '),
+                                );
+                              });
+                          setState(() {
+                            _doseView = false;
+                          });
+                          return;
+                        } else if (_weight < 20) {
+                          setState(() {
+                            _maxDose = 5;
+
+                            _minDose = 2.5;
+                            freq = " PO tid";
+                            _doseView = true;
+
+                            _contraView = false;
+                            _precView = false;
+                            _tradeView = false;
+                          });
+                        } else {
+                          setState(() {
+                            _maxDose = 0.0;
+
+                            _minDose = 10;
+                            freq = " PO tid";
+                            _doseView = true;
+
+                            _contraView = false;
+                            _precView = false;
+                            _tradeView = false;
+                          });
+                        }
+                      } else if (_selectedTotal.genericName ==
+                          'CARBOCYSTEINE') {
+                        if (_weight < 12) {
+                          showDialog(
+                              context: context,
+                              builder: (BuildContext context) {
+                                return AlertDialog(
+                                  title: Text('Caution...'),
+                                  content: Text(
+                                      'Safety and efficacy for use under 2 years not established '),
+                                );
+                              });
+                          setState(() {
+                            _doseView = false;
+                          });
+                          return;
+                        } else if (_weight < 20) {
+                          setState(() {
+                            _maxDose = 2.5;
+
+                            _minDose = 1.25;
+                            freq = " PO tid";
+                            _doseView = true;
+
+                            _contraView = false;
+                            _precView = false;
+                            _tradeView = false;
+                          });
+                        } else {
+                          setState(() {
+                            _maxDose = 0.0;
+
+                            _minDose = 5;
+                            freq = " PO tid";
+                            _doseView = true;
+
+                            _contraView = false;
+                            _precView = false;
+                            _tradeView = false;
+                          });
+                        }
+                      } else if (_selectedTotal.genericName == 'ERDOSTEINE') {
+                        if (_weight < 18) {
+                          setState(() {
+                            _maxDose = 0.0;
+
+                            _minDose = 2.5;
+                            freq = " PO bid";
+                            _doseView = true;
+
+                            _contraView = false;
+                            _precView = false;
+                            _tradeView = false;
+                          });
+                        } else {
+                          setState(() {
+                            _maxDose = 0.0;
+
+                            _minDose = 5;
+                            freq = " PO bid";
+                            _doseView = true;
+
+                            _contraView = false;
+                            _precView = false;
+                            _tradeView = false;
+                          });
+                        }
+                      } else if (_selectedTotal.genericName ==
+                          'ACETYLCYSTEINE+CHLORPHENIRAMINE') {
+                        if (_weight < 14) {
+                          showDialog(
+                              context: context,
+                              builder: (BuildContext context) {
+                                return AlertDialog(
+                                  title: Text('Caution...'),
+                                  content: Text(
+                                      'Safety and efficacy for use under 3 years not established '),
+                                );
+                              });
+                          setState(() {
+                            _doseView = false;
+                          });
+                          return;
+                        } else if (_weight < 20) {
+                          setState(() {
+                            _maxDose = 0.0;
+
+                            _minDose = 5;
+                            freq = " PO tid";
+                            _doseView = true;
+
+                            _contraView = false;
+                            _precView = false;
+                            _tradeView = false;
+                          });
+                        } else {
+                          setState(() {
+                            _maxDose = 5;
+
+                            _minDose = 10;
+                            freq = " PO tid";
+                            _doseView = true;
+
+                            _contraView = false;
+                            _precView = false;
+                            _tradeView = false;
+                          });
+                        }
+                      } else if (_selectedTotal.genericName ==
+                          'AMMONIUM CHLORIDE+DIPHENHYDRAMINE') {
+                        if (_weight < 12) {
+                          showDialog(
+                              context: context,
+                              builder: (BuildContext context) {
+                                return AlertDialog(
+                                  title: Text('Caution...'),
+                                  content: Text(
+                                      'Safety and efficacy for use under 2 years not established '),
+                                );
+                              });
+                          setState(() {
+                            _doseView = false;
+                          });
+                          return;
+                        } else if (_weight < 20) {
+                          setState(() {
+                            _maxDose = 5;
+
+                            _minDose = 2.5;
+                            freq = " PO tid";
+                            _doseView = true;
+
+                            _contraView = false;
+                            _precView = false;
+                            _tradeView = false;
+                          });
+                        } else {
+                          setState(() {
+                            _maxDose = 10;
+
+                            _minDose = 5;
+                            freq = " PO tid";
+                            _doseView = true;
+
+                            _contraView = false;
+                            _precView = false;
+                            _tradeView = false;
+                          });
+                        }
+                      } else if (_selectedTotal.genericName ==
+                          'AMMONIUM CHLORIDE+PHENIRAMINE') {
+                        if (_weight < 6.5) {
+                          showDialog(
+                              context: context,
+                              builder: (BuildContext context) {
+                                return AlertDialog(
+                                  title: Text('Caution...'),
+                                  content: Text(
+                                      'Safety and efficacy for use under 4 months not established '),
+                                );
+                              });
+                          setState(() {
+                            _doseView = false;
+                          });
+                          return;
+                        } else if (_weight < 20) {
+                          setState(() {
+                            _maxDose = 5;
+
+                            _minDose = 2.5;
+                            freq = " PO tid";
+                            _doseView = true;
+
+                            _contraView = false;
+                            _precView = false;
+                            _tradeView = false;
+                          });
+                        } else {
+                          setState(() {
+                            _maxDose = 7;
+
+                            _minDose = 5;
+                            freq = " PO tid";
+                            _doseView = true;
+
+                            _contraView = false;
+                            _precView = false;
+                            _tradeView = false;
+                          });
+                        }
+                      } else if (_selectedTotal.genericName ==
+                          'AMMONIUM CHLORIDE+PROMETHAZINE+SENEGA EXTRACT+SODIUM BENZOATE+SQUILL TINCTURE') {
+                        if (_weight < 12) {
+                          showDialog(
+                              context: context,
+                              builder: (BuildContext context) {
+                                return AlertDialog(
+                                  title: Text('Caution...'),
+                                  content: Text(
+                                      'Safety and efficacy for use under 2 years not established '),
+                                );
+                              });
+                          setState(() {
+                            _doseView = false;
+                          });
+                          return;
+                        } else {
+                          setState(() {
+                            _maxDose = 0.0;
+
+                            _minDose = 5;
+                            freq = " PO tid";
+                            _doseView = true;
+
+                            _contraView = false;
+                            _precView = false;
+                            _tradeView = false;
+                          });
+                        }
+                      } else if (_selectedTotal.genericName ==
+                          'CARBOCYSTEINE+GUAIFENESIN+OXOMEMAZINE') {
+                        if (_weight < 6.5) {
+                          showDialog(
+                              context: context,
+                              builder: (BuildContext context) {
+                                return AlertDialog(
+                                  title: Text('Caution...'),
+                                  content: Text(
+                                      'Safety and efficacy for use under 2 years not established '),
+                                );
+                              });
+                          setState(() {
+                            _doseView = false;
+                          });
+                          return;
+                        } else if (_weight < 20) {
+                          setState(() {
+                            _maxDose = 0.0;
+
+                            _minDose = 5;
+                            freq = " PO tid";
+                            _doseView = true;
+
+                            _contraView = false;
+                            _precView = false;
+                            _tradeView = false;
+                          });
+                        } else {
+                          setState(() {
+                            _maxDose = 0.0;
+
+                            _minDose = 10;
+                            freq = " PO tid";
+                            _doseView = true;
+
+                            _contraView = false;
+                            _precView = false;
+                            _tradeView = false;
+                          });
+                        }
+                      } else if (_selectedTotal.genericName ==
+                          'DEXTROMETHORPHAN+DIPHENHYDRAMINE+EPHEDRINE+GUAIFENESIN') {
+                        if (_weight < 20) {
+                          showDialog(
+                              context: context,
+                              builder: (BuildContext context) {
+                                return AlertDialog(
+                                  title: Text('Caution...'),
+                                  content: Text(
+                                      'Safety and efficacy for use under 6 years not established '),
+                                );
+                              });
+                          setState(() {
+                            _doseView = false;
+                          });
+                          return;
+                        } else {
+                          setState(() {
+                            _maxDose = 0.0;
+
+                            _minDose = 2.5;
+                            freq = " PO tid";
+                            _doseView = true;
+
+                            _contraView = false;
+                            _precView = false;
+                            _tradeView = false;
+                          });
+                        }
+                      } else if (_selectedTotal.genericName ==
+                          'DIPHENHYDRAMINE+GUAIFENESIN+OXELADINE') {
+                        if (_weight < 20) {
+                          showDialog(
+                              context: context,
+                              builder: (BuildContext context) {
+                                return AlertDialog(
+                                  title: Text('Caution...'),
+                                  content: Text(
+                                      'Safety and efficacy for use under 6 years not established '),
+                                );
+                              });
+                          setState(() {
+                            _doseView = false;
+                          });
+                          return;
+                        } else {
+                          setState(() {
+                            _maxDose = 5;
+
+                            _minDose = 2.5;
+                            freq = " PO tid";
+                            _doseView = true;
+
+                            _contraView = false;
+                            _precView = false;
+                            _tradeView = false;
+                          });
+                        }
+                      } else if (_selectedTotal.genericName ==
+                          'GUAIFENESIN+OXOMEMAZINE+PARACETAMOL(ACETAMINOPHEN)+SODIUM BENZOATE') {
+                        if (_weight < 12) {
+                          showDialog(
+                              context: context,
+                              builder: (BuildContext context) {
+                                return AlertDialog(
+                                  title: Text('Caution...'),
+                                  content: Text(
+                                      'Safety and efficacy for use under 2 years not established '),
+                                );
+                              });
+                          setState(() {
+                            _doseView = false;
+                          });
+                          return;
+                        } else {
+                          setState(() {
+                            _maxDose = 8;
+
+                            _minDose = 5;
+                            freq = " PO tid";
+                            _doseView = true;
+
+                            _contraView = false;
+                            _precView = false;
+                            _tradeView = false;
+                          });
+                        }
+                      } else if (_selectedTotal.genericName ==
+                          'GUAIFENESIN+OXOMEMAZINE+SODIUM BENZOATE') {
+                        if (_weight < 12) {
+                          showDialog(
+                              context: context,
+                              builder: (BuildContext context) {
+                                return AlertDialog(
+                                  title: Text('Caution...'),
+                                  content: Text(
+                                      'Safety and efficacy for use under 2 years not established '),
+                                );
+                              });
+                          setState(() {
+                            _doseView = false;
+                          });
+                          return;
+                        } else {
+                          setState(() {
+                            _maxDose = 8;
+
+                            _minDose = 5;
+                            freq = " PO tid";
+                            _doseView = true;
+
+                            _contraView = false;
+                            _precView = false;
+                            _tradeView = false;
+                          });
+                        }
+                      } else if (_selectedTotal.genericName ==
+                          'GUAIFENESIN+PSEUDOEPHEDRINE+TRIPROLIDINE') {
+                        if (_weight < 7.5) {
+                          showDialog(
+                              context: context,
+                              builder: (BuildContext context) {
+                                return AlertDialog(
+                                  title: Text('Caution...'),
+                                  content: Text(
+                                      'Safety and efficacy for use under 6 months not established '),
+                                );
+                              });
+                          setState(() {
+                            _doseView = false;
+                          });
+                          return;
+                        } else if (_weight < 12) {
+                          setState(() {
+                            _maxDose = 0.0;
+
+                            _minDose = 1.25;
+                            freq = " PO tid";
+                            _doseView = true;
+
+                            _contraView = false;
+                            _precView = false;
+                            _tradeView = false;
+                          });
+                        } else if (_weight < 20) {
+                          setState(() {
+                            _maxDose = 0.0;
+
+                            _minDose = 2.5;
+                            freq = " PO tid";
+                            _doseView = true;
+
+                            _contraView = false;
+                            _precView = false;
+                            _tradeView = false;
+                          });
+                        } else {
+                          setState(() {
+                            _maxDose = 0.0;
+
+                            _minDose = 5;
+                            freq = " PO tid";
+                            _doseView = true;
+
+                            _contraView = false;
+                            _precView = false;
+                            _tradeView = false;
+                          });
+                        }
+                      } else if (_selectedTotal.genericName ==
+                          'DEXTROMETHORPHAN+GUAIFENESIN') {
+                        if (_weight < 20) {
+                          showDialog(
+                              context: context,
+                              builder: (BuildContext context) {
+                                return AlertDialog(
+                                  title: Text('Caution...'),
+                                  content: Text(
+                                      'Safety and efficacy for use under 6 years not established '),
+                                );
+                              });
+                          setState(() {
+                            _doseView = false;
+                          });
+                          return;
+                        } else {
+                          setState(() {
+                            _maxDose = 0.0;
+
+                            _minDose = 5;
+                            freq = " PO tid";
+                            _doseView = true;
+
+                            _contraView = false;
+                            _precView = false;
+                            _tradeView = false;
+                          });
+                        }
+                      } else if (_selectedTotal.genericName ==
+                          'ACEFYLLINE PIPERAZINE') {
+                        if (_weight < 7.5) {
+                          showDialog(
+                              context: context,
+                              builder: (BuildContext context) {
+                                return AlertDialog(
+                                  title: Text('Caution...'),
+                                  content: Text(
+                                      'Safety and efficacy for use under 6 months not established '),
+                                );
+                              });
+                          setState(() {
+                            _doseView = false;
+                          });
+                          return;
+                        } else if (_weight < 20) {
+                          setState(() {
+                            _maxDose = 7;
+
+                            _minDose = 3.5;
+                            freq = " PO tid";
+                            _doseView = true;
+
+                            _contraView = false;
+                            _precView = false;
+                            _tradeView = false;
+                          });
+                        } else {
+                          setState(() {
+                            _maxDose = 10;
+
+                            _minDose = 7;
+                            freq = " PO tid";
+                            _doseView = true;
+
+                            _contraView = false;
+                            _precView = false;
+                            _tradeView = false;
+                          });
+                        }
+                      } else if (_selectedTotal.genericName == 'SALBUTAMOL') {
+                        if (_weight < 12) {
+                          showDialog(
+                              context: context,
+                              builder: (BuildContext context) {
+                                return AlertDialog(
+                                  title: Text('Caution...'),
+                                  content: Text(
+                                      'Safety and efficacy for use under 2 years not established '),
+                                );
+                              });
+                          setState(() {
+                            _doseView = false;
+                          });
+                          return;
+                        } else if (_weight < 20) {
+                          setState(() {
+                            _maxDose = 5;
+
+                            _minDose = 2.5;
+                            freq = " PO tid";
+                            _doseView = true;
+
+                            _contraView = false;
+                            _precView = false;
+                            _tradeView = false;
+                          });
+                        } else {
+                          setState(() {
+                            _maxDose = 0.0;
+
+                            _minDose = 5;
+                            freq = " PO tid";
+                            _doseView = true;
+
+                            _contraView = false;
+                            _precView = false;
+                            _tradeView = false;
+                          });
+                        }
+                      } else if (_selectedTotal.genericName == 'BAMBUTEROL') {
+                        if (_weight < 12) {
+                          showDialog(
+                              context: context,
+                              builder: (BuildContext context) {
+                                return AlertDialog(
+                                  title: Text('Caution...'),
+                                  content: Text(
+                                      'Safety and efficacy for use under 2 years not established '),
+                                );
+                              });
+                          setState(() {
+                            _doseView = false;
+                          });
+                          return;
+                        } else if (_weight < 20) {
+                          setState(() {
+                            _maxDose = 10;
+
+                            _minDose = 5;
+                            freq = " PO at bedtime";
+                            _doseView = true;
+
+                            _contraView = false;
+                            _precView = false;
+                            _tradeView = false;
+                          });
+                        } else {
+                          setState(() {
+                            _maxDose = 0.0;
+
+                            _minDose = 10;
+                            freq = " PO bedtime";
+                            _doseView = true;
+
+                            _contraView = false;
+                            _precView = false;
+                            _tradeView = false;
+                          });
+                        }
+                      } else if (_selectedTotal.genericName == 'TERBUTALINE') {
+                        setState(() {
+                          _maxDose = 0.0;
+
+                          _minDose = double.parse(
+                              (_weight * .05 * _selectedTotal.conc)
+                                  .toStringAsFixed(1));
+                          freq = " PO tid";
+                          _doseView = true;
+
+                          _contraView = false;
+                          _precView = false;
+                          _tradeView = false;
+                        });
+                      } else if (_selectedTotal.genericName ==
+                          'GUAIFENESIN+SALBUTAMOL') {
+                        if (_weight < 12) {
+                          showDialog(
+                              context: context,
+                              builder: (BuildContext context) {
+                                return AlertDialog(
+                                  title: Text('Caution...'),
+                                  content: Text(
+                                      'Safety and efficacy for use under 2 years not established '),
+                                );
+                              });
+                          setState(() {
+                            _doseView = false;
+                          });
+                          return;
+                        } else if (_weight < 20) {
+                          setState(() {
+                            _maxDose = 5;
+
+                            _minDose = 2.5;
+                            freq = " PO every 6-8 hrs";
+                            _doseView = true;
+
+                            _contraView = false;
+                            _precView = false;
+                            _tradeView = false;
+                          });
+                        } else {
+                          setState(() {
+                            _maxDose = 0.0;
+
+                            _minDose = 5;
+                            freq = " PO every 6-8 hrs";
+                            _doseView = true;
+
+                            _contraView = false;
+                            _precView = false;
+                            _tradeView = false;
+                          });
+                        }
+                      } else if (_selectedTotal.genericName ==
+                          'GUAIFENESIN+SALBUTAMOL+BROMHEXINE') {
+                        if (_weight < 12) {
+                          showDialog(
+                              context: context,
+                              builder: (BuildContext context) {
+                                return AlertDialog(
+                                  title: Text('Caution...'),
+                                  content: Text(
+                                      'Safety and efficacy for use under 2 years not established '),
+                                );
+                              });
+                          setState(() {
+                            _doseView = false;
+                          });
+                          return;
+                        } else if (_weight < 20) {
+                          setState(() {
+                            _maxDose = 5;
+
+                            _minDose = 2.5;
+                            freq = " PO every 6-8 hrs";
+                            _doseView = true;
+
+                            _contraView = false;
+                            _precView = false;
+                            _tradeView = false;
+                          });
+                        } else {
+                          setState(() {
+                            _maxDose = 0.0;
+
+                            _minDose = 5;
+                            freq = " PO every 6-8 hrs";
+                            _doseView = true;
+
+                            _contraView = false;
+                            _precView = false;
+                            _tradeView = false;
+                          });
+                        }
+                      } else if (_selectedTotal.genericName ==
+                          'BROMHEXINE+GUAIFENESIN+MENTHOL+TERBUTALINE') {
+                        if (_weight < 12) {
+                          showDialog(
+                              context: context,
+                              builder: (BuildContext context) {
+                                return AlertDialog(
+                                  title: Text('Caution...'),
+                                  content: Text(
+                                      'Safety and efficacy for use under 2 years not established '),
+                                );
+                              });
+                          setState(() {
+                            _doseView = false;
+                          });
+                          return;
+                        } else if (_weight < 20) {
+                          setState(() {
+                            _maxDose = 0.0;
+
+                            _minDose = 2.5;
+                            freq = " PO every 8 hrs";
+                            _doseView = true;
+
+                            _contraView = false;
+                            _precView = false;
+                            _tradeView = false;
+                          });
+                        } else {
+                          setState(() {
+                            _maxDose = 0.0;
+
+                            _minDose = 5;
+                            freq = " PO every 8 hrs";
+                            _doseView = true;
+
+                            _contraView = false;
+                            _precView = false;
+                            _tradeView = false;
+                          });
+                        }
+                      } else if (_selectedTotal.genericName ==
+                          'GLYCERYL GUAICOLATE+POTASSIUM CITRATE+TERBUTALINE+DIPHENHYDRAMINE') {
+                        if (_weight < 12) {
+                          showDialog(
+                              context: context,
+                              builder: (BuildContext context) {
+                                return AlertDialog(
+                                  title: Text('Caution...'),
+                                  content: Text(
+                                      'Safety and efficacy for use under 2 years not established '),
+                                );
+                              });
+                          setState(() {
+                            _doseView = false;
+                          });
+                          return;
+                        } else if (_weight < 20) {
+                          setState(() {
+                            _maxDose = 0.0;
+
+                            _minDose = 2.5;
+                            freq = " PO every 8 hrs";
+                            _doseView = true;
+
+                            _contraView = false;
+                            _precView = false;
+                            _tradeView = false;
+                          });
+                        } else {
+                          setState(() {
+                            _maxDose = 0.0;
+
+                            _minDose = 5;
+                            freq = " PO every 8 hrs";
+                            _doseView = true;
+
+                            _contraView = false;
+                            _precView = false;
+                            _tradeView = false;
+                          });
+                        }
+                      } else if (_selectedTotal.genericName ==
+                          'ACEFYLLINE PIPERAZINE+BROMHEXINE') {
+                        if (_weight < 10) {
+                          showDialog(
+                              context: context,
+                              builder: (BuildContext context) {
+                                return AlertDialog(
+                                  title: Text('Caution...'),
+                                  content: Text(
+                                      'Safety and efficacy for use under 1 year not established '),
+                                );
+                              });
+                          setState(() {
+                            _doseView = false;
+                          });
+                          return;
+                        } else if (_weight < 20) {
+                          setState(() {
+                            _maxDose = 0.0;
+
+                            _minDose = 2.5;
+                            freq = " PO every 8 hrs";
+                            _doseView = true;
+
+                            _contraView = false;
+                            _precView = false;
+                            _tradeView = false;
+                          });
+                        } else {
+                          setState(() {
+                            _maxDose = 0.0;
+
+                            _minDose = 5;
+                            freq = " PO every 8 hrs";
+                            _doseView = true;
+
+                            _contraView = false;
+                            _precView = false;
+                            _tradeView = false;
+                          });
+                        }
+                      } else if (_selectedTotal.genericName ==
+                          'AMBROXOL+GUAIFENESIN+THEOPHYLLINE') {
+                        if (_weight < 10) {
+                          showDialog(
+                              context: context,
+                              builder: (BuildContext context) {
+                                return AlertDialog(
+                                  title: Text('Caution...'),
+                                  content: Text(
+                                      'Safety and efficacy for use under 1 year not established '),
+                                );
+                              });
+                          setState(() {
+                            _doseView = false;
+                          });
+                          return;
+                        } else if (_weight < 20) {
+                          setState(() {
+                            _maxDose = 0.0;
+
+                            _minDose = 2.5;
+                            freq = " PO every 8 hrs";
+                            _doseView = true;
+
+                            _contraView = false;
+                            _precView = false;
+                            _tradeView = false;
+                          });
+                        } else {
+                          setState(() {
+                            _maxDose = 0.0;
+
+                            _minDose = 5;
+                            freq = " PO every 8 hrs";
+                            _doseView = true;
+
+                            _contraView = false;
+                            _precView = false;
+                            _tradeView = false;
+                          });
+                        }
+                      } else if (_selectedTotal.genericName ==
+                          'AMMONIUM CHLORIDE+SALBUTAMOL') {
+                        if (_weight < 12) {
+                          showDialog(
+                              context: context,
+                              builder: (BuildContext context) {
+                                return AlertDialog(
+                                  title: Text('Caution...'),
+                                  content: Text(
+                                      'Safety and efficacy for use under 2 years not established '),
+                                );
+                              });
+                          setState(() {
+                            _doseView = false;
+                          });
+                          return;
+                        } else if (_weight < 20) {
+                          setState(() {
+                            _maxDose = 0.0;
+
+                            _minDose = 2.5;
+                            freq = " PO every 8 hrs";
+                            _doseView = true;
+
+                            _contraView = false;
+                            _precView = false;
+                            _tradeView = false;
+                          });
+                        } else {
+                          setState(() {
+                            _maxDose = 0.0;
+
+                            _minDose = 5;
+                            freq = " PO every 8 hrs";
+                            _doseView = true;
+
+                            _contraView = false;
+                            _precView = false;
+                            _tradeView = false;
+                          });
+                        }
+                      } else if (_selectedTotal.genericName ==
+                          'GUAVA LEAVES+TILIA FLOWER+FENNEL OIL') {
+                        if (_weight < 14) {
+                          showDialog(
+                              context: context,
+                              builder: (BuildContext context) {
+                                return AlertDialog(
+                                  title: Text('Caution...'),
+                                  content: Text(
+                                      'Safety and efficacy for use under 3 years not established '),
+                                );
+                              });
+                          setState(() {
+                            _doseView = false;
+                          });
+                          return;
+                        } else {
+                          setState(() {
+                            _maxDose = 5;
+
+                            _minDose = 2.5;
+                            freq = " PO every 6-8 hrs";
+                            _doseView = true;
+
+                            _contraView = false;
+                            _precView = false;
+                            _tradeView = false;
+                          });
+                        }
+                      } else if (_selectedTotal.genericName ==
+                          'GUAVA LEAVES+THYME LEAVES+FENNEL') {
+                        if (_weight < 16) {
+                          showDialog(
+                              context: context,
+                              builder: (BuildContext context) {
+                                return AlertDialog(
+                                  title: Text('Caution...'),
+                                  content: Text(
+                                      'Safety and efficacy for use under 4 years not established '),
+                                );
+                              });
+                          setState(() {
+                            _doseView = false;
+                          });
+                          return;
+                        } else {
+                          setState(() {
+                            _maxDose = 0.0;
+
+                            _minDose = 5;
+                            freq = " PO every 8 hrs";
+                            _doseView = true;
+
+                            _contraView = false;
+                            _precView = false;
+                            _tradeView = false;
+                          });
+                        }
+                      } else if (_selectedTotal.genericName ==
+                          'PIMPINELLA ROOT EXT+GRINDELIA HERB EXT+PRIMULA ROOT TINCTURE EXT+THYME+ROSE EXT+HONEY') {
+                        if (_weight < 16) {
+                          showDialog(
+                              context: context,
+                              builder: (BuildContext context) {
+                                return AlertDialog(
+                                  title: Text('Caution...'),
+                                  content: Text(
+                                      'Safety and efficacy for use under 4 years not established '),
+                                );
+                              });
+                          setState(() {
+                            _doseView = false;
+                          });
+                          return;
+                        } else {
+                          setState(() {
+                            _maxDose = 5;
+
+                            _minDose = 2.5;
+                            freq = " PO every 8-12 hrs";
+                            _doseView = true;
+
+                            _contraView = false;
+                            _precView = false;
+                            _tradeView = false;
+                          });
+                        }
+                      } else if (_selectedTotal.genericName ==
+                          'THYME+FENNEL+BEE PROPOLIS+ROSE HIP+HONEY BASE') {
+                        if (_weight < 14) {
+                          showDialog(
+                              context: context,
+                              builder: (BuildContext context) {
+                                return AlertDialog(
+                                  title: Text('Caution...'),
+                                  content: Text(
+                                      'Safety and efficacy for use under 3 years not established '),
+                                );
+                              });
+                          setState(() {
+                            _doseView = false;
+                          });
+                          return;
+                        } else {
+                          setState(() {
+                            _maxDose = 0.0;
+
+                            _minDose = 5;
+                            freq = " PO every 8 hrs";
+                            _doseView = true;
+
+                            _contraView = false;
+                            _precView = false;
+                            _tradeView = false;
+                          });
+                        }
+                      } else if (_selectedTotal.genericName == 'IVY LEAVES') {
+                        if (_weight < 12) {
+                          showDialog(
+                              context: context,
+                              builder: (BuildContext context) {
+                                return AlertDialog(
+                                  title: Text('Caution...'),
+                                  content: Text(
+                                      'Safety and efficacy for use under 2 years not established '),
+                                );
+                              });
+                          setState(() {
+                            _doseView = false;
+                          });
+                          return;
+                        } else if (_weight < 20) {
+                          setState(() {
+                            _maxDose = 0.0;
+
+                            _minDose = 2.5;
+                            freq = " PO every 12 hrs";
+                            _doseView = true;
+
+                            _contraView = false;
+                            _precView = false;
+                            _tradeView = false;
+                          });
+                        } else {
+                          setState(() {
+                            _maxDose = 0.0;
+
+                            _minDose = 5;
+                            freq = " PO every 12 hrs";
+                            _doseView = true;
+
+                            _contraView = false;
+                            _precView = false;
+                            _tradeView = false;
+                          });
+                        }
+                      } else if (_selectedTotal.genericName ==
+                          'IVY LEAVES+TILIA FLOWER EXT.') {
+                        if (_weight < 12) {
+                          showDialog(
+                              context: context,
+                              builder: (BuildContext context) {
+                                return AlertDialog(
+                                  title: Text('Caution...'),
+                                  content: Text(
+                                      'Safety and efficacy for use under 2 years not established '),
+                                );
+                              });
+                          setState(() {
+                            _doseView = false;
+                          });
+                          return;
+                        } else if (_weight < 20) {
+                          setState(() {
+                            _maxDose = 0.0;
+
+                            _minDose = 2.5;
+                            freq = " PO every 12 hrs";
+                            _doseView = true;
+
+                            _contraView = false;
+                            _precView = false;
+                            _tradeView = false;
+                          });
+                        } else {
+                          setState(() {
+                            _maxDose = 0.0;
+
+                            _minDose = 5;
+                            freq = " PO every 12 hrs";
+                            _doseView = true;
+
+                            _contraView = false;
+                            _precView = false;
+                            _tradeView = false;
+                          });
+                        }
+                      } else if (_selectedTotal.genericName ==
+                          'THYME FLUID EXTRACT+IVY') {
+                        if (_weight < 12) {
+                          showDialog(
+                              context: context,
+                              builder: (BuildContext context) {
+                                return AlertDialog(
+                                  title: Text('Caution...'),
+                                  content: Text(
+                                      'Safety and efficacy for use under 2 years not established '),
+                                );
+                              });
+                          setState(() {
+                            _doseView = false;
+                          });
+                          return;
+                        } else if (_weight < 20) {
+                          setState(() {
+                            _maxDose = 0.0;
+
+                            _minDose = 2.5;
+                            freq = " PO every 8 hrs";
+                            _doseView = true;
+
+                            _contraView = false;
+                            _precView = false;
+                            _tradeView = false;
+                          });
+                        } else {
+                          setState(() {
+                            _maxDose = 0.0;
+
+                            _minDose = 5;
+                            freq = " PO every 8 hrs";
+                            _doseView = true;
+
+                            _contraView = false;
+                            _precView = false;
+                            _tradeView = false;
+                          });
+                        }
+                      } else if (_selectedTotal.genericName ==
+                          'THYME FLUID EXTRACT') {
+                        if (_weight < 12) {
+                          showDialog(
+                              context: context,
+                              builder: (BuildContext context) {
+                                return AlertDialog(
+                                  title: Text('Caution...'),
+                                  content: Text(
+                                      'Safety and efficacy for use under 2 years not established '),
+                                );
+                              });
+                          setState(() {
+                            _doseView = false;
+                          });
+                          return;
+                        } else if (_weight < 20) {
+                          setState(() {
+                            _maxDose = 0.0;
+
+                            _minDose = 2.5;
+                            freq = " PO every 8 hrs";
+                            _doseView = true;
+
+                            _contraView = false;
+                            _precView = false;
+                            _tradeView = false;
+                          });
+                        } else {
+                          setState(() {
+                            _maxDose = 0.0;
+
+                            _minDose = 5;
+                            freq = " PO every 8 hrs";
+                            _doseView = true;
+
+                            _contraView = false;
+                            _precView = false;
+                            _tradeView = false;
+                          });
+                        }
+                      } else if (_selectedTotal.genericName ==
+                          'LIQUORICE ROOT EXT.+THYME EXT.+ANISE OIL+BITTER FENNEL FRUIT OIL') {
+                        if (_weight < 16) {
+                          showDialog(
+                              context: context,
+                              builder: (BuildContext context) {
+                                return AlertDialog(
+                                  title: Text('Caution...'),
+                                  content: Text(
+                                      'Safety and efficacy for use under 4 years not established '),
+                                );
+                              });
+                          setState(() {
+                            _doseView = false;
+                          });
+                          return;
+                        } else if (_weight < 20) {
+                          setState(() {
+                            _maxDose = 5;
+
+                            _minDose = 2.5;
+                            freq = " PO every 8 hrs";
+                            _doseView = true;
+
+                            _contraView = false;
+                            _precView = false;
+                            _tradeView = false;
+                          });
+                        } else {
+                          setState(() {
+                            _maxDose = 10;
+
+                            _minDose = 5;
+                            freq = " PO every 8 hrs";
+                            _doseView = true;
+
+                            _contraView = false;
+                            _precView = false;
+                            _tradeView = false;
+                          });
+                        }
+                      } else if (_selectedTotal.genericName ==
+                          'PRIMULA ROOT FLUID EXTRACT+THYME FLUID EXTRACT') {
+                        if (_weight < 16) {
+                          showDialog(
+                              context: context,
+                              builder: (BuildContext context) {
+                                return AlertDialog(
+                                  title: Text('Caution...'),
+                                  content: Text(
+                                      'Safety and efficacy for use under 4 years not established '),
+                                );
+                              });
+                          setState(() {
+                            _doseView = false;
+                          });
+                          return;
+                        } else if (_weight < 20) {
+                          setState(() {
+                            _maxDose = 0.0;
+
+                            _minDose = 2.5;
+                            freq = " PO every 8 hrs";
+                            _doseView = true;
+
+                            _contraView = false;
+                            _precView = false;
+                            _tradeView = false;
+                          });
+                        } else {
+                          setState(() {
+                            _maxDose = 0.0;
+
+                            _minDose = 5;
+                            freq = " PO every 8 hrs";
+                            _doseView = true;
+
+                            _contraView = false;
+                            _precView = false;
+                            _tradeView = false;
+                          });
+                        }
                       } else {
                         setState(() {
                           _minDose = double.parse((_weight *
@@ -3010,8 +4372,7 @@ class _DetailsState extends State<Details> {
                       Radius.circular(10),
                     ),
                   ),
-                  child: selectedYear + selectedMonth / 12 == 0 ||
-                          _minDose == 0.0
+                  child: _weight == 0 || _minDose == 0.0
                       ? Text('Dose:\n ${_selectedTotal.doseNote}')
                       : _maxDose == 0.0
                           ? Text(
