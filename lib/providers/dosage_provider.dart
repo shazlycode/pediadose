@@ -10831,4 +10831,9 @@ class AntipyreticProvider with ChangeNotifier {
   List<Drug> get allergy {
     return _drugs.where((element) => element.cat == 'Allergy').toList();
   }
+
+  List<Drug> getAlternatives(String generic) {
+    return _drugs.where((element) => element.genericName == generic).toList();
+    notifyListeners();
+  }
 }

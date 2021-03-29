@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:pediatric_dosage/providers/dosage_provider.dart';
 import 'package:provider/provider.dart';
 
@@ -22,6 +23,7 @@ class _DetailsState extends State<Details> {
   bool _tradeView = false;
   bool _precView = false;
   bool _contraView = false;
+  bool _alternativeView = false;
   int selectedYear = 0;
   double _listHeight = 300;
   int selectedMonth = 0;
@@ -176,7 +178,8 @@ class _DetailsState extends State<Details> {
             //               ),
             //               value: e.name,
             //             ))
-            //         .toList(),
+            //         .toList()
+            //
             //     value: _selectedDrug,
             //     hint: Text('Select Drug'),
             //     onChanged: (value) {
@@ -188,15 +191,17 @@ class _DetailsState extends State<Details> {
             // ),
             Container(
               decoration: BoxDecoration(
+                border: Border.all(color: Color(0xffedeef7)),
                 borderRadius: BorderRadius.all(
                   Radius.circular(5),
                 ),
               ),
               child: TextField(
                 autofocus: true,
-                style: TextStyle(color: Colors.white),
+                style: TextStyle(color: Color(0xff7868e6)),
                 enabled: searchEnabled,
                 decoration: InputDecoration(
+                    suffixIcon: Icon(Icons.search),
                     fillColor: Color(0xff173f5f),
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.all(
@@ -232,34 +237,60 @@ class _DetailsState extends State<Details> {
               child: Container(
                 width: double.infinity,
                 decoration: BoxDecoration(
-                    color: Color(0xff173f5f),
+                    color: Color(0xff7868e6),
                     borderRadius: BorderRadius.all(
                       Radius.circular(5),
                     ),
                     border: Border.all(width: 1, color: Colors.white)),
-                child: Text(
-                  'Selected Medicine:  $_selectedMedicine \nActive Ingredients: $_generic',
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text(
+                    'Selected Medicine:  $_selectedMedicine \nActive Ingredients: $_generic',
+                    style: TextStyle(
+                        color: Color(0xffedeef7), fontWeight: FontWeight.bold),
+                  ),
                 ),
               ),
+            ),
+            SizedBox(
+              height: 10,
             ),
             if (catName == 'Antibiotics')
               if (_selectedTotal.genericName == 'AMOXICILLIN 400MG/5ML' ||
                   _selectedTotal.genericName == 'AMOXICILLIN 200MG/5ML' ||
                   _selectedTotal.genericName == 'AMOXICILLIN 250MG/5ML' ||
                   _selectedTotal.genericName == 'AMOXICILLIN 125MG/5ML')
-                DropdownButton(
-                    key: _amoxiKey,
-                    hint: Text('Select antibiotic uses'),
-                    autofocus: false,
-                    onChanged: (value) {
-                      setState(() {
-                        _selectedAntibioticUse = value;
-                      });
-                    },
-                    value: _selectedAntibioticUse,
-                    items: _ampicillinUses
-                        .map((e) => DropdownMenuItem(value: e, child: Text(e)))
-                        .toList()),
+                Container(
+                  padding: EdgeInsets.only(left: 10),
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.all(Radius.circular(10)),
+                      border: Border.all(color: Color(0xff7868e6))),
+                  child: DropdownButton(
+                      underline: Container(),
+                      icon: Icon(
+                        Icons.arrow_drop_down_circle,
+                        color: Color(0xff7868e6),
+                      ),
+                      key: _amoxiKey,
+                      hint: Text(
+                        'Select antibiotic uses',
+                      ),
+                      autofocus: false,
+                      onChanged: (value) {
+                        setState(() {
+                          _selectedAntibioticUse = value;
+                        });
+                      },
+                      value: _selectedAntibioticUse,
+                      items: _ampicillinUses
+                          .map((e) => DropdownMenuItem(
+                              value: e,
+                              child: Text(
+                                e,
+                                style: TextStyle(color: Color(0xff7868e6)),
+                              )))
+                          .toList()),
+                ),
 
             if (catName == 'Antibiotics')
               if (_selectedTotal.genericName == 'AMOXICILLIN/CLAVULANIC ACID 156MG/5ML' ||
@@ -272,6 +303,10 @@ class _DetailsState extends State<Details> {
                   _selectedTotal.genericName ==
                       'AMOXICILLIN/CLAVULANIC ACID 600MG/5ML')
                 DropdownButton(
+                  icon: Icon(
+                    Icons.arrow_drop_down_circle,
+                    color: Color(0xff7868e6),
+                  ),
                   key: _amoxiClavKey,
                   hint: Text('Select antibiotic uses'),
                   autofocus: false,
@@ -283,13 +318,22 @@ class _DetailsState extends State<Details> {
                   },
                   value: _selectedAntibioticUse,
                   items: _amoxicillinClavUses
-                      .map((e) => DropdownMenuItem(value: e, child: Text(e)))
+                      .map((e) => DropdownMenuItem(
+                          value: e,
+                          child: Text(
+                            e,
+                            style: TextStyle(color: Color(0xff7868e6)),
+                          )))
                       .toList(),
                 ),
             if (catName == 'Antibiotics')
               if (_selectedTotal.genericName == 'AZITHROMYCIN 200MG/5ML SUSP' ||
                   _selectedTotal.genericName == 'AZITHROMYCIN 100MG/5ML SUSP')
                 DropdownButton(
+                  icon: Icon(
+                    Icons.arrow_drop_down_circle,
+                    color: Color(0xff7868e6),
+                  ),
                   value: _selectedAntibioticUse,
                   onChanged: (value) {
                     setState(() {
@@ -298,7 +342,10 @@ class _DetailsState extends State<Details> {
                   },
                   items: _azithromycinUse
                       .map((e) => DropdownMenuItem(
-                            child: Text(e),
+                            child: Text(
+                              e,
+                              style: TextStyle(color: Color(0xff7868e6)),
+                            ),
                             value: e,
                           ))
                       .toList(),
@@ -309,6 +356,10 @@ class _DetailsState extends State<Details> {
               if (_selectedTotal.genericName == 'CEFDINIR 250MG/5ML SUSP' ||
                   _selectedTotal.genericName == 'CEFDINIR 125MG/5ML SUSP')
                 DropdownButton(
+                  icon: Icon(
+                    Icons.arrow_drop_down_circle,
+                    color: Color(0xff7868e6),
+                  ),
                   value: _selectedAntibioticUse,
                   onChanged: (value) {
                     setState(() {
@@ -317,7 +368,10 @@ class _DetailsState extends State<Details> {
                   },
                   items: _cefdinirUse
                       .map((e) => DropdownMenuItem(
-                            child: Text(e),
+                            child: Text(
+                              e,
+                              style: TextStyle(color: Color(0xff7868e6)),
+                            ),
                             value: e,
                           ))
                       .toList(),
@@ -328,6 +382,10 @@ class _DetailsState extends State<Details> {
               if (_selectedTotal.genericName == 'CEFACLOR 125MG/5ML SUSP' ||
                   _selectedTotal.genericName == 'CEFACLOR 250MG/5ML SUSP')
                 DropdownButton(
+                  icon: Icon(
+                    Icons.arrow_drop_down_circle,
+                    color: Color(0xff7868e6),
+                  ),
                   value: _selectedAntibioticUse,
                   onChanged: (value) {
                     setState(() {
@@ -336,7 +394,10 @@ class _DetailsState extends State<Details> {
                   },
                   items: _cefaclorUse
                       .map((e) => DropdownMenuItem(
-                            child: Text(e),
+                            child: Text(
+                              e,
+                              style: TextStyle(color: Color(0xff7868e6)),
+                            ),
                             value: e,
                           ))
                       .toList(),
@@ -348,6 +409,10 @@ class _DetailsState extends State<Details> {
                   _selectedTotal.genericName == 'CEFADROXIL 250MG/5ML SUSP' ||
                   _selectedTotal.genericName == 'CEFADROXIL 500MG/5ML SUSP')
                 DropdownButton(
+                  icon: Icon(
+                    Icons.arrow_drop_down_circle,
+                    color: Color(0xff7868e6),
+                  ),
                   value: _selectedAntibioticUse,
                   onChanged: (value) {
                     setState(() {
@@ -357,7 +422,10 @@ class _DetailsState extends State<Details> {
                   },
                   items: _cefadroxilUse
                       .map((e) => DropdownMenuItem(
-                            child: Text(e),
+                            child: Text(
+                              e,
+                              style: TextStyle(color: Color(0xff7868e6)),
+                            ),
                             value: e,
                           ))
                       .toList(),
@@ -368,6 +436,10 @@ class _DetailsState extends State<Details> {
               if (_selectedTotal.genericName == 'CEFIXIME 200MG/5ML SUSP' ||
                   _selectedTotal.genericName == 'CEFIXIME 100MG/5ML SUSP')
                 DropdownButton(
+                  icon: Icon(
+                    Icons.arrow_drop_down_circle,
+                    color: Color(0xff7868e6),
+                  ),
                   value: _selectedAntibioticUse,
                   onChanged: (value) {
                     setState(() {
@@ -377,7 +449,10 @@ class _DetailsState extends State<Details> {
                   },
                   items: _cefiximUse
                       .map((e) => DropdownMenuItem(
-                            child: Text(e),
+                            child: Text(
+                              e,
+                              style: TextStyle(color: Color(0xff7868e6)),
+                            ),
                             value: e,
                           ))
                       .toList(),
@@ -390,6 +465,10 @@ class _DetailsState extends State<Details> {
                       'CLARITHROMYCIN 250MG/5ML SUSP' ||
                   _selectedTotal.genericName == 'CLARITHROMYCIN 125MG/5ML SUSP')
                 DropdownButton(
+                  icon: Icon(
+                    Icons.arrow_drop_down_circle,
+                    color: Color(0xff7868e6),
+                  ),
                   value: _selectedAntibioticUse,
                   onChanged: (value) {
                     setState(() {
@@ -399,7 +478,10 @@ class _DetailsState extends State<Details> {
                   },
                   items: _clarithromycinUse
                       .map((e) => DropdownMenuItem(
-                            child: Text(e),
+                            child: Text(
+                              e,
+                              style: TextStyle(color: Color(0xff7868e6)),
+                            ),
                             value: e,
                           ))
                       .toList(),
@@ -410,9 +492,16 @@ class _DetailsState extends State<Details> {
               if (_selectedTotal.genericName == 'CEFALEXIN 250MG/5ML SUSP' ||
                   _selectedTotal.genericName == 'CEFALEXIN 125MG/5ML SUSP')
                 DropdownButton(
+                  icon: Icon(
+                    Icons.arrow_drop_down_circle,
+                    color: Color(0xff7868e6),
+                  ),
                   items: _cefalexinUse
                       .map((e) => DropdownMenuItem(
-                            child: Text(e),
+                            child: Text(
+                              e,
+                              style: TextStyle(color: Color(0xff7868e6)),
+                            ),
                             value: e,
                           ))
                       .toList(),
@@ -428,9 +517,16 @@ class _DetailsState extends State<Details> {
                       'METRONIDAZOLE 125MG/5ML SUSP' ||
                   _selectedTotal.genericName == 'METRONIDAZOLE 200MG/5ML SUSP')
                 DropdownButton(
+                  icon: Icon(
+                    Icons.arrow_drop_down_circle,
+                    color: Color(0xff7868e6),
+                  ),
                   items: _metroUse
                       .map((e) => DropdownMenuItem(
-                            child: Text(e),
+                            child: Text(
+                              e,
+                              style: TextStyle(color: Color(0xff7868e6)),
+                            ),
                             value: e,
                           ))
                       .toList(),
@@ -448,6 +544,7 @@ class _DetailsState extends State<Details> {
                     itemCount: _filteredDrugs.length,
                     itemBuilder: (context, index) {
                       return Card(
+                        color: Color(0xffb8b5ff),
                         child: ListTile(
                           title: Text(_filteredDrugs[index].tradeName),
                           onTap: () {
@@ -553,33 +650,64 @@ class _DetailsState extends State<Details> {
             SizedBox(
               height: 10,
             ),
-            Text('Age= $_a'),
+            Container(
+              height: 50,
+              padding: EdgeInsets.only(left: 10),
+              decoration: BoxDecoration(
+                  border: Border.all(color: Color(0xff7868e6)),
+                  borderRadius: BorderRadius.all(Radius.circular(10))),
+              child: Row(
+                children: [
+                  Text(
+                    'Age= ${_a.toStringAsFixed(1)}',
+                    style: TextStyle(
+                        color: Color(0xff7868e6), fontWeight: FontWeight.bold),
+                  ),
+                ],
+              ),
+            ),
 
             SizedBox(
               height: 10,
             ),
 
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text('Weight= '),
-                Expanded(
-                  child: TextField(
-                    style: TextStyle(color: Colors.white),
-                    decoration: InputDecoration(
-                      border: InputBorder.none,
-                    ),
-                    keyboardType: TextInputType.number,
-                    controller: _controller,
-                    onChanged: (value) {
-                      setState(() {
-                        _weight = double.parse(value);
-                        _controller.text = _weight.toString();
-                      });
-                    },
+            Container(
+              padding: EdgeInsets.only(left: 10),
+              decoration: BoxDecoration(
+                  border: Border.all(color: Color(0xff7868e6)),
+                  borderRadius: BorderRadius.all(Radius.circular(10))),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    'Weight= ',
+                    style: TextStyle(
+                        color: Color(0xff7868e6), fontWeight: FontWeight.bold),
                   ),
-                ),
-              ],
+                  Icon(
+                    Icons.edit,
+                    color: Color(0xff7868e6),
+                  ),
+                  Expanded(
+                    child: TextField(
+                      style: TextStyle(
+                          color: Color(0xff7868e6),
+                          fontWeight: FontWeight.bold),
+                      decoration: InputDecoration(
+                        border: InputBorder.none,
+                      ),
+                      keyboardType: TextInputType.number,
+                      controller: _controller,
+                      onChanged: (value) {
+                        setState(() {
+                          _weight = double.parse(value);
+                          _controller.text = _weight.toString();
+                        });
+                      },
+                    ),
+                  ),
+                ],
+              ),
             ),
 
             SizedBox(
@@ -675,6 +803,7 @@ class _DetailsState extends State<Details> {
                         });
                         setState(() {
                           _doseView = true;
+                          _alternativeView = false;
 
                           _contraView = false;
                           _precView = false;
@@ -710,6 +839,7 @@ class _DetailsState extends State<Details> {
                         });
                         setState(() {
                           _doseView = true;
+                          _alternativeView = false;
 
                           _contraView = false;
                           _precView = false;
@@ -732,6 +862,7 @@ class _DetailsState extends State<Details> {
                         });
                         setState(() {
                           _doseView = true;
+                          _alternativeView = false;
 
                           _contraView = false;
                           _precView = false;
@@ -751,6 +882,7 @@ class _DetailsState extends State<Details> {
                         });
                         setState(() {
                           _doseView = true;
+                          _alternativeView = false;
 
                           _contraView = false;
                           _precView = false;
@@ -771,6 +903,7 @@ class _DetailsState extends State<Details> {
                         });
                         setState(() {
                           _doseView = true;
+                          _alternativeView = false;
 
                           _contraView = false;
                           _precView = false;
@@ -791,6 +924,7 @@ class _DetailsState extends State<Details> {
                         });
                         setState(() {
                           _doseView = true;
+                          _alternativeView = false;
 
                           _contraView = false;
                           _precView = false;
@@ -810,6 +944,7 @@ class _DetailsState extends State<Details> {
                         });
                         setState(() {
                           _doseView = true;
+                          _alternativeView = false;
 
                           _contraView = false;
                           _precView = false;
@@ -830,6 +965,7 @@ class _DetailsState extends State<Details> {
                         });
                         setState(() {
                           _doseView = true;
+                          _alternativeView = false;
 
                           _contraView = false;
                           _precView = false;
@@ -850,6 +986,7 @@ class _DetailsState extends State<Details> {
                         });
                         setState(() {
                           _doseView = true;
+                          _alternativeView = false;
 
                           _contraView = false;
                           _precView = false;
@@ -869,6 +1006,7 @@ class _DetailsState extends State<Details> {
                         });
                         setState(() {
                           _doseView = true;
+                          _alternativeView = false;
 
                           _contraView = false;
                           _precView = false;
@@ -889,6 +1027,7 @@ class _DetailsState extends State<Details> {
                         });
                         setState(() {
                           _doseView = true;
+                          _alternativeView = false;
 
                           _contraView = false;
                           _precView = false;
@@ -909,6 +1048,7 @@ class _DetailsState extends State<Details> {
                         });
                         setState(() {
                           _doseView = true;
+                          _alternativeView = false;
 
                           _contraView = false;
                           _precView = false;
@@ -928,6 +1068,7 @@ class _DetailsState extends State<Details> {
                         });
                         setState(() {
                           _doseView = true;
+                          _alternativeView = false;
 
                           _contraView = false;
                           _precView = false;
@@ -948,6 +1089,7 @@ class _DetailsState extends State<Details> {
                         });
                         setState(() {
                           _doseView = true;
+                          _alternativeView = false;
 
                           _contraView = false;
                           _precView = false;
@@ -972,6 +1114,7 @@ class _DetailsState extends State<Details> {
                           });
                           setState(() {
                             _doseView = true;
+                            _alternativeView = false;
 
                             _contraView = false;
                             _precView = false;
@@ -1001,6 +1144,7 @@ class _DetailsState extends State<Details> {
                           });
                           setState(() {
                             _doseView = true;
+                            _alternativeView = false;
 
                             _contraView = false;
                             _precView = false;
@@ -1026,6 +1170,7 @@ class _DetailsState extends State<Details> {
                           });
                           setState(() {
                             _doseView = true;
+                            _alternativeView = false;
 
                             _contraView = false;
                             _precView = false;
@@ -1044,6 +1189,7 @@ class _DetailsState extends State<Details> {
                           });
                           setState(() {
                             _doseView = true;
+                            _alternativeView = false;
 
                             _contraView = false;
                             _precView = false;
@@ -1070,6 +1216,7 @@ class _DetailsState extends State<Details> {
                           });
                           setState(() {
                             _doseView = true;
+                            _alternativeView = false;
 
                             _contraView = false;
                             _precView = false;
@@ -1088,6 +1235,7 @@ class _DetailsState extends State<Details> {
                           });
                           setState(() {
                             _doseView = true;
+                            _alternativeView = false;
 
                             _contraView = false;
                             _precView = false;
@@ -1106,6 +1254,7 @@ class _DetailsState extends State<Details> {
                           });
                           setState(() {
                             _doseView = true;
+                            _alternativeView = false;
 
                             _contraView = false;
                             _precView = false;
@@ -1131,6 +1280,7 @@ class _DetailsState extends State<Details> {
                           });
                           setState(() {
                             _doseView = true;
+                            _alternativeView = false;
 
                             _contraView = false;
                             _precView = false;
@@ -1149,6 +1299,7 @@ class _DetailsState extends State<Details> {
                           });
                           setState(() {
                             _doseView = true;
+                            _alternativeView = false;
 
                             _contraView = false;
                             _precView = false;
@@ -1167,6 +1318,7 @@ class _DetailsState extends State<Details> {
                           });
                           setState(() {
                             _doseView = true;
+                            _alternativeView = false;
 
                             _contraView = false;
                             _precView = false;
@@ -1198,6 +1350,7 @@ class _DetailsState extends State<Details> {
                           freq = 'PO Daily for 3 days';
                           setState(() {
                             _doseView = true;
+                            _alternativeView = false;
 
                             _contraView = false;
                             _precView = false;
@@ -1229,6 +1382,7 @@ class _DetailsState extends State<Details> {
                               'PO on day1 followed by $contineusD on day 2-5';
                           setState(() {
                             _doseView = true;
+                            _alternativeView = false;
 
                             _contraView = false;
                             _precView = false;
@@ -1260,6 +1414,7 @@ class _DetailsState extends State<Details> {
                           print(freq);
                           setState(() {
                             _doseView = true;
+                            _alternativeView = false;
 
                             _contraView = false;
                             _precView = false;
@@ -1298,6 +1453,7 @@ class _DetailsState extends State<Details> {
                           });
                           setState(() {
                             _doseView = true;
+                            _alternativeView = false;
 
                             _contraView = false;
                             _precView = false;
@@ -1331,6 +1487,7 @@ class _DetailsState extends State<Details> {
                           });
                           setState(() {
                             _doseView = true;
+                            _alternativeView = false;
 
                             _contraView = false;
                             _precView = false;
@@ -1365,6 +1522,7 @@ class _DetailsState extends State<Details> {
                           });
                           setState(() {
                             _doseView = true;
+                            _alternativeView = false;
 
                             _contraView = false;
                             _precView = false;
@@ -1399,6 +1557,7 @@ class _DetailsState extends State<Details> {
                           });
                           setState(() {
                             _doseView = true;
+                            _alternativeView = false;
 
                             _contraView = false;
                             _precView = false;
@@ -1443,6 +1602,7 @@ class _DetailsState extends State<Details> {
                           });
                           setState(() {
                             _doseView = true;
+                            _alternativeView = false;
 
                             _contraView = false;
                             _precView = false;
@@ -1476,6 +1636,7 @@ class _DetailsState extends State<Details> {
                           });
                           setState(() {
                             _doseView = true;
+                            _alternativeView = false;
 
                             _contraView = false;
                             _precView = false;
@@ -1491,6 +1652,7 @@ class _DetailsState extends State<Details> {
                           });
                           setState(() {
                             _doseView = true;
+                            _alternativeView = false;
 
                             _contraView = false;
                             _precView = false;
@@ -1524,6 +1686,7 @@ class _DetailsState extends State<Details> {
                             freq =
                                 'ml PO in single daily dose or ${_minDose / 2} ml PO q12 hrs';
                             _doseView = true;
+                            _alternativeView = false;
 
                             _contraView = false;
                             _precView = false;
@@ -1538,6 +1701,7 @@ class _DetailsState extends State<Details> {
                               freq =
                                   'ml PO in single daily dose or ${_minDose / 2} ml PO q12 hrs';
                               _doseView = true;
+                              _alternativeView = false;
 
                               _contraView = false;
                               _precView = false;
@@ -1554,6 +1718,7 @@ class _DetailsState extends State<Details> {
                               freq =
                                   'ml PO in single daily dose or ${_minDose / 2} ml PO q12 hrs';
                               _doseView = true;
+                              _alternativeView = false;
 
                               _contraView = false;
                               _precView = false;
@@ -1569,6 +1734,7 @@ class _DetailsState extends State<Details> {
                             freq =
                                 ' PO in single daily dose or ${_minDose / 2} ml PO q12 hrs';
                             _doseView = true;
+                            _alternativeView = false;
 
                             _contraView = false;
                             _precView = false;
@@ -1583,6 +1749,7 @@ class _DetailsState extends State<Details> {
                             freq =
                                 ' PO in single daily dose or ${_minDose / 2} ml PO q12 hrs';
                             _doseView = true;
+                            _alternativeView = false;
 
                             _contraView = false;
                             _precView = false;
@@ -1622,6 +1789,7 @@ class _DetailsState extends State<Details> {
                                     .toStringAsFixed(1));
                             freq = ' PO q12 hrs for 10 days';
                             _doseView = true;
+                            _alternativeView = false;
 
                             _contraView = false;
                             _precView = false;
@@ -1661,6 +1829,7 @@ class _DetailsState extends State<Details> {
                                     .toStringAsFixed(1));
                             freq = ' PO q12 hrs for 10 days';
                             _doseView = true;
+                            _alternativeView = false;
 
                             _contraView = false;
                             _precView = false;
@@ -1693,6 +1862,7 @@ class _DetailsState extends State<Details> {
                                 .toStringAsFixed(1));
                             freq = '${_selectedTotal.freq}';
                             _doseView = true;
+                            _alternativeView = false;
 
                             _contraView = false;
                             _precView = false;
@@ -1711,6 +1881,7 @@ class _DetailsState extends State<Details> {
                             _maxDose = 0.0;
                             freq = ' Po q8hrs 7-10 days not to exceed 4g/day';
                             _doseView = true;
+                            _alternativeView = false;
 
                             _contraView = false;
                             _precView = false;
@@ -1725,6 +1896,7 @@ class _DetailsState extends State<Details> {
                             _maxDose = 0.0;
                             freq = ' Po q8hrs 7-10 days not to exceed 4g/day';
                             _doseView = true;
+                            _alternativeView = false;
 
                             _contraView = false;
                             _precView = false;
@@ -1740,6 +1912,7 @@ class _DetailsState extends State<Details> {
                                     .toStringAsFixed(1));
                             freq = ' Po q8hrs 10 days not to exceed 4g/day';
                             _doseView = true;
+                            _alternativeView = false;
 
                             _contraView = false;
                             _precView = false;
@@ -1753,6 +1926,7 @@ class _DetailsState extends State<Details> {
                             _maxDose = 0.0;
                             freq = ' Po q8hrs 5 days';
                             _doseView = true;
+                            _alternativeView = false;
 
                             _contraView = false;
                             _precView = false;
@@ -1766,6 +1940,7 @@ class _DetailsState extends State<Details> {
                             _maxDose = 0.0;
                             freq = ' Po q8hrs 7 days, not to exceed 2g/day';
                             _doseView = true;
+                            _alternativeView = false;
 
                             _contraView = false;
                             _precView = false;
@@ -1794,6 +1969,7 @@ class _DetailsState extends State<Details> {
                             _minDose = 5;
                             freq = 'PO q12hr x 3 days';
                             _doseView = true;
+                            _alternativeView = false;
 
                             _contraView = false;
                             _precView = false;
@@ -1805,6 +1981,7 @@ class _DetailsState extends State<Details> {
                             _minDose = 10;
                             freq = 'PO q12hr x 3 days';
                             _doseView = true;
+                            _alternativeView = false;
 
                             _contraView = false;
                             _precView = false;
@@ -1819,6 +1996,7 @@ class _DetailsState extends State<Details> {
                             _minDose = 5;
                             freq = 'PO q8hr';
                             _doseView = true;
+                            _alternativeView = false;
 
                             _contraView = false;
                             _precView = false;
@@ -1830,6 +2008,7 @@ class _DetailsState extends State<Details> {
                             _minDose = 10;
                             freq = 'PO q8hr';
                             _doseView = true;
+                            _alternativeView = false;
 
                             _contraView = false;
                             _precView = false;
@@ -1858,6 +2037,7 @@ class _DetailsState extends State<Details> {
                             _minDose = 5;
                             freq = 'PO q8hr';
                             _doseView = true;
+                            _alternativeView = false;
 
                             _contraView = false;
                             _precView = false;
@@ -1869,6 +2049,7 @@ class _DetailsState extends State<Details> {
                             _minDose = 15;
                             freq = 'PO q8hr';
                             _doseView = true;
+                            _alternativeView = false;
 
                             _contraView = false;
                             _precView = false;
@@ -1882,6 +2063,7 @@ class _DetailsState extends State<Details> {
                             _minDose = 5;
                             freq = 'PO q8hr';
                             _doseView = true;
+                            _alternativeView = false;
 
                             _contraView = false;
                             _precView = false;
@@ -1893,6 +2075,7 @@ class _DetailsState extends State<Details> {
                             _minDose = 15;
                             freq = 'PO q8hr';
                             _doseView = true;
+                            _alternativeView = false;
 
                             _contraView = false;
                             _precView = false;
@@ -1906,6 +2089,7 @@ class _DetailsState extends State<Details> {
                             _minDose = 5;
                             freq = 'PO q12hr';
                             _doseView = true;
+                            _alternativeView = false;
 
                             _contraView = false;
                             _precView = false;
@@ -1917,6 +2101,7 @@ class _DetailsState extends State<Details> {
                             _minDose = 5;
                             freq = 'PO q8hr';
                             _doseView = true;
+                            _alternativeView = false;
 
                             _contraView = false;
                             _precView = false;
@@ -1928,6 +2113,7 @@ class _DetailsState extends State<Details> {
                             _minDose = 10;
                             freq = 'PO q8hr';
                             _doseView = true;
+                            _alternativeView = false;
 
                             _contraView = false;
                             _precView = false;
@@ -1943,6 +2129,7 @@ class _DetailsState extends State<Details> {
                             freq =
                                 'PO during or after each feed or up to six times/day';
                             _doseView = true;
+                            _alternativeView = false;
 
                             _contraView = false;
                             _precView = false;
@@ -1955,6 +2142,7 @@ class _DetailsState extends State<Details> {
                             freq =
                                 'PO during or after each feed or up to six times/day';
                             _doseView = true;
+                            _alternativeView = false;
 
                             _contraView = false;
                             _precView = false;
@@ -1970,6 +2158,7 @@ class _DetailsState extends State<Details> {
                               double.parse((_weight * .25).toStringAsFixed(1));
                           freq = 'PO q8hr before meal, do not exceed 80 mg/day';
                           _doseView = true;
+                          _alternativeView = false;
 
                           _contraView = false;
                           _precView = false;
@@ -1983,6 +2172,7 @@ class _DetailsState extends State<Details> {
                               ((_weight * 1) / 3).toStringAsFixed(1));
                           freq = 'PO q8hr, do not exceed 60 ml/day';
                           _doseView = true;
+                          _alternativeView = false;
 
                           _contraView = false;
                           _precView = false;
@@ -2010,6 +2200,7 @@ class _DetailsState extends State<Details> {
                             _minDose = 4.16;
                             freq = 'PO q8hr, do not exceed 60 ml/day';
                             _doseView = true;
+                            _alternativeView = false;
 
                             _contraView = false;
                             _precView = false;
@@ -2020,6 +2211,8 @@ class _DetailsState extends State<Details> {
                         if (_weight < 12) {
                           setState(() {
                             _doseView = true;
+                            _alternativeView = false;
+
                             _maxDose = 0.0;
                             _minDose = 0.3;
                             freq =
@@ -2036,6 +2229,7 @@ class _DetailsState extends State<Details> {
                             freq =
                                 ' Po ie: 12 drops q6hr after meals and at bedtime, not to exceed 480 mg/day';
                             _doseView = true;
+                            _alternativeView = false;
 
                             _contraView = false;
                             _precView = false;
@@ -2064,6 +2258,7 @@ class _DetailsState extends State<Details> {
                             freq =
                                 " Po once daily can increase to 5 mg PO qDay or 2.5 mg PO twice daily; not to exceed 5 mg qDay";
                             _doseView = true;
+                            _alternativeView = false;
 
                             _contraView = false;
                             _precView = false;
@@ -2076,6 +2271,7 @@ class _DetailsState extends State<Details> {
                             freq =
                                 " PO qDay, depending on severity of symptoms; not to exceed 10 mg qDay";
                             _doseView = true;
+                            _alternativeView = false;
 
                             _contraView = false;
                             _precView = false;
@@ -2104,6 +2300,7 @@ class _DetailsState extends State<Details> {
                             _minDose = 2.5;
                             freq = " PO q4-6hr; not to exceed 6 mg/day";
                             _doseView = true;
+                            _alternativeView = false;
 
                             _contraView = false;
                             _precView = false;
@@ -2116,6 +2313,7 @@ class _DetailsState extends State<Details> {
                             freq =
                                 " PO q4-6hr; not to exceed 12 mg/day or sustained release HS";
                             _doseView = true;
+                            _alternativeView = false;
 
                             _contraView = false;
                             _precView = false;
@@ -2131,6 +2329,7 @@ class _DetailsState extends State<Details> {
                                     .toStringAsFixed(1));
                             freq = " PO q12hr; not to exceed 1.34 mg";
                             _doseView = true;
+                            _alternativeView = false;
 
                             _contraView = false;
                             _precView = false;
@@ -2146,6 +2345,7 @@ class _DetailsState extends State<Details> {
                                     .toStringAsFixed(1));
                             freq = " PO q12hr; not to exceed 4.02 mg/day";
                             _doseView = true;
+                            _alternativeView = false;
 
                             _contraView = false;
                             _precView = false;
@@ -2175,6 +2375,7 @@ class _DetailsState extends State<Details> {
                                 (1 * _selectedTotal.conc).toStringAsFixed(1));
                             freq = " PO qd";
                             _doseView = true;
+                            _alternativeView = false;
 
                             _contraView = false;
                             _precView = false;
@@ -2187,6 +2388,7 @@ class _DetailsState extends State<Details> {
                                 .toStringAsFixed(1));
                             freq = " PO qd";
                             _doseView = true;
+                            _alternativeView = false;
 
                             _contraView = false;
                             _precView = false;
@@ -2199,6 +2401,7 @@ class _DetailsState extends State<Details> {
                                 (2.5 * _selectedTotal.conc).toStringAsFixed(1));
                             freq = " PO qd";
                             _doseView = true;
+                            _alternativeView = false;
 
                             _contraView = false;
                             _precView = false;
@@ -2211,6 +2414,7 @@ class _DetailsState extends State<Details> {
                                 (5 * _selectedTotal.conc).toStringAsFixed(1));
                             freq = " PO qd";
                             _doseView = true;
+                            _alternativeView = false;
 
                             _contraView = false;
                             _precView = false;
@@ -2239,6 +2443,7 @@ class _DetailsState extends State<Details> {
                                 (15 * _selectedTotal.conc).toStringAsFixed(1));
                             freq = " PO bid";
                             _doseView = true;
+                            _alternativeView = false;
 
                             _contraView = false;
                             _precView = false;
@@ -2251,6 +2456,7 @@ class _DetailsState extends State<Details> {
                                 (30 * _selectedTotal.conc).toStringAsFixed(1));
                             freq = " PO bid";
                             _doseView = true;
+                            _alternativeView = false;
 
                             _contraView = false;
                             _precView = false;
@@ -2264,6 +2470,7 @@ class _DetailsState extends State<Details> {
                             freq =
                                 " PO bid or ${_minDose * 2} ml PO once daily";
                             _doseView = true;
+                            _alternativeView = false;
 
                             _contraView = false;
                             _precView = false;
@@ -2291,6 +2498,7 @@ class _DetailsState extends State<Details> {
                             _minDose = 2.5;
                             freq = " PO bid";
                             _doseView = true;
+                            _alternativeView = false;
 
                             _contraView = false;
                             _precView = false;
@@ -2302,6 +2510,7 @@ class _DetailsState extends State<Details> {
                             _minDose = 5;
                             freq = " PO bid";
                             _doseView = true;
+                            _alternativeView = false;
 
                             _contraView = false;
                             _precView = false;
@@ -2331,6 +2540,7 @@ class _DetailsState extends State<Details> {
                                 .toStringAsFixed(1));
                             freq = " PO qDay in evening";
                             _doseView = true;
+                            _alternativeView = false;
 
                             _contraView = false;
                             _precView = false;
@@ -2343,6 +2553,7 @@ class _DetailsState extends State<Details> {
                                 (2.5 * _selectedTotal.conc).toStringAsFixed(1));
                             freq = " PO qDay in evening";
                             _doseView = true;
+                            _alternativeView = false;
 
                             _contraView = false;
                             _precView = false;
@@ -2356,6 +2567,7 @@ class _DetailsState extends State<Details> {
                             freq =
                                 " PO qDay in evening; some patients may respond to 2.5 mg/day";
                             _doseView = true;
+                            _alternativeView = false;
 
                             _contraView = false;
                             _precView = false;
@@ -2384,6 +2596,7 @@ class _DetailsState extends State<Details> {
                                 (5 * _selectedTotal.conc).toStringAsFixed(1));
                             freq = " PO qDay";
                             _doseView = true;
+                            _alternativeView = false;
 
                             _contraView = false;
                             _precView = false;
@@ -2396,6 +2609,7 @@ class _DetailsState extends State<Details> {
                                 (10 * _selectedTotal.conc).toStringAsFixed(1));
                             freq = " PO qDay not to exceed 10 mg qDay";
                             _doseView = true;
+                            _alternativeView = false;
 
                             _contraView = false;
                             _precView = false;
@@ -2424,6 +2638,7 @@ class _DetailsState extends State<Details> {
                             _minDose = 2.5;
                             freq = " PO tid";
                             _doseView = true;
+                            _alternativeView = false;
 
                             _contraView = false;
                             _precView = false;
@@ -2435,6 +2650,7 @@ class _DetailsState extends State<Details> {
                             _minDose = 5;
                             freq = " PO tid";
                             _doseView = true;
+                            _alternativeView = false;
 
                             _contraView = false;
                             _precView = false;
@@ -2463,6 +2679,7 @@ class _DetailsState extends State<Details> {
                             _minDose = 2.5;
                             freq = " PO tid";
                             _doseView = true;
+                            _alternativeView = false;
 
                             _contraView = false;
                             _precView = false;
@@ -2474,6 +2691,7 @@ class _DetailsState extends State<Details> {
                             _minDose = 5;
                             freq = " PO tid";
                             _doseView = true;
+                            _alternativeView = false;
 
                             _contraView = false;
                             _precView = false;
@@ -2502,6 +2720,7 @@ class _DetailsState extends State<Details> {
                             _minDose = 5;
                             freq = " PO tid";
                             _doseView = true;
+                            _alternativeView = false;
 
                             _contraView = false;
                             _precView = false;
@@ -2530,6 +2749,7 @@ class _DetailsState extends State<Details> {
                             _minDose = 5;
                             freq = " PO tid";
                             _doseView = true;
+                            _alternativeView = false;
 
                             _contraView = false;
                             _precView = false;
@@ -2558,6 +2778,7 @@ class _DetailsState extends State<Details> {
                             _minDose = 5;
                             freq = " PO tid";
                             _doseView = true;
+                            _alternativeView = false;
 
                             _contraView = false;
                             _precView = false;
@@ -2585,6 +2806,7 @@ class _DetailsState extends State<Details> {
                             _minDose = 2.5;
                             freq = " PO bid";
                             _doseView = true;
+                            _alternativeView = false;
 
                             _contraView = false;
                             _precView = false;
@@ -2596,6 +2818,7 @@ class _DetailsState extends State<Details> {
                             _minDose = 5;
                             freq = " PO bid";
                             _doseView = true;
+                            _alternativeView = false;
 
                             _contraView = false;
                             _precView = false;
@@ -2624,6 +2847,7 @@ class _DetailsState extends State<Details> {
                             _minDose = 5;
                             freq = " PO tid";
                             _doseView = true;
+                            _alternativeView = false;
 
                             _contraView = false;
                             _precView = false;
@@ -2635,6 +2859,7 @@ class _DetailsState extends State<Details> {
                             _minDose = 10;
                             freq = " PO tid";
                             _doseView = true;
+                            _alternativeView = false;
 
                             _contraView = false;
                             _precView = false;
@@ -2666,6 +2891,7 @@ class _DetailsState extends State<Details> {
                                 (2.5 * _selectedTotal.conc).toStringAsFixed(1));
                             freq = " PO tid";
                             _doseView = true;
+                            _alternativeView = false;
 
                             _contraView = false;
                             _precView = false;
@@ -2680,6 +2906,7 @@ class _DetailsState extends State<Details> {
                                 (5 * _selectedTotal.conc).toStringAsFixed(1));
                             freq = " PO tid";
                             _doseView = true;
+                            _alternativeView = false;
 
                             _contraView = false;
                             _precView = false;
@@ -2709,6 +2936,7 @@ class _DetailsState extends State<Details> {
                             _minDose = 1.25;
                             freq = " PO tid";
                             _doseView = true;
+                            _alternativeView = false;
 
                             _contraView = false;
                             _precView = false;
@@ -2720,6 +2948,7 @@ class _DetailsState extends State<Details> {
                             _minDose = 2.5;
                             freq = " PO tid";
                             _doseView = true;
+                            _alternativeView = false;
 
                             _contraView = false;
                             _precView = false;
@@ -2734,6 +2963,7 @@ class _DetailsState extends State<Details> {
                             _minDose = 2.5;
                             freq = " PO tid";
                             _doseView = true;
+                            _alternativeView = false;
 
                             _contraView = false;
                             _precView = false;
@@ -2746,6 +2976,7 @@ class _DetailsState extends State<Details> {
                             _minDose = 5;
                             freq = " PO tid";
                             _doseView = true;
+                            _alternativeView = false;
 
                             _contraView = false;
                             _precView = false;
@@ -2757,6 +2988,7 @@ class _DetailsState extends State<Details> {
                             _minDose = 10;
                             freq = " PO tid";
                             _doseView = true;
+                            _alternativeView = false;
 
                             _contraView = false;
                             _precView = false;
@@ -2786,6 +3018,7 @@ class _DetailsState extends State<Details> {
                             _minDose = 5;
                             freq = " PO tid";
                             _doseView = true;
+                            _alternativeView = false;
 
                             _contraView = false;
                             _precView = false;
@@ -2797,6 +3030,7 @@ class _DetailsState extends State<Details> {
                             _minDose = 10;
                             freq = " PO tid";
                             _doseView = true;
+                            _alternativeView = false;
 
                             _contraView = false;
                             _precView = false;
@@ -2811,6 +3045,7 @@ class _DetailsState extends State<Details> {
                             _minDose = 2.5;
                             freq = " PO bid";
                             _doseView = true;
+                            _alternativeView = false;
 
                             _contraView = false;
                             _precView = false;
@@ -2823,6 +3058,7 @@ class _DetailsState extends State<Details> {
                             _minDose = 2.5;
                             freq = " PO tid";
                             _doseView = true;
+                            _alternativeView = false;
 
                             _contraView = false;
                             _precView = false;
@@ -2834,6 +3070,7 @@ class _DetailsState extends State<Details> {
                             _minDose = 5;
                             freq = " PO tid";
                             _doseView = true;
+                            _alternativeView = false;
 
                             _contraView = false;
                             _precView = false;
@@ -2849,6 +3086,7 @@ class _DetailsState extends State<Details> {
                             _minDose = 2.5;
                             freq = " PO bid";
                             _doseView = true;
+                            _alternativeView = false;
 
                             _contraView = false;
                             _precView = false;
@@ -2861,6 +3099,7 @@ class _DetailsState extends State<Details> {
                             _minDose = 2.5;
                             freq = " PO tid";
                             _doseView = true;
+                            _alternativeView = false;
 
                             _contraView = false;
                             _precView = false;
@@ -2872,6 +3111,7 @@ class _DetailsState extends State<Details> {
                             _minDose = 5;
                             freq = " PO tid";
                             _doseView = true;
+                            _alternativeView = false;
 
                             _contraView = false;
                             _precView = false;
@@ -2900,6 +3140,7 @@ class _DetailsState extends State<Details> {
                             _minDose = 2.5;
                             freq = " PO tid";
                             _doseView = true;
+                            _alternativeView = false;
 
                             _contraView = false;
                             _precView = false;
@@ -2912,6 +3153,7 @@ class _DetailsState extends State<Details> {
                             _minDose = 5;
                             freq = " PO tid";
                             _doseView = true;
+                            _alternativeView = false;
 
                             _contraView = false;
                             _precView = false;
@@ -2923,6 +3165,7 @@ class _DetailsState extends State<Details> {
                             _minDose = 10;
                             freq = " PO tid";
                             _doseView = true;
+                            _alternativeView = false;
 
                             _contraView = false;
                             _precView = false;
@@ -2952,6 +3195,7 @@ class _DetailsState extends State<Details> {
                             _minDose = 2.5;
                             freq = " PO tid";
                             _doseView = true;
+                            _alternativeView = false;
 
                             _contraView = false;
                             _precView = false;
@@ -2964,6 +3208,7 @@ class _DetailsState extends State<Details> {
                             _minDose = 10;
                             freq = " PO tid";
                             _doseView = true;
+                            _alternativeView = false;
 
                             _contraView = false;
                             _precView = false;
@@ -2993,6 +3238,7 @@ class _DetailsState extends State<Details> {
                             _minDose = 1.25;
                             freq = " PO tid";
                             _doseView = true;
+                            _alternativeView = false;
 
                             _contraView = false;
                             _precView = false;
@@ -3005,6 +3251,7 @@ class _DetailsState extends State<Details> {
                             _minDose = 5;
                             freq = " PO tid";
                             _doseView = true;
+                            _alternativeView = false;
 
                             _contraView = false;
                             _precView = false;
@@ -3019,6 +3266,7 @@ class _DetailsState extends State<Details> {
                             _minDose = 2.5;
                             freq = " PO bid";
                             _doseView = true;
+                            _alternativeView = false;
 
                             _contraView = false;
                             _precView = false;
@@ -3031,6 +3279,7 @@ class _DetailsState extends State<Details> {
                             _minDose = 5;
                             freq = " PO bid";
                             _doseView = true;
+                            _alternativeView = false;
 
                             _contraView = false;
                             _precView = false;
@@ -3060,6 +3309,7 @@ class _DetailsState extends State<Details> {
                             _minDose = 5;
                             freq = " PO tid";
                             _doseView = true;
+                            _alternativeView = false;
 
                             _contraView = false;
                             _precView = false;
@@ -3072,6 +3322,7 @@ class _DetailsState extends State<Details> {
                             _minDose = 10;
                             freq = " PO tid";
                             _doseView = true;
+                            _alternativeView = false;
 
                             _contraView = false;
                             _precView = false;
@@ -3101,6 +3352,7 @@ class _DetailsState extends State<Details> {
                             _minDose = 2.5;
                             freq = " PO tid";
                             _doseView = true;
+                            _alternativeView = false;
 
                             _contraView = false;
                             _precView = false;
@@ -3113,6 +3365,7 @@ class _DetailsState extends State<Details> {
                             _minDose = 5;
                             freq = " PO tid";
                             _doseView = true;
+                            _alternativeView = false;
 
                             _contraView = false;
                             _precView = false;
@@ -3142,6 +3395,7 @@ class _DetailsState extends State<Details> {
                             _minDose = 2.5;
                             freq = " PO tid";
                             _doseView = true;
+                            _alternativeView = false;
 
                             _contraView = false;
                             _precView = false;
@@ -3154,6 +3408,7 @@ class _DetailsState extends State<Details> {
                             _minDose = 5;
                             freq = " PO tid";
                             _doseView = true;
+                            _alternativeView = false;
 
                             _contraView = false;
                             _precView = false;
@@ -3183,6 +3438,7 @@ class _DetailsState extends State<Details> {
                             _minDose = 5;
                             freq = " PO tid";
                             _doseView = true;
+                            _alternativeView = false;
 
                             _contraView = false;
                             _precView = false;
@@ -3212,6 +3468,7 @@ class _DetailsState extends State<Details> {
                             _minDose = 5;
                             freq = " PO tid";
                             _doseView = true;
+                            _alternativeView = false;
 
                             _contraView = false;
                             _precView = false;
@@ -3224,6 +3481,7 @@ class _DetailsState extends State<Details> {
                             _minDose = 10;
                             freq = " PO tid";
                             _doseView = true;
+                            _alternativeView = false;
 
                             _contraView = false;
                             _precView = false;
@@ -3253,6 +3511,7 @@ class _DetailsState extends State<Details> {
                             _minDose = 2.5;
                             freq = " PO tid";
                             _doseView = true;
+                            _alternativeView = false;
 
                             _contraView = false;
                             _precView = false;
@@ -3282,6 +3541,7 @@ class _DetailsState extends State<Details> {
                             _minDose = 2.5;
                             freq = " PO tid";
                             _doseView = true;
+                            _alternativeView = false;
 
                             _contraView = false;
                             _precView = false;
@@ -3311,6 +3571,7 @@ class _DetailsState extends State<Details> {
                             _minDose = 5;
                             freq = " PO tid";
                             _doseView = true;
+                            _alternativeView = false;
 
                             _contraView = false;
                             _precView = false;
@@ -3340,6 +3601,7 @@ class _DetailsState extends State<Details> {
                             _minDose = 5;
                             freq = " PO tid";
                             _doseView = true;
+                            _alternativeView = false;
 
                             _contraView = false;
                             _precView = false;
@@ -3369,6 +3631,7 @@ class _DetailsState extends State<Details> {
                             _minDose = 1.25;
                             freq = " PO tid";
                             _doseView = true;
+                            _alternativeView = false;
 
                             _contraView = false;
                             _precView = false;
@@ -3381,6 +3644,7 @@ class _DetailsState extends State<Details> {
                             _minDose = 2.5;
                             freq = " PO tid";
                             _doseView = true;
+                            _alternativeView = false;
 
                             _contraView = false;
                             _precView = false;
@@ -3393,6 +3657,7 @@ class _DetailsState extends State<Details> {
                             _minDose = 5;
                             freq = " PO tid";
                             _doseView = true;
+                            _alternativeView = false;
 
                             _contraView = false;
                             _precView = false;
@@ -3422,6 +3687,7 @@ class _DetailsState extends State<Details> {
                             _minDose = 5;
                             freq = " PO tid";
                             _doseView = true;
+                            _alternativeView = false;
 
                             _contraView = false;
                             _precView = false;
@@ -3451,6 +3717,7 @@ class _DetailsState extends State<Details> {
                             _minDose = 3.5;
                             freq = " PO tid";
                             _doseView = true;
+                            _alternativeView = false;
 
                             _contraView = false;
                             _precView = false;
@@ -3463,6 +3730,7 @@ class _DetailsState extends State<Details> {
                             _minDose = 7;
                             freq = " PO tid";
                             _doseView = true;
+                            _alternativeView = false;
 
                             _contraView = false;
                             _precView = false;
@@ -3491,6 +3759,7 @@ class _DetailsState extends State<Details> {
                             _minDose = 2.5;
                             freq = " PO tid";
                             _doseView = true;
+                            _alternativeView = false;
 
                             _contraView = false;
                             _precView = false;
@@ -3503,6 +3772,7 @@ class _DetailsState extends State<Details> {
                             _minDose = 5;
                             freq = " PO tid";
                             _doseView = true;
+                            _alternativeView = false;
 
                             _contraView = false;
                             _precView = false;
@@ -3531,6 +3801,7 @@ class _DetailsState extends State<Details> {
                             _minDose = 5;
                             freq = " PO at bedtime";
                             _doseView = true;
+                            _alternativeView = false;
 
                             _contraView = false;
                             _precView = false;
@@ -3543,6 +3814,7 @@ class _DetailsState extends State<Details> {
                             _minDose = 10;
                             freq = " PO bedtime";
                             _doseView = true;
+                            _alternativeView = false;
 
                             _contraView = false;
                             _precView = false;
@@ -3558,6 +3830,7 @@ class _DetailsState extends State<Details> {
                                   .toStringAsFixed(1));
                           freq = " PO tid";
                           _doseView = true;
+                          _alternativeView = false;
 
                           _contraView = false;
                           _precView = false;
@@ -3586,6 +3859,7 @@ class _DetailsState extends State<Details> {
                             _minDose = 2.5;
                             freq = " PO every 6-8 hrs";
                             _doseView = true;
+                            _alternativeView = false;
 
                             _contraView = false;
                             _precView = false;
@@ -3598,6 +3872,7 @@ class _DetailsState extends State<Details> {
                             _minDose = 5;
                             freq = " PO every 6-8 hrs";
                             _doseView = true;
+                            _alternativeView = false;
 
                             _contraView = false;
                             _precView = false;
@@ -3627,6 +3902,7 @@ class _DetailsState extends State<Details> {
                             _minDose = 2.5;
                             freq = " PO every 6-8 hrs";
                             _doseView = true;
+                            _alternativeView = false;
 
                             _contraView = false;
                             _precView = false;
@@ -3639,6 +3915,7 @@ class _DetailsState extends State<Details> {
                             _minDose = 5;
                             freq = " PO every 6-8 hrs";
                             _doseView = true;
+                            _alternativeView = false;
 
                             _contraView = false;
                             _precView = false;
@@ -3668,6 +3945,7 @@ class _DetailsState extends State<Details> {
                             _minDose = 2.5;
                             freq = " PO every 8 hrs";
                             _doseView = true;
+                            _alternativeView = false;
 
                             _contraView = false;
                             _precView = false;
@@ -3680,6 +3958,7 @@ class _DetailsState extends State<Details> {
                             _minDose = 5;
                             freq = " PO every 8 hrs";
                             _doseView = true;
+                            _alternativeView = false;
 
                             _contraView = false;
                             _precView = false;
@@ -3709,6 +3988,9 @@ class _DetailsState extends State<Details> {
                             _minDose = 2.5;
                             freq = " PO every 8 hrs";
                             _doseView = true;
+                            _alternativeView = false;
+
+                            _alternativeView = false;
 
                             _contraView = false;
                             _precView = false;
@@ -3721,6 +4003,9 @@ class _DetailsState extends State<Details> {
                             _minDose = 5;
                             freq = " PO every 8 hrs";
                             _doseView = true;
+                            _alternativeView = false;
+
+                            _alternativeView = false;
 
                             _contraView = false;
                             _precView = false;
@@ -3750,6 +4035,9 @@ class _DetailsState extends State<Details> {
                             _minDose = 2.5;
                             freq = " PO every 8 hrs";
                             _doseView = true;
+                            _alternativeView = false;
+
+                            _alternativeView = false;
 
                             _contraView = false;
                             _precView = false;
@@ -3762,6 +4050,9 @@ class _DetailsState extends State<Details> {
                             _minDose = 5;
                             freq = " PO every 8 hrs";
                             _doseView = true;
+                            _alternativeView = false;
+
+                            _alternativeView = false;
 
                             _contraView = false;
                             _precView = false;
@@ -3791,6 +4082,9 @@ class _DetailsState extends State<Details> {
                             _minDose = 2.5;
                             freq = " PO every 8 hrs";
                             _doseView = true;
+                            _alternativeView = false;
+
+                            _alternativeView = false;
 
                             _contraView = false;
                             _precView = false;
@@ -3803,6 +4097,9 @@ class _DetailsState extends State<Details> {
                             _minDose = 5;
                             freq = " PO every 8 hrs";
                             _doseView = true;
+                            _alternativeView = false;
+
+                            _alternativeView = false;
 
                             _contraView = false;
                             _precView = false;
@@ -3832,6 +4129,9 @@ class _DetailsState extends State<Details> {
                             _minDose = 2.5;
                             freq = " PO every 8 hrs";
                             _doseView = true;
+                            _alternativeView = false;
+
+                            _alternativeView = false;
 
                             _contraView = false;
                             _precView = false;
@@ -3844,6 +4144,7 @@ class _DetailsState extends State<Details> {
                             _minDose = 5;
                             freq = " PO every 8 hrs";
                             _doseView = true;
+                            _alternativeView = false;
 
                             _contraView = false;
                             _precView = false;
@@ -3873,6 +4174,7 @@ class _DetailsState extends State<Details> {
                             _minDose = 2.5;
                             freq = " PO every 6-8 hrs";
                             _doseView = true;
+                            _alternativeView = false;
 
                             _contraView = false;
                             _precView = false;
@@ -3902,6 +4204,7 @@ class _DetailsState extends State<Details> {
                             _minDose = 5;
                             freq = " PO every 8 hrs";
                             _doseView = true;
+                            _alternativeView = false;
 
                             _contraView = false;
                             _precView = false;
@@ -3931,6 +4234,7 @@ class _DetailsState extends State<Details> {
                             _minDose = 2.5;
                             freq = " PO every 8-12 hrs";
                             _doseView = true;
+                            _alternativeView = false;
 
                             _contraView = false;
                             _precView = false;
@@ -3960,6 +4264,7 @@ class _DetailsState extends State<Details> {
                             _minDose = 5;
                             freq = " PO every 8 hrs";
                             _doseView = true;
+                            _alternativeView = false;
 
                             _contraView = false;
                             _precView = false;
@@ -3988,6 +4293,7 @@ class _DetailsState extends State<Details> {
                             _minDose = 2.5;
                             freq = " PO every 12 hrs";
                             _doseView = true;
+                            _alternativeView = false;
 
                             _contraView = false;
                             _precView = false;
@@ -4000,6 +4306,7 @@ class _DetailsState extends State<Details> {
                             _minDose = 5;
                             freq = " PO every 12 hrs";
                             _doseView = true;
+                            _alternativeView = false;
 
                             _contraView = false;
                             _precView = false;
@@ -4029,6 +4336,7 @@ class _DetailsState extends State<Details> {
                             _minDose = 2.5;
                             freq = " PO every 12 hrs";
                             _doseView = true;
+                            _alternativeView = false;
 
                             _contraView = false;
                             _precView = false;
@@ -4041,6 +4349,7 @@ class _DetailsState extends State<Details> {
                             _minDose = 5;
                             freq = " PO every 12 hrs";
                             _doseView = true;
+                            _alternativeView = false;
 
                             _contraView = false;
                             _precView = false;
@@ -4070,6 +4379,7 @@ class _DetailsState extends State<Details> {
                             _minDose = 2.5;
                             freq = " PO every 8 hrs";
                             _doseView = true;
+                            _alternativeView = false;
 
                             _contraView = false;
                             _precView = false;
@@ -4082,6 +4392,7 @@ class _DetailsState extends State<Details> {
                             _minDose = 5;
                             freq = " PO every 8 hrs";
                             _doseView = true;
+                            _alternativeView = false;
 
                             _contraView = false;
                             _precView = false;
@@ -4111,6 +4422,7 @@ class _DetailsState extends State<Details> {
                             _minDose = 2.5;
                             freq = " PO every 8 hrs";
                             _doseView = true;
+                            _alternativeView = false;
 
                             _contraView = false;
                             _precView = false;
@@ -4123,6 +4435,7 @@ class _DetailsState extends State<Details> {
                             _minDose = 5;
                             freq = " PO every 8 hrs";
                             _doseView = true;
+                            _alternativeView = false;
 
                             _contraView = false;
                             _precView = false;
@@ -4152,6 +4465,7 @@ class _DetailsState extends State<Details> {
                             _minDose = 2.5;
                             freq = " PO every 8 hrs";
                             _doseView = true;
+                            _alternativeView = false;
 
                             _contraView = false;
                             _precView = false;
@@ -4164,6 +4478,7 @@ class _DetailsState extends State<Details> {
                             _minDose = 5;
                             freq = " PO every 8 hrs";
                             _doseView = true;
+                            _alternativeView = false;
 
                             _contraView = false;
                             _precView = false;
@@ -4193,6 +4508,7 @@ class _DetailsState extends State<Details> {
                             _minDose = 2.5;
                             freq = " PO every 8 hrs";
                             _doseView = true;
+                            _alternativeView = false;
 
                             _contraView = false;
                             _precView = false;
@@ -4205,6 +4521,7 @@ class _DetailsState extends State<Details> {
                             _minDose = 5;
                             freq = " PO every 8 hrs";
                             _doseView = true;
+                            _alternativeView = false;
 
                             _contraView = false;
                             _precView = false;
@@ -4223,6 +4540,7 @@ class _DetailsState extends State<Details> {
                               .toStringAsFixed(1));
                           freq = '${_selectedTotal.freq}';
                           _doseView = true;
+                          _alternativeView = false;
 
                           _contraView = false;
                           _precView = false;
@@ -4234,6 +4552,10 @@ class _DetailsState extends State<Details> {
                       });
                     },
                     child: Text('Dose'),
+                    style: ButtonStyle(
+                      backgroundColor:
+                          MaterialStateProperty.all(Color(0xff7868e6)),
+                    ),
                   ),
                 ),
                 SizedBox(
@@ -4241,6 +4563,10 @@ class _DetailsState extends State<Details> {
                 ),
                 Expanded(
                   child: ElevatedButton(
+                    style: ButtonStyle(
+                      backgroundColor:
+                          MaterialStateProperty.all(Color(0xff7868e6)),
+                    ),
                     onPressed: () {
                       _selectedTotal == null
                           ? showDialog(
@@ -4250,6 +4576,8 @@ class _DetailsState extends State<Details> {
                                     content: Text('Select Drug First'),
                                   ))
                           : setState(() {
+                              _alternativeView = false;
+
                               _doseView = false;
                               _contraView = false;
                               _precView = false;
@@ -4264,6 +4592,10 @@ class _DetailsState extends State<Details> {
                 ),
                 Expanded(
                   child: ElevatedButton(
+                    style: ButtonStyle(
+                      backgroundColor:
+                          MaterialStateProperty.all(Color(0xff7868e6)),
+                    ),
                     onPressed: () {
                       _selectedTotal == null
                           ? showDialog(
@@ -4274,6 +4606,7 @@ class _DetailsState extends State<Details> {
                                   ))
                           : setState(() {
                               _doseView = false;
+                              _alternativeView = false;
                               _contraView = false;
                               _precView = true;
                               _tradeView = false;
@@ -4292,6 +4625,10 @@ class _DetailsState extends State<Details> {
               children: [
                 Expanded(
                   child: ElevatedButton(
+                    style: ButtonStyle(
+                      backgroundColor:
+                          MaterialStateProperty.all(Color(0xff7868e6)),
+                    ),
                     onPressed: () {
                       _selectedTotal == null
                           ? showDialog(
@@ -4301,6 +4638,7 @@ class _DetailsState extends State<Details> {
                                     content: Text('Select Drug First'),
                                   ))
                           : setState(() {
+                              _alternativeView = false;
                               _doseView = false;
                               _contraView = true;
                               _precView = false;
@@ -4308,6 +4646,34 @@ class _DetailsState extends State<Details> {
                             });
                     },
                     child: Text('Contraindications'),
+                  ),
+                ),
+                SizedBox(
+                  width: 10,
+                ),
+                Expanded(
+                  child: ElevatedButton(
+                    style: ButtonStyle(
+                      backgroundColor:
+                          MaterialStateProperty.all(Color(0xff7868e6)),
+                    ),
+                    onPressed: () {
+                      _selectedTotal == null
+                          ? showDialog(
+                              context: context,
+                              builder: (BuildContext context) => AlertDialog(
+                                    title: Text('Sorry...'),
+                                    content: Text('Select Drug First'),
+                                  ))
+                          : setState(() {
+                              _alternativeView = true;
+                              _doseView = false;
+                              _contraView = false;
+                              _precView = false;
+                              _tradeView = false;
+                            });
+                    },
+                    child: Text('Alternatives'),
                   ),
                 ),
                 SizedBox(
@@ -4351,7 +4717,7 @@ class _DetailsState extends State<Details> {
                     },
                     style: ButtonStyle(
                       backgroundColor:
-                          MaterialStateProperty.all<Color>(Colors.green),
+                          MaterialStateProperty.all<Color>(Color(0xffb8b5ff)),
                     ),
                     child: Text('New Search'),
                   ),
@@ -4366,7 +4732,7 @@ class _DetailsState extends State<Details> {
                   width: double.infinity,
                   padding: EdgeInsets.all(10),
                   decoration: BoxDecoration(
-                    color: Color(0xff173f5f),
+                    color: Color(0xff7868e6),
                     border: Border.all(color: Colors.white, width: 1),
                     borderRadius: BorderRadius.all(
                       Radius.circular(10),
@@ -4376,14 +4742,16 @@ class _DetailsState extends State<Details> {
                       ? Text('Dose:\n ${_selectedTotal.doseNote}')
                       : _maxDose == 0.0
                           ? Text(
-                              'Dose:\n $_minDose ml $freq\n${_selectedTotal.doseNote} ')
+                              'Dose:\n $_minDose ml $freq\n${_selectedTotal.doseNote} ',
+                              style: TextStyle(color: Color(0xffedeef7)))
                           : Text(
-                              'Dose:\n $_minDose - $_maxDose ml $freq\n${_selectedTotal.doseNote} ')),
+                              'Dose:\n $_minDose - $_maxDose ml $freq\n${_selectedTotal.doseNote} ',
+                              style: TextStyle(color: Color(0xffedeef7)))),
             if (_precView == true && _selectedTotal.freq != null)
               Container(
                 padding: EdgeInsets.all(10),
                 decoration: BoxDecoration(
-                  color: Color(0xff173f5f),
+                  color: Color(0xff7868e6),
                   border: Border.all(color: Colors.white, width: 1),
                   borderRadius: BorderRadius.all(
                     Radius.circular(10),
@@ -4394,12 +4762,16 @@ class _DetailsState extends State<Details> {
                     : _selectedTotal.prec.length * 60.0,
                 child: Column(
                   children: [
-                    Text('Precautions: '),
+                    Text('Precautions: ',
+                        style: TextStyle(
+                            color: Color(0xffedeef7),
+                            fontWeight: FontWeight.bold)),
                     Expanded(
                       child: ListView(
                         shrinkWrap: true,
                         children: _selectedTotal.prec
-                            .map((e) => Text('\n▶ $e'))
+                            .map((e) => Text('\n▶ $e',
+                                style: TextStyle(color: Color(0xffedeef7))))
                             .toList(),
                       ),
                     ),
@@ -4411,8 +4783,8 @@ class _DetailsState extends State<Details> {
               Container(
                 padding: EdgeInsets.all(10),
                 decoration: BoxDecoration(
-                  color: Color(0xff173f5f),
-                  border: Border.all(color: Colors.white, width: 1),
+                  color: Color(0xff7868e6),
+                  border: Border.all(color: Color(0xffedeef7), width: 1),
                   borderRadius: BorderRadius.all(
                     Radius.circular(10),
                   ),
@@ -4420,13 +4792,56 @@ class _DetailsState extends State<Details> {
                 height: _selectedTotal.contra.length * 100.0,
                 child: Column(
                   children: [
-                    Text('Contraindications: '),
+                    Text('Contraindications: ',
+                        style: TextStyle(
+                            color: Color(0xffedeef7),
+                            fontWeight: FontWeight.bold)),
                     Expanded(
                       child: ListView(
                         shrinkWrap: true,
                         children: _selectedTotal.contra
-                            .map((e) => Text('\n▶ $e'))
+                            .map((e) => Text(
+                                  '\n▶ $e',
+                                  style: TextStyle(color: Color(0xffedeef7)),
+                                ))
                             .toList(),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            if (_alternativeView == true && _selectedTotal.genericName != null)
+              Container(
+                padding: EdgeInsets.all(10),
+                decoration: BoxDecoration(
+                  color: Color(0xff7868e6),
+                  border: Border.all(color: Colors.white, width: 1),
+                  borderRadius: BorderRadius.all(
+                    Radius.circular(10),
+                  ),
+                ),
+                height: _selectedTotal.prec.length * 60.0 >= 350
+                    ? 350
+                    : _selectedTotal.prec.length * 60.0,
+                child: Column(
+                  children: [
+                    Text('Alternatives ',
+                        style: TextStyle(
+                            color: Color(0xffedeef7),
+                            fontWeight: FontWeight.bold)),
+                    Expanded(
+                      child: ListView(
+                        shrinkWrap: true,
+                        children: drugsData
+                            .getAlternatives(_selectedTotal.genericName)
+                            .map((e) => Text('\n▶ ${e.tradeName}',
+                                style: TextStyle(color: Color(0xffedeef7))))
+                            .toList(),
+
+                        //  _selectedTotal.prec
+                        //     .map((e) => Text('\n▶ $e',
+                        //         style: TextStyle(color: Color(0xffedeef7))))
+                        //     .toList(),
                       ),
                     ),
                   ],
@@ -4451,13 +4866,16 @@ class ResultContainer extends StatelessWidget {
         width: double.infinity,
         padding: EdgeInsets.all(10),
         decoration: BoxDecoration(
-          color: Color(0xff173f5f),
+          color: Color(0xff7868e6),
           border: Border.all(color: Colors.white, width: 1),
           borderRadius: BorderRadius.all(
             Radius.circular(10),
           ),
         ),
-        child: Text(text));
+        child: Text(
+          text,
+          style: TextStyle(color: Color(0xffedeef7)),
+        ));
   }
 }
 
@@ -4474,7 +4892,7 @@ class BasicContainer extends StatelessWidget {
       padding: EdgeInsets.all(10),
       decoration: BoxDecoration(
           borderRadius: BorderRadius.all(Radius.circular(5)),
-          border: Border.all(color: Colors.white, width: 1)),
+          border: Border.all(color: Color(0xff7868e6), width: 1)),
       child: Text(
         catName,
         style: Theme.of(context).textTheme.bodyText1,
