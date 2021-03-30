@@ -29,7 +29,9 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="255617bf-1d21-4571-9b4d-968cf9138ce8" name="Default Changelist" comment="mn" />
+    <list default="true" id="255617bf-1d21-4571-9b4d-968cf9138ce8" name="Default Changelist" comment="mmmm">
+      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -142,7 +144,14 @@
       <option name="project" value="LOCAL" />
       <updated>1617079528180</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="mmmm">
+      <created>1617079575248</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1617079575248</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -178,7 +187,8 @@
     <MESSAGE value="jjjjjgb" />
     <MESSAGE value="vvvvvvvvvvvvvvvv" />
     <MESSAGE value="mn" />
-    <option name="LAST_COMMIT_MESSAGE" value="mn" />
+    <MESSAGE value="mmmm" />
+    <option name="LAST_COMMIT_MESSAGE" value="mmmm" />
   </component>
   <component name="WindowStateProjectService">
     <state x="482" y="246" key="#Notifications" timestamp="1616047546844">
@@ -237,14 +247,14 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="121" y="0" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1616047588149" />
-    <state x="226" y="59" key="Vcs.Push.Dialog.v2" timestamp="1617076205863">
+    <state x="226" y="59" key="Vcs.Push.Dialog.v2" timestamp="1617079580425">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="226" y="59" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1617076205863" />
-    <state x="537" y="306" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1616044921793">
+    <state x="226" y="59" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1617079580425" />
+    <state x="537" y="306" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1617079566999">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="537" y="306" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824@0.0.1536.824" timestamp="1616044921793" />
+    <state x="537" y="306" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824@0.0.1536.824" timestamp="1617079566999" />
     <state x="347" y="-1" width="840" height="1034" key="search.everywhere.popup" timestamp="1617077956499">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
